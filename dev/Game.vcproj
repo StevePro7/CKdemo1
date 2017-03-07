@@ -195,6 +195,10 @@
 			<Filter
 				Name="engine"
 				>
+				<File
+					RelativePath=".\font_manager.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="screen"
