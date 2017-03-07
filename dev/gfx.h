@@ -7,12 +7,12 @@ extern const unsigned char	clear__tilemap__stmcompr[];
 extern const unsigned char	clear__tiles__psgcompr[];
 #define				clear__tiles__psgcompr_size 3
 
-extern const unsigned char	field__palette__bin[];
-#define				field__palette__bin_size 16
+extern const unsigned char	font__palette__bin[];
+#define				font__palette__bin_size 16
 
-extern const unsigned char	field__tilemap__bin[];
-#define				field__tilemap__bin_size 128
+extern const unsigned char	font__tilemap__bin[];
+#define				font__tilemap__bin_size 128
 
-extern const unsigned char	field__tiles__psgcompr[];
-#define				field__tiles__psgcompr_size 671
+extern const unsigned char	font__tiles__psgcompr[];
+#define				font__tiles__psgcompr_size 671
 
