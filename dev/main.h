@@ -9,4 +9,7 @@
 #include "engine\content_manager.h"
 #include "engine\font_manager.h"
 
+// Global hacker variables.
+unsigned char hacker_music, hacker_sound;
+
 #endif//__MAIN__

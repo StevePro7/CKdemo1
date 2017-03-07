@@ -7,7 +7,10 @@ void main (void)
 
 	//engine_font_manager_draw_text("ABC ALB", 0, 0);
 	//engine_font_manager_draw_data(17, 10, 0);
-	engine_font_manager_draw_data_ZERO(19, 10, 2);
+	//engine_font_manager_draw_data_ZERO(19, 10, 2);
+
+	engine_hack_manager_init();
+	engine_font_manager_draw_data(hacker_music, 10, 10);
 	SMS_displayOn();
 	for (;;)
 	{
