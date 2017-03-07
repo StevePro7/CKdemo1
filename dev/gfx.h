@@ -16,3 +16,12 @@ extern const unsigned char	font__tilemap__bin[];
 extern const unsigned char	font__tiles__psgcompr[];
 #define				font__tiles__psgcompr_size 671
 
+extern const unsigned char	tree__palette__bin[];
+#define				tree__palette__bin_size 11
+
+extern const unsigned char	tree__tilemap__bin[];
+#define				tree__tilemap__bin_size 8
+
+extern const unsigned char	tree__tiles__psgcompr[];
+#define				tree__tiles__psgcompr_size 82
+

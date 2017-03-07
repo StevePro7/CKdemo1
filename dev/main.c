@@ -11,6 +11,7 @@ void main (void)
 
 	engine_hack_manager_init();
 	engine_font_manager_draw_data(hacker_music, 10, 10);
+	engine_tree_manager_draw_treeXY(4, 4);
 	SMS_displayOn();
 	for (;;)
 	{
@@ -18,4 +19,4 @@ void main (void)
 }
 
 SMS_EMBED_SEGA_ROM_HEADER(9999, 0);
-SMS_EMBED_SDSC_HEADER(0, 2, 2017, 3, 7, "stevepro22", "CK demo1", "stevepro CK demo1");
+SMS_EMBED_SDSC_HEADER(0, 2, 2017, 3, 7, "stevepro", "CK demo1", "stevepro CK demo1");
