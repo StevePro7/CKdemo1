@@ -20,6 +20,7 @@ void main (void)
 	
 	//engine_font_manager_draw_text("SGB ALB", 0, 0);
 	engine_tree_manager_draw_border();
+	engine_tree_manager_draw_inside();
 	SMS_displayOn();
 	for (;;)
 	{

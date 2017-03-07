@@ -27,4 +27,20 @@ void engine_tree_manager_draw_border()
 	}
 }
 
+void engine_tree_manager_draw_inside()
+{
+	unsigned char tx = 0;
+	unsigned char ty = 0;
+	for (tx=6; tx<18; tx+=2)
+	{
+		engine_tree_manager_draw_treeXY(tx, 8);
+		engine_tree_manager_draw_treeXY(tx, 14);
+	}
+	for (ty=10; ty<14; ty+=2)
+	{
+		engine_tree_manager_draw_treeXY(6, ty);
+		engine_tree_manager_draw_treeXY(16, ty);
+	}
+}
+
 #endif//_TREE_MANAGER_H_
