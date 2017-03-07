@@ -36,3 +36,5 @@ del *.map > nul
 del *.noi > nul
 del *.rel > nul
 del *.sym > nul
+
+output.sms

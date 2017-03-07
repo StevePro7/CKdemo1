@@ -196,7 +196,23 @@
 				Name="engine"
 				>
 				<File
-					RelativePath=".\font_manager.h"
+					RelativePath=".\engine\content_manager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\engine\font_manager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\engine\global_manager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\engine\hack_manager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\engine\locale_manager.h"
 					>
 				</File>
 			</Filter>
