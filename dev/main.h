@@ -2,7 +2,9 @@
 #define __MAIN__
 
 #include "..\lib\SMSlib.h"
+#include "..\lib\PSGlib.h"
 #include "gfx.h"
+#include "psg.h"
 
 #include "engine\global_manager.h"
 #include "engine\locale_manager.h"
