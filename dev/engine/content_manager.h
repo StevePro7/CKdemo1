@@ -4,6 +4,7 @@
 #define CLEAR_TILES		0
 #define TREE_TILES		8
 #define FONT_TILES		16
+#define SPRITE_TILES	256
 
 void engine_content_manager_load()
 {
@@ -19,6 +20,10 @@ void engine_content_manager_load()
 	// Font tiles.
 	SMS_loadPSGaidencompressedTiles(font__tiles__psgcompr, FONT_TILES);
 	SMS_loadBGPalette(font__palette__bin);
+
+	// Sprite tiles.
+	SMS_loadPSGaidencompressedTiles(sprites__tiles__psgcompr, SPRITE_TILES);
+	SMS_loadSpritePalette(sprites__palette__bin);
 }
 
 #endif//_CONTENT_MANAGER_H_
