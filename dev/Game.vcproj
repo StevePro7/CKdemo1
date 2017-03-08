@@ -196,6 +196,10 @@
 				Name="engine"
 				>
 				<File
+					RelativePath=".\engine\asm_manager.h"
+					>
+				</File>
+				<File
 					RelativePath=".\engine\content_manager.h"
 					>
 				</File>
@@ -213,6 +217,10 @@
 				</File>
 				<File
 					RelativePath=".\engine\locale_manager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\engine\tree_manager.h"
 					>
 				</File>
 			</Filter>
