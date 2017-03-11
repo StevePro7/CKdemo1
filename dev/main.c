@@ -10,8 +10,15 @@ void drawSprite(unsigned char x, unsigned char y, unsigned char tile)
 	SMS_addSprite(x+8, y+8, tile+9);
 }
 
+void init_scores()
+{
+
+}
 void main (void)
 {
+	unsigned int global_high_score, custom_game_score;
+	SMS_setSpritePaletteColor(0, RGB(0,0,0));
+
 	SMS_setSpriteMode(SPRITEMODE_NORMAL);
 	SMS_useFirstHalfTilesforSprites(true);
 	engine_asm_manager_clear_VRAM();
@@ -30,6 +37,12 @@ void main (void)
 
 	//engine_font_manager_draw_text(LOCALE_TITLE1, 8, 11);
 	//engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
+
+	global_high_score = 0;
+	engine_font_manager_draw_data(global_high_score, 10, 1);
+
+	global_high_score += 50000;
+	engine_font_manager_draw_data(global_high_score, 10, 11);
 
 	SMS_displayOn();
 	for (;;)
