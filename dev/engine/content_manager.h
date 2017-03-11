@@ -4,7 +4,7 @@
 #define CLEAR_TILES		0
 #define TREE_TILES		8
 #define FONT_TILES		16
-#define SPRITE_TILES	256
+#define SPRITE_TILES	80
 
 void engine_content_manager_load()
 {

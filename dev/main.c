@@ -13,6 +13,7 @@ void drawSprite(unsigned char x, unsigned char y, unsigned char tile)
 void main (void)
 {
 	SMS_setSpriteMode(SPRITEMODE_NORMAL);
+	SMS_useFirstHalfTilesforSprites(true);
 	engine_asm_manager_clear_VRAM();
 
 	// Check this clears Everdrive text!
