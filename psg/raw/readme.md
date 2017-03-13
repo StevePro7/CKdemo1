@@ -12,3 +12,11 @@ music.vgm				devkitSMS
 CONVERT to psg
 ..\utl\vgm2psg.exe music.vgm music.psgmod
 music.psg				devkitSMS
+
+
+
+Sound
+13-Mar-2017
+
+"Borrowed" sound effect from Baluba Balok
+http://www.smspower.org/Homebrew/BalubaBalok-SMS
