@@ -16,4 +16,6 @@
 #include "engine\tree_manager.h"
 #include "engine\asm_manager.h"
 
+#include "screen\splash_screen.h"
+
 #endif//__MAIN__

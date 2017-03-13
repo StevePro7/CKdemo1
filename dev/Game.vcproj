@@ -174,14 +174,6 @@
 				RelativePath=".\main.c"
 				>
 			</File>
-			<Filter
-				Name="engine"
-				>
-			</Filter>
-			<Filter
-				Name="screen"
-				>
-			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -201,6 +193,10 @@
 				</File>
 				<File
 					RelativePath=".\engine\content_manager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\engine\enum_manager.h"
 					>
 				</File>
 				<File
@@ -227,6 +223,18 @@
 			<Filter
 				Name="screen"
 				>
+				<File
+					RelativePath=".\screen\play_screen.h"
+					>
+				</File>
+				<File
+					RelativePath=".\screen\setup_screen.h"
+					>
+				</File>
+				<File
+					RelativePath=".\screen\splash_screen.h"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter
