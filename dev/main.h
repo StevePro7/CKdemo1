@@ -24,11 +24,11 @@
 #include "screen\play_screen.h"
 
 //_ENEMY_MANAGER_H_
-unsigned char proX, proY;
-unsigned char adiX, adiY;
-unsigned char suzX, suzY;
+unsigned char proX, proY, proColor, proFrame, proTile;
+unsigned char adiX, adiY, adiColor, adiFrame, adiTile;
+unsigned char suzX, suzY, suzColor, suzFrame, suzTile;
 
 //_GAMER_MANAGER_H_
-unsigned char kidX, kidY;
+unsigned char kidX, kidY, kidColor, kidFrame, kidTile;
 
 #endif//__MAIN__
