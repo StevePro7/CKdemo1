@@ -69,9 +69,6 @@ void main (void)
 			continue;
 		}
 
-		PSGFrame();
-		PSGSFXFrame();
-
 		if (enum_curr_screen_type != enum_next_screen_type)
 		{
 			enum_curr_screen_type = enum_next_screen_type;
@@ -80,12 +77,18 @@ void main (void)
 
 		SMS_initSprites();
 
+
+		curr_joypad1 = SMS_getKeysStatus();
+		custom_screen_manager_update(&enum_next_screen_type, curr_joypad1, prev_joypad1);
+
+
 		SMS_finalizeSprites();
 		SMS_waitForVBlank();
 		SMS_copySpritestoSAT();
 
-		curr_joypad1 = SMS_getKeysStatus();
-		custom_screen_manager_update(&enum_next_screen_type, curr_joypad1, prev_joypad1);
+
+		PSGFrame();
+		PSGSFXFrame();
 
 		//if (curr_joypad1 & PORT_B_KEY_2 && !(prev_joypad1 & PORT_B_KEY_2))
 /*
