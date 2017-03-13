@@ -7,6 +7,8 @@ unsigned char enum_curr_screen_type, enum_next_screen_type;
 
 void custom_initialize();
 void custom_load_content();
+void custom_screen_manager_load(unsigned char screen_type);
+void custom_screen_manager_update(unsigned char *screen_type, const unsigned int curr_joypad1, const unsigned int prev_joypad1);
 
 void draw_sprites();
 void drawSprite(unsigned char x, unsigned char y, unsigned char tile)
@@ -30,11 +32,12 @@ void main (void)
 
 	SMS_setSpriteMode(SPRITEMODE_NORMAL);
 	SMS_useFirstHalfTilesforSprites(true);
-	engine_asm_manager_clear_VRAM();
 
 	// Check this clears Everdrive text!
-	engine_content_manager_load();
+	engine_asm_manager_clear_VRAM();
+
 	custom_initialize();
+	custom_load_content();
 
 	SMS_displayOn();
 	engine_tree_manager_draw_border();
@@ -43,13 +46,11 @@ void main (void)
 	engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
 
 	enum_curr_screen_type = SCREEN_TYPE_NONE;
+	//enum_next_screen_type = SCREEN_TYPE_SPLASH;
 	enum_next_screen_type = SCREEN_TYPE_SETUP;
-
-	
+	//enum_next_screen_type = SCREEN_TYPE_PLAY;
 	for (;;)
 	{
-		engine_font_manager_draw_data(enum_next_screen_type, 31, 0);
-
 		if (SMS_queryPauseRequested())
 		{
 			SMS_resetPauseRequest();
@@ -74,15 +75,23 @@ void main (void)
 		PSGFrame();
 		PSGSFXFrame();
 
-		SMS_initSprites();
+		if (enum_curr_screen_type != enum_next_screen_type)
+		{
+			enum_curr_screen_type = enum_next_screen_type;
+			custom_screen_manager_load(enum_curr_screen_type);
+		}
 
-		SMS_finalizeSprites();
-		SMS_waitForVBlank();
-		SMS_copySpritestoSAT();
+		//SMS_initSprites();
+
+		//SMS_finalizeSprites();
+		//SMS_waitForVBlank();
+		//SMS_copySpritestoSAT();
 
 		curr_joypad1 = SMS_getKeysStatus();
+		custom_screen_manager_update(&enum_next_screen_type, curr_joypad1, prev_joypad1);
 
 		//if (curr_joypad1 & PORT_B_KEY_2 && !(prev_joypad1 & PORT_B_KEY_2))
+/*
 		if (curr_joypad1 & PORT_A_KEY_RIGHT && !(prev_joypad1 & PORT_A_KEY_RIGHT))
 		{
 			if (hacker_sound)
@@ -98,8 +107,10 @@ void main (void)
 				PSGPlayNoRepeat(MUSIC_PSG);
 			}
 		}
+*/
 
 		prev_joypad1 = curr_joypad1;
+
 	}
 }
 
@@ -108,6 +119,25 @@ void custom_initialize()
 	engine_hack_manager_init();
 	engine_hack_manager_invert();
 }
+void custom_load_content()
+{
+	engine_content_manager_load();
+}
+void custom_screen_manager_load(unsigned char screen_type)
+{
+	engine_font_manager_draw_data(screen_type, 30, 2);
+}
+//void custom_screen_manager_update(void *screen_type, unsigned int curr_joypad1, unsigned int *prev_joypad1)
+void custom_screen_manager_update(unsigned char *screen_type, const unsigned int curr_joypad1, const unsigned int prev_joypad1)
+{
+	//engine_font_manager_draw_data(screen_type, 31, 10);
+
+	engine_font_manager_draw_data(curr_joypad1, 30, 12);
+	engine_font_manager_draw_data(prev_joypad1, 30, 13);
+}
+//void custom_screen_manager_update(void *screen_type, int curr_joypad1, int prev_joypad1)
+//{
+//}
 
 SMS_EMBED_SEGA_ROM_HEADER(9999, 0);
 SMS_EMBED_SDSC_HEADER(0, 2, 2017, 3, 7, "stevepro2", "CK demo1", "stevepro CK demo1");
