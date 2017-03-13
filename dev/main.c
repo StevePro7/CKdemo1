@@ -3,6 +3,9 @@
 #define MUSIC_PSG		music_psg
 #define SOUND_PSG		sound_psg
 
+// Global variables.
+bool global_pause;
+
 void draw_sprites();
 void drawSprite(unsigned char x, unsigned char y, unsigned char tile)
 {
@@ -18,6 +21,9 @@ void main (void)
 	static unsigned int curr_joypad1 = 0;
 	static unsigned int prev_joypad1 = 0;
 
+	unsigned char psgFXGetStatus = 0;
+	global_pause = false;
+
 	SMS_setSpritePaletteColor(0, RGB(0,0,0));
 
 	SMS_setSpriteMode(SPRITEMODE_NORMAL);
@@ -29,33 +35,74 @@ void main (void)
 	engine_hack_manager_init();
 
 	SMS_displayOn();
+	engine_tree_manager_draw_border();
+	engine_tree_manager_draw_inside();
+	engine_font_manager_draw_text(LOCALE_TITLE1, 8, 11);
+	engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
+
+	engine_font_manager_draw_data(global_pause, 30, 0);
 	for (;;)
 	{
-		SMS_initSprites();
-
-		SMS_finalizeSprites();
-		SMS_waitForVBlank();
-		SMS_copySpritestoSAT();
-
-		PSGFrame();
-		PSGSFXFrame();
-
-		curr_joypad1 = SMS_getKeysStatus();
-
-		//if (curr_joypad1 & PORT_B_KEY_2 && !(prev_joypad1 & PORT_B_KEY_2))
-		if (curr_joypad1 & PORT_A_KEY_RIGHT && !(prev_joypad1 & PORT_A_KEY_RIGHT))
-		{
-			PSGSFXPlay(SOUND_PSG, 3);
-		}
-
 		if (SMS_queryPauseRequested())
 		{
 			SMS_resetPauseRequest();
-			PSGPlayNoRepeat(MUSIC_PSG);
-			//PSGSFXPlay(SOUND_PSG, 3);
+
+			global_pause = !global_pause;
+			if (global_pause)
+			{
+				psgFXGetStatus = PSGSFXGetStatus();
+				if (PSG_PLAYING == psgFXGetStatus)
+				{
+					PSGSFXStop();
+				}
+				engine_font_manager_draw_data(psgFXGetStatus, 30, 22);
+
+				engine_font_manager_draw_text(LOCALE_PAUSED, 8, 12);
+				PSGSilenceChannels();
+				
+			}
+			else
+			{
+				engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
+				PSGRestoreVolumes();
+			}
+			engine_font_manager_draw_data(global_pause, 30, 0);
+			//PSGPlayNoRepeat(MUSIC_PSG);
 		}
 
-		prev_joypad1 = curr_joypad1;
+		if (global_pause)
+		{
+			//PSGStop();
+			//PSGSFXStop();
+			//continue;
+		}
+		else
+		{
+			SMS_initSprites();
+
+			SMS_finalizeSprites();
+			SMS_waitForVBlank();
+			SMS_copySpritestoSAT();
+
+			PSGFrame();
+			PSGSFXFrame();
+
+			curr_joypad1 = SMS_getKeysStatus();
+
+			//if (curr_joypad1 & PORT_B_KEY_2 && !(prev_joypad1 & PORT_B_KEY_2))
+			if (curr_joypad1 & PORT_A_KEY_RIGHT && !(prev_joypad1 & PORT_A_KEY_RIGHT))
+			{
+				PSGSFXPlay(SOUND_PSG, SFX_CHANNELS2AND3);
+			}
+
+			if (curr_joypad1 & PORT_A_KEY_UP && !(prev_joypad1 & PORT_A_KEY_UP))
+			{
+				PSGPlayNoRepeat(MUSIC_PSG);
+			}
+
+			prev_joypad1 = curr_joypad1;
+		}
+
 	}
 }
 
