@@ -228,6 +228,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\engine\text_manager.h"
+					>
+				</File>
+				<File
 					RelativePath=".\engine\tree_manager.h"
 					>
 				</File>
