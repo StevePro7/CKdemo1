@@ -42,18 +42,6 @@ void engine_enemy_manager_load()
 
 	enemy_timer = 0;
 }
-void engine_enemy_manager_update()
-{
-	enemy_timer++;
-	if (enemy_timer > enemy_delay)
-	{
-		enemy_timer = 0;
-		
-		engine_gamer_manager_toggle_pro_frame();
-		engine_gamer_manager_toggle_adi_frame();
-		engine_gamer_manager_toggle_suz_frame();
-	}
-}
 void engine_enemy_manager_toggle_pro_color()
 {
 	proColor = (1 - proColor);
@@ -83,6 +71,19 @@ void engine_gamer_manager_toggle_suz_frame()
 {
 	suzFrame = (1 - suzFrame);
 	suz_calculate_tile();
+}
+
+void engine_enemy_manager_update()
+{
+	enemy_timer++;
+	if (enemy_timer > enemy_delay)
+	{
+		enemy_timer = 0;
+
+		engine_gamer_manager_toggle_pro_frame();
+		engine_gamer_manager_toggle_adi_frame();
+		engine_gamer_manager_toggle_suz_frame();
+	}
 }
 void engine_enemy_manager_draw()
 {
