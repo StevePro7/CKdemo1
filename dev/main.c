@@ -14,6 +14,7 @@ void drawSprite(unsigned char x, unsigned char y, unsigned char tile)
 
 void main (void)
 {
+	// Must be static to persist values!
 	static unsigned int curr_joypad1 = 0;
 	static unsigned int prev_joypad1 = 0;
 
@@ -42,7 +43,7 @@ void main (void)
 		curr_joypad1 = SMS_getKeysStatus();
 
 		//if (curr_joypad1 & PORT_B_KEY_2 && !(prev_joypad1 & PORT_B_KEY_2))
-		if (curr_joypad1 & PORT_A_KEY_UP && !(prev_joypad1 & PORT_A_KEY_UP))
+		if (curr_joypad1 & PORT_A_KEY_RIGHT && !(prev_joypad1 & PORT_A_KEY_RIGHT))
 		{
 			PSGSFXPlay(SOUND_PSG, 3);
 		}
