@@ -1,10 +1,12 @@
 #include "main.h"
 
-#define MUSIC_PSG		music_psg
-#define SOUND_PSG		sound_psg
-
 // Global variables.
 bool global_pause;
+unsigned char hacker_music, hacker_sound;
+unsigned char enum_curr_screen_type, enum_next_screen_type;
+
+void custom_initialize();
+void custom_load_content();
 
 void draw_sprites();
 void drawSprite(unsigned char x, unsigned char y, unsigned char tile)
@@ -32,7 +34,7 @@ void main (void)
 
 	// Check this clears Everdrive text!
 	engine_content_manager_load();
-	engine_hack_manager_init();
+	custom_initialize();
 
 	SMS_displayOn();
 	engine_tree_manager_draw_border();
@@ -40,8 +42,14 @@ void main (void)
 	engine_font_manager_draw_text(LOCALE_TITLE1, 8, 11);
 	engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
 
+	enum_curr_screen_type = SCREEN_TYPE_NONE;
+	enum_next_screen_type = SCREEN_TYPE_SETUP;
+
+	
 	for (;;)
 	{
+		engine_font_manager_draw_data(enum_next_screen_type, 31, 0);
+
 		if (SMS_queryPauseRequested())
 		{
 			SMS_resetPauseRequest();
@@ -63,30 +71,42 @@ void main (void)
 			continue;
 		}
 
+		PSGFrame();
+		PSGSFXFrame();
+
 		SMS_initSprites();
 
 		SMS_finalizeSprites();
 		SMS_waitForVBlank();
 		SMS_copySpritestoSAT();
 
-		PSGFrame();
-		PSGSFXFrame();
-
 		curr_joypad1 = SMS_getKeysStatus();
 
 		//if (curr_joypad1 & PORT_B_KEY_2 && !(prev_joypad1 & PORT_B_KEY_2))
 		if (curr_joypad1 & PORT_A_KEY_RIGHT && !(prev_joypad1 & PORT_A_KEY_RIGHT))
 		{
-			PSGSFXPlay(SOUND_PSG, SFX_CHANNELS2AND3);
+			if (hacker_sound)
+			{
+				PSGSFXPlay(SOUND_PSG, SFX_CHANNELS2AND3);
+			}
 		}
 
 		if (curr_joypad1 & PORT_A_KEY_UP && !(prev_joypad1 & PORT_A_KEY_UP))
 		{
-			PSGPlayNoRepeat(MUSIC_PSG);
+			if (hacker_music)
+			{
+				PSGPlayNoRepeat(MUSIC_PSG);
+			}
 		}
 
 		prev_joypad1 = curr_joypad1;
 	}
+}
+
+void custom_initialize()
+{
+	engine_hack_manager_init();
+	engine_hack_manager_invert();
 }
 
 SMS_EMBED_SEGA_ROM_HEADER(9999, 0);
