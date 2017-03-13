@@ -30,14 +30,7 @@ void engine_gamer_manager_toggle_frame()
 }
 void engine_gamer_manager_draw()
 {
-	//unsigned char tile = KID_BASE_TILE + ((kidColor * 2) + kidFrame) * 2;
-	//engine_font_manager_draw_data(kidTile, 0, 0);
-	engine_sprite_manager_draw_kid(kidX, kidY, kidTile);
-
-	//engine_sprite_manager_draw_kid(kidX + 00, kidY, SPRITE_TILES + 0);
-	//engine_sprite_manager_draw_kid(kidX + 16, kidY, SPRITE_TILES + 2);
-	//engine_sprite_manager_draw_kid(kidX + 32, kidY, SPRITE_TILES + 4);
-	//engine_sprite_manager_draw_kid(kidX + 48, kidY, SPRITE_TILES + 6);
+	engine_sprite_manager_draw(kidX, kidY, kidTile);
 }
 
 static void kid_calculate_tile()

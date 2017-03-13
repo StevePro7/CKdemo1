@@ -69,19 +69,9 @@ void engine_gamer_manager_toggle_suz_frame()
 }
 void engine_enemy_manager_draw()
 {
-	//unsigned char tile = PRO_BASE_TILE + ((proColor * 2) + proFrame) * 2;
-	engine_font_manager_draw_data(suzTile, 10, 6);
-	//engine_sprite_manager_draw_pro(proX, proY, proTile);
-	//engine_sprite_manager_draw_pro(adiX, adiY, adiTile);
-	engine_sprite_manager_draw_pro(suzX, suzY, suzTile);
-
-	//engine_sprite_manager_draw_pro(proX, proY, SPRITE_TILES + 16);
-
-
-	//drawSprite(96, 24,  SPRITE_TILES + 16);
-	//drawSprite(96, 64,  SPRITE_TILES + 18);
-	//drawSprite(128, 24, SPRITE_TILES + 20);
-	//drawSprite(128, 64, SPRITE_TILES + 22);
+	engine_sprite_manager_draw(proX, proY, proTile);
+	engine_sprite_manager_draw(adiX, adiY, adiTile);
+	engine_sprite_manager_draw(suzX, suzY, suzTile);
 }
 
 static void pro_calculate_tile()

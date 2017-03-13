@@ -124,6 +124,8 @@ void custom_initialize()
 void custom_load_content()
 {
 	engine_content_manager_load();
+
+	engine_gamer_manager_load();
 	engine_enemy_manager_load();
 }
 void custom_screen_manager_load(unsigned char screen_type)

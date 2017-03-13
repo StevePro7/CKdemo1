@@ -5,7 +5,6 @@
 #define TREE_TILES		8
 #define FONT_TILES		16
 
-
 void engine_content_manager_load()
 {
 	// Clear tiles.
