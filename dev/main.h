@@ -23,6 +23,11 @@
 #include "screen\ready_screen.h"
 #include "screen\play_screen.h"
 
+//_ENEMY_MANAGER_H_
+unsigned char proX, proY;
+unsigned char adiX, adiY;
+unsigned char suzX, suzY;
+
 //_GAMER_MANAGER_H_
 unsigned char kidX, kidY;
 

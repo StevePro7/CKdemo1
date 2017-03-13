@@ -196,11 +196,19 @@
 					>
 				</File>
 				<File
+					RelativePath=".\engine\enemy_manager.h"
+					>
+				</File>
+				<File
 					RelativePath=".\engine\enum_manager.h"
 					>
 				</File>
 				<File
 					RelativePath=".\engine\font_manager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\engine\gamer_manager.h"
 					>
 				</File>
 				<File

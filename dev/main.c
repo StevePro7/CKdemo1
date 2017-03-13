@@ -117,10 +117,13 @@ void custom_initialize()
 {
 	engine_hack_manager_init();
 	engine_hack_manager_invert();
+
+	engine_enemy_manager_init();
 }
 void custom_load_content()
 {
 	engine_content_manager_load();
+	engine_enemy_manager_load();
 }
 void custom_screen_manager_load(unsigned char screen_type)
 {

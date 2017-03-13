@@ -31,6 +31,7 @@ void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_jo
 	}
 
 	engine_gamer_manager_draw();
+	engine_enemy_manager_draw();
 }
 
 #endif//_READY_SCREEN_H_
