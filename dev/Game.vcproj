@@ -228,7 +228,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\screen\setup_screen.h"
+					RelativePath=".\screen\ready_screen.h"
 					>
 				</File>
 				<File

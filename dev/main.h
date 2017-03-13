@@ -17,5 +17,6 @@
 #include "engine\asm_manager.h"
 
 #include "screen\splash_screen.h"
+#include "screen\ready_screen.h"
 
 #endif//__MAIN__

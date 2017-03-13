@@ -3,17 +3,15 @@
 
 void screen_splash_screen_load()
 {
-	engine_font_manager_draw_data(1, 30, 1);
+	engine_font_manager_draw_data(SCREEN_TYPE_SPLASH, 31, 0);
 }
-//void screen_splash_screen_update(unsigned char *screen_type)
 void screen_splash_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
 	if (curr_joypad1 & PORT_A_KEY_RIGHT && !(prev_joypad1 & PORT_A_KEY_RIGHT))
 	{
 		engine_font_manager_draw_text(LOCALE_PAUSED, 8, 5);
+		*screen_type = SCREEN_TYPE_READY;
 	}
-
-	*screen_type = SCREEN_TYPE_SPLASH;
 }
 
 #endif//_SPLASH_SCREEN_H_

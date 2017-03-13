@@ -47,7 +47,7 @@ void main (void)
 
 	enum_curr_screen_type = SCREEN_TYPE_NONE;
 	enum_next_screen_type = SCREEN_TYPE_SPLASH;
-	//enum_next_screen_type = SCREEN_TYPE_SETUP;
+	//enum_next_screen_type = SCREEN_TYPE_READY;
 	//enum_next_screen_type = SCREEN_TYPE_PLAY;
 	for (;;)
 	{
@@ -110,7 +110,6 @@ void main (void)
 */
 
 		prev_joypad1 = curr_joypad1;
-
 	}
 }
 
@@ -130,6 +129,9 @@ void custom_screen_manager_load(unsigned char screen_type)
 	case SCREEN_TYPE_SPLASH:
 		screen_splash_screen_load();
 		break;
+	case SCREEN_TYPE_READY:
+		screen_ready_screen_load();
+		break;
 	}
 }
 //void custom_screen_manager_update(void *screen_type, unsigned int curr_joypad1, unsigned int *prev_joypad1)
@@ -139,6 +141,9 @@ void custom_screen_manager_update(unsigned char *screen_type, const unsigned int
 	{
 	case SCREEN_TYPE_SPLASH:
 		screen_splash_screen_update(screen_type, curr_joypad1, prev_joypad1);
+		break;
+	case SCREEN_TYPE_READY:
+		screen_ready_screen_update(screen_type, curr_joypad1, prev_joypad1);
 		break;
 	//default:
 	//	break;
