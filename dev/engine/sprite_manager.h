@@ -2,7 +2,7 @@
 #define _SPRITE_MANAGER_H_
 
 // Private functions.
-static void engine_sprite_manager_draw(unsigned char x, unsigned char y, unsigned char tile);
+//static void engine_sprite_manager_draw(unsigned char x, unsigned char y, unsigned char tile);
 
 void engine_sprite_manager_draw_kid(unsigned char x, unsigned char y, unsigned char tile)
 {
@@ -20,8 +20,8 @@ void engine_sprite_manager_draw_pro(unsigned char x, unsigned char y, unsigned c
 	SMS_addSprite(x+8, y+8, tile+9);
 }
 
-static void engine_sprite_manager_draw(unsigned char x, unsigned char y, unsigned char tile)
-{
-}
+//static void engine_sprite_manager_draw(unsigned char x, unsigned char y, unsigned char tile)
+//{
+//}
 
 #endif//_SPRITE_MANAGER_H_
