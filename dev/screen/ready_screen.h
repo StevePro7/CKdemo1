@@ -8,6 +8,8 @@ void screen_ready_screen_load()
 		engine_font_manager_draw_data(SCREEN_TYPE_READY, 31, 0);
 	}
 
+	engine_gamer_manager_load();
+
 	engine_tree_manager_draw_border();
 	engine_tree_manager_draw_inside();
 	engine_font_manager_draw_text(LOCALE_TITLE1, 8, 11);
@@ -27,6 +29,8 @@ void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_jo
 	{
 		*screen_type = SCREEN_TYPE_PLAY;
 	}
+
+	engine_gamer_manager_draw();
 }
 
 #endif//_READY_SCREEN_H_

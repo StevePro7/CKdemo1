@@ -12,6 +12,11 @@ void screen_play_screen_load()
 	{
 		PSGPlayNoRepeat(MUSIC_PSG);
 	}
+
+	engine_tree_manager_draw_border();
+	engine_tree_manager_draw_inside();
+	engine_font_manager_draw_text(LOCALE_TITLE1, 8, 11);
+	engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
 }
 void screen_play_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {

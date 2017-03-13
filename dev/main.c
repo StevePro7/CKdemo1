@@ -77,10 +77,10 @@ void main (void)
 
 		SMS_initSprites();
 
-
+		
 		curr_joypad1 = SMS_getKeysStatus();
 		custom_screen_manager_update(&enum_next_screen_type, curr_joypad1, prev_joypad1);
-
+//		draw_sprites();
 
 		SMS_finalizeSprites();
 		SMS_waitForVBlank();
@@ -182,15 +182,16 @@ SMS_EMBED_SDSC_HEADER(0, 2, 2017, 3, 7, "stevepro2", "CK demo1", "stevepro CK de
 void draw_sprites()
 {
 	// KID
-	drawSprite(24, 24, SPRITE_TILES + 0); drawSprite(24, 64, SPRITE_TILES + 2);	// #1
-	drawSprite(64, 24, SPRITE_TILES + 4); drawSprite(64, 64, SPRITE_TILES + 6);	// #2
+	drawSprite(32, 32, SPRITE_TILES + 0);
+	drawSprite(32, 64, SPRITE_TILES + 2);	// #1
+	//drawSprite(64, 24, SPRITE_TILES + 4); drawSprite(64, 64, SPRITE_TILES + 6);	// #2
 	// PRO
-	drawSprite(96, 24,  SPRITE_TILES + 16); drawSprite(96, 64,  SPRITE_TILES + 18);	// #1
-	drawSprite(128, 24, SPRITE_TILES + 20); drawSprite(128, 64, SPRITE_TILES + 22);	// #2
+	//drawSprite(96, 24,  SPRITE_TILES + 16); drawSprite(96, 64,  SPRITE_TILES + 18);	// #1
+	//drawSprite(128, 24, SPRITE_TILES + 20); drawSprite(128, 64, SPRITE_TILES + 22);	// #2
 	// ADI
-	drawSprite(24, 128, SPRITE_TILES + 32); drawSprite(24, 168, SPRITE_TILES + 34);	// #1
-	drawSprite(64, 128, SPRITE_TILES + 36); drawSprite(64, 168, SPRITE_TILES + 38);	// #2
+	//drawSprite(24, 128, SPRITE_TILES + 32); drawSprite(24, 168, SPRITE_TILES + 34);	// #1
+	//drawSprite(64, 128, SPRITE_TILES + 36); drawSprite(64, 168, SPRITE_TILES + 38);	// #2
 	// SUZ
-	drawSprite(96, 128,  SPRITE_TILES + 48); drawSprite(96, 168,  SPRITE_TILES + 50);	// #1
-	drawSprite(128, 128, SPRITE_TILES + 52); drawSprite(128, 168, SPRITE_TILES + 54);	// #2
+	//drawSprite(96, 128,  SPRITE_TILES + 48); drawSprite(96, 168,  SPRITE_TILES + 50);	// #1
+	//drawSprite(128, 128, SPRITE_TILES + 52); drawSprite(128, 168, SPRITE_TILES + 54);	// #2
 }

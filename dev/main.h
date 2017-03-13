@@ -14,10 +14,16 @@
 #include "engine\content_manager.h"
 #include "engine\font_manager.h"
 #include "engine\tree_manager.h"
+#include "engine\sprite_manager.h"
+#include "engine\gamer_manager.h"
+#include "engine\enemy_manager.h"
 #include "engine\asm_manager.h"
 
 #include "screen\splash_screen.h"
 #include "screen\ready_screen.h"
 #include "screen\play_screen.h"
+
+//_GAMER_MANAGER_H_
+unsigned char kidX, kidY;
 
 #endif//__MAIN__
