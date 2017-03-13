@@ -18,6 +18,8 @@ void screen_ready_screen_load()
 }
 void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
+	engine_enemy_manager_update();
+
 	if (curr_joypad1 & PORT_A_KEY_DOWN && !(prev_joypad1 & PORT_A_KEY_DOWN))
 	{
 		engine_enemy_manager_toggle_adi_color();
