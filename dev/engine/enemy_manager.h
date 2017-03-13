@@ -4,11 +4,12 @@
 extern unsigned char proX, proY, proColor, proFrame, proTile;
 extern unsigned char adiX, adiY, adiColor, adiFrame, adiTile;
 extern unsigned char suzX, suzY, suzColor, suzFrame, suzTile;
-extern unsigned int enemy_delay, enemy_timer;
+extern unsigned int enemy_timer;
 
 #define PRO_BASE_TILE	SPRITE_TILES + 16
 #define ADI_BASE_TILE	SPRITE_TILES + 32
 #define SUZ_BASE_TILE	SPRITE_TILES + 48
+#define ENEMY_DELAY		100
 
 static void pro_calculate_tile();
 static void adi_calculate_tile();
@@ -27,8 +28,6 @@ void engine_enemy_manager_init()
 	suzX = 144;
 	suzY = 32;
 	suzColor = 0;
-
-	enemy_delay = 100;
 }
 void engine_enemy_manager_load()
 {
@@ -76,7 +75,7 @@ void engine_gamer_manager_toggle_suz_frame()
 void engine_enemy_manager_update()
 {
 	enemy_timer++;
-	if (enemy_timer > enemy_delay)
+	if (enemy_timer > ENEMY_DELAY)
 	{
 		enemy_timer = 0;
 
