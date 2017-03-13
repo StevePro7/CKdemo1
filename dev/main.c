@@ -2,7 +2,7 @@
 
 // Global variables.
 bool global_pause;
-unsigned char hacker_music, hacker_sound;
+unsigned char hacker_debug, hacker_music, hacker_sound;
 unsigned char enum_curr_screen_type, enum_next_screen_type;
 
 void custom_initialize();
@@ -40,10 +40,7 @@ void main (void)
 	custom_load_content();
 
 	SMS_displayOn();
-	engine_tree_manager_draw_border();
-	engine_tree_manager_draw_inside();
-	engine_font_manager_draw_text(LOCALE_TITLE1, 8, 11);
-	engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
+	
 
 	enum_curr_screen_type = SCREEN_TYPE_NONE;
 	//enum_next_screen_type = SCREEN_TYPE_SPLASH;
@@ -81,11 +78,11 @@ void main (void)
 			custom_screen_manager_load(enum_curr_screen_type);
 		}
 
-		//SMS_initSprites();
+		SMS_initSprites();
 
-		//SMS_finalizeSprites();
-		//SMS_waitForVBlank();
-		//SMS_copySpritestoSAT();
+		SMS_finalizeSprites();
+		SMS_waitForVBlank();
+		SMS_copySpritestoSAT();
 
 		curr_joypad1 = SMS_getKeysStatus();
 		custom_screen_manager_update(&enum_next_screen_type, curr_joypad1, prev_joypad1);
@@ -137,7 +134,6 @@ void custom_screen_manager_load(unsigned char screen_type)
 		break;
 	}
 }
-//void custom_screen_manager_update(void *screen_type, unsigned int curr_joypad1, unsigned int *prev_joypad1)
 void custom_screen_manager_update(unsigned char *screen_type, const unsigned int curr_joypad1, const unsigned int prev_joypad1)
 {
 	switch (*screen_type)
@@ -152,10 +148,12 @@ void custom_screen_manager_update(unsigned char *screen_type, const unsigned int
 		screen_play_screen_update(screen_type, curr_joypad1, prev_joypad1);
 		break;
 	}
-	//engine_font_manager_draw_data(screen_type, 31, 10);
 
-	engine_font_manager_draw_data(curr_joypad1, 30, 12);
-	engine_font_manager_draw_data(prev_joypad1, 30, 13);
+	if (hacker_debug)
+	{
+		engine_font_manager_draw_data(curr_joypad1, 30, 12);
+		engine_font_manager_draw_data(prev_joypad1, 30, 13);
+	}
 }
 
 SMS_EMBED_SEGA_ROM_HEADER(9999, 0);

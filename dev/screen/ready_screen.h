@@ -3,7 +3,15 @@
 
 void screen_ready_screen_load()
 {
-	engine_font_manager_draw_data(SCREEN_TYPE_READY, 31, 0);
+	if (hacker_debug)
+	{
+		engine_font_manager_draw_data(SCREEN_TYPE_READY, 31, 0);
+	}
+
+	engine_tree_manager_draw_border();
+	engine_tree_manager_draw_inside();
+	engine_font_manager_draw_text(LOCALE_TITLE1, 8, 11);
+	engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
 }
 void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {

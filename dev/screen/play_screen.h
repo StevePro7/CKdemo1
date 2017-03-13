@@ -3,7 +3,15 @@
 
 void screen_play_screen_load()
 {
-	engine_font_manager_draw_data(SCREEN_TYPE_PLAY, 31, 0);
+	if (hacker_debug)
+	{
+		engine_font_manager_draw_data(SCREEN_TYPE_PLAY, 31, 0);
+	}
+
+	if (hacker_music)
+	{
+		PSGPlayNoRepeat(MUSIC_PSG);
+	}
 }
 void screen_play_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
