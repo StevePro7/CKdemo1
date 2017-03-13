@@ -16,7 +16,7 @@ void init_scores()
 }
 void main (void)
 {
-	unsigned int global_high_score, custom_game_score;
+	unsigned int global_high_score;//, custom_game_score;
 	SMS_setSpritePaletteColor(0, RGB(0,0,0));
 
 	SMS_setSpriteMode(SPRITEMODE_NORMAL);
@@ -41,7 +41,7 @@ void main (void)
 	global_high_score = 0;
 	engine_font_manager_draw_data(global_high_score, 10, 1);
 
-	global_high_score += 50000;
+	global_high_score += 25000;
 	engine_font_manager_draw_data(global_high_score, 10, 11);
 
 	SMS_displayOn();
@@ -77,4 +77,4 @@ void main (void)
 }
 
 SMS_EMBED_SEGA_ROM_HEADER(9999, 0);
-SMS_EMBED_SDSC_HEADER(0, 2, 2017, 3, 7, "stevepro", "CK demo1", "stevepro CK demo1");
+SMS_EMBED_SDSC_HEADER(0, 2, 2017, 3, 7, "stevepro2", "CK demo1", "stevepro CK demo1");
