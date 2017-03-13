@@ -18,5 +18,6 @@
 
 #include "screen\splash_screen.h"
 #include "screen\ready_screen.h"
+#include "screen\play_screen.h"
 
 #endif//__MAIN__

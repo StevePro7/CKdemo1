@@ -7,12 +7,18 @@ void screen_ready_screen_load()
 }
 void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
-	if (curr_joypad1 & PORT_A_KEY_RIGHT && !(prev_joypad1 & PORT_A_KEY_RIGHT))
+	if (curr_joypad1 & PORT_A_KEY_2 && !(prev_joypad1 & PORT_A_KEY_2))
 	{
-		engine_font_manager_draw_text(LOCALE_PAUSED, 8, 17);
+		if (hacker_sound)
+		{
+			PSGSFXPlay(SOUND_PSG, SFX_CHANNELS2AND3);
+		}
 	}
 
-	*screen_type = SCREEN_TYPE_READY;
+	if (curr_joypad1 & PORT_A_KEY_1 && !(prev_joypad1 & PORT_A_KEY_1))
+	{
+		*screen_type = SCREEN_TYPE_PLAY;
+	}
 }
 
 #endif//_READY_SCREEN_H_
