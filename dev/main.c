@@ -130,14 +130,17 @@ void custom_screen_manager_load(unsigned char screen_type)
 //void custom_screen_manager_update(void *screen_type, unsigned int curr_joypad1, unsigned int *prev_joypad1)
 void custom_screen_manager_update(unsigned char *screen_type, const unsigned int curr_joypad1, const unsigned int prev_joypad1)
 {
+	switch (*screen_type)
+	{
+	case SCREEN_TYPE_SPLASH:
+		engine_font_manager_draw_text(LOCALE_PAUSED, 8, 20);
+		break;
+	}
 	//engine_font_manager_draw_data(screen_type, 31, 10);
 
 	engine_font_manager_draw_data(curr_joypad1, 30, 12);
 	engine_font_manager_draw_data(prev_joypad1, 30, 13);
 }
-//void custom_screen_manager_update(void *screen_type, int curr_joypad1, int prev_joypad1)
-//{
-//}
 
 SMS_EMBED_SEGA_ROM_HEADER(9999, 0);
 SMS_EMBED_SDSC_HEADER(0, 2, 2017, 3, 7, "stevepro2", "CK demo1", "stevepro CK demo1");
