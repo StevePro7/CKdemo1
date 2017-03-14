@@ -14,7 +14,7 @@ void screen_splash_screen_load()
 	//engine_tree_manager_draw_treeXY(8, 4);
 	//engine_tree_manager_draw_treeXY(4, 8);
 
-	pathIndex = 1;
+	pathIndex = 0;
 	moveFrame = 0;
 
 	direction = gamer_route[pathIndex][moveFrame];
