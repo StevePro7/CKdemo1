@@ -11,15 +11,6 @@ void custom_load_content();
 void custom_screen_manager_load(unsigned char screen_type);
 void custom_screen_manager_update(unsigned char *screen_type, const unsigned int curr_joypad1, const unsigned int prev_joypad1);
 
-void draw_sprites();
-void drawSprite(unsigned char x, unsigned char y, unsigned char tile)
-{
-	SMS_addSprite(x+0, y+0, tile+0);
-	SMS_addSprite(x+8, y+0, tile+1);
-	SMS_addSprite(x+0, y+8, tile+8);
-	SMS_addSprite(x+8, y+8, tile+9);
-}
-
 void main (void)
 {
 	// Must be static to persist values!
@@ -78,37 +69,15 @@ void main (void)
 
 		SMS_initSprites();
 
-		
 		curr_joypad1 = SMS_getKeysStatus();
 		custom_screen_manager_update(&enum_next_screen_type, curr_joypad1, prev_joypad1);
-//		draw_sprites();
 
 		SMS_finalizeSprites();
 		SMS_waitForVBlank();
 		SMS_copySpritestoSAT();
 
-
 		PSGFrame();
 		PSGSFXFrame();
-
-		//if (curr_joypad1 & PORT_B_KEY_2 && !(prev_joypad1 & PORT_B_KEY_2))
-/*
-		if (curr_joypad1 & PORT_A_KEY_RIGHT && !(prev_joypad1 & PORT_A_KEY_RIGHT))
-		{
-			if (hacker_sound)
-			{
-				PSGSFXPlay(SOUND_PSG, SFX_CHANNELS2AND3);
-			}
-		}
-
-		if (curr_joypad1 & PORT_A_KEY_UP && !(prev_joypad1 & PORT_A_KEY_UP))
-		{
-			if (hacker_music)
-			{
-				PSGPlayNoRepeat(MUSIC_PSG);
-			}
-		}
-*/
 
 		prev_joypad1 = curr_joypad1;
 	}
@@ -178,28 +147,11 @@ void custom_screen_manager_update(unsigned char *screen_type, const unsigned int
 SMS_EMBED_SEGA_ROM_HEADER(9999, 0);
 SMS_EMBED_SDSC_HEADER(0, 2, 2017, 3, 7, "stevepro", "CK demo1", "stevepro CK demo1");
 
-
-/*
-//engine_font_manager_draw_data(hacker_music, 10, 10);
-	//engine_tree_manager_draw_treeXY(4, 4);
-	
-	engine_tree_manager_draw_border();
-	engine_tree_manager_draw_inside();
-	//engine_font_manager_draw_text(LOCALE_TITLE1, 8, 11);
-	//engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
-
-	//global_high_score = 0;
-	//engine_font_manager_draw_data(global_high_score, 10, 1);
-
-	//global_high_score += 25000;
-	//engine_font_manager_draw_data(global_high_score, 10, 11);
-*/
-
-void draw_sprites()
-{
+//void draw_sprites()
+//{
 	// KID
-	drawSprite(32, 32, SPRITE_TILES + 0);
-	drawSprite(32, 64, SPRITE_TILES + 2);	// #1
+	//drawSprite(32, 32, SPRITE_TILES + 0);
+	//drawSprite(32, 64, SPRITE_TILES + 2);	// #1
 	//drawSprite(64, 24, SPRITE_TILES + 4); drawSprite(64, 64, SPRITE_TILES + 6);	// #2
 	// PRO
 	//drawSprite(96, 24,  SPRITE_TILES + 16); drawSprite(96, 64,  SPRITE_TILES + 18);	// #1
@@ -210,4 +162,4 @@ void draw_sprites()
 	// SUZ
 	//drawSprite(96, 128,  SPRITE_TILES + 48); drawSprite(96, 168,  SPRITE_TILES + 50);	// #1
 	//drawSprite(128, 128, SPRITE_TILES + 52); drawSprite(128, 168, SPRITE_TILES + 54);	// #2
-}
+//}
