@@ -16,7 +16,10 @@ refactor common code
 border + inside
 
 Path Manager
+doing
 
+move manager
+must move gamer according to path
 
 Input manager
 refactor common code
