@@ -31,7 +31,7 @@ unsigned char suzX, suzY, suzColor, suzFrame, suzTile;
 unsigned int enemy_delay,enemy_timer;
 
 //_GAMER_MANAGER_H_
-unsigned char kidX, kidY, velX, velY, kidColor, kidFrame, kidTile;
+unsigned char kidX, kidY, velZ, kidColor, kidFrame, kidTile;
 unsigned char pathIndex, moveFrame, direction, lifecycle;
 
 //_PATH_MANAGER_H_

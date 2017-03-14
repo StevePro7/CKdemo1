@@ -8,8 +8,10 @@ void screen_splash_screen_load()
 		engine_font_manager_draw_data(SCREEN_TYPE_SPLASH, 31, 0);
 	}
 
-	engine_tree_manager_draw_treeXY(4, 2);
-	engine_tree_manager_draw_treeXY(2, 6);
+	engine_tree_manager_draw_treeXY(4, 0);
+	engine_tree_manager_draw_treeXY(0, 4);
+	engine_tree_manager_draw_treeXY(8, 4);
+	engine_tree_manager_draw_treeXY(4, 8);
 	pathIndex = 0;
 	moveFrame = 0;
 }

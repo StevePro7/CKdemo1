@@ -1,7 +1,7 @@
 #ifndef _GAMER_MANAGER_H_
 #define _GAMER_MANAGER_H_
 
-extern unsigned char kidX, kidY, velX, velY, kidColor, kidFrame, kidTile;
+extern unsigned char kidX, kidY, velZ, kidColor, kidFrame, kidTile;
 extern unsigned char pathIndex, moveFrame, direction, lifecycle;
 
 #define KID_BASE_TILE	SPRITE_TILES + 0
@@ -16,8 +16,7 @@ void engine_gamer_manager_load()
 {
 	kidX = 32;
 	kidY = 32;
-	velX = 0;
-	velY = 0;
+	velZ = 0;
 	kidFrame = 0;
 	kid_calculate_tile();
 	direction = DIRECTION_NONE;
@@ -51,73 +50,35 @@ void engine_gamer_manager_update()
 		return;
 	}
 
+	velZ += hacker_steps;
+	if (velZ >= GAMER_MAX_STEPS)
+	{
+		velZ = 0;
+		if (1 == kidFrame)
+		{
+			engine_gamer_manager_toggle_frame();
+		}
+		else
+		{
+			lifecycle = LIFECYCLE_IDLE;
+		}
+	}
+
 	if (DIRECTION_UP == direction)
 	{
-		velY += hacker_steps;
 		kidY -= hacker_steps;
-		if (velY >= GAMER_MAX_STEPS)
-		{
-			velY = 0;
-			if (1 == kidFrame)
-			{
-				engine_gamer_manager_toggle_frame();
-			}
-			else
-			{
-				lifecycle = LIFECYCLE_IDLE;
-			}
-		}
 	}
 	if (DIRECTION_DOWN == direction)
 	{
-		velY += hacker_steps;
 		kidY += hacker_steps;
-		if (velY >= GAMER_MAX_STEPS)
-		{
-			velY = 0;
-			if (1 == kidFrame)
-			{
-				engine_gamer_manager_toggle_frame();
-			}
-			else
-			{
-				lifecycle = LIFECYCLE_IDLE;
-			}
-		}
 	}
 	if (DIRECTION_LEFT == direction)
 	{
-		velX += hacker_steps;
 		kidX -= hacker_steps;
-		if (velX >= GAMER_MAX_STEPS)
-		{
-			velX = 0;
-			if (1 == kidFrame)
-			{
-				engine_gamer_manager_toggle_frame();
-			}
-			else
-			{
-				lifecycle = LIFECYCLE_IDLE;
-			}
-		}
 	}
 	if (DIRECTION_RIGHT == direction)
 	{
-		velX += hacker_steps;
 		kidX += hacker_steps;
-		if (velX >= GAMER_MAX_STEPS)
-		{
-			velX = 0;
-			if (1 == kidFrame)
-			{
-				engine_gamer_manager_toggle_frame();
-			}
-			else
-			{
-				lifecycle = LIFECYCLE_IDLE;
-			}
-		}
 	}
 }
 void engine_gamer_manager_draw()
