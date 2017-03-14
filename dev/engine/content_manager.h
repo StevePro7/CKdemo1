@@ -4,6 +4,7 @@
 #define CLEAR_TILES		0
 #define TREE_TILES		8
 #define FONT_TILES		16
+#define SPLASH_TILES	144
 
 void engine_content_manager_load()
 {
@@ -11,6 +12,11 @@ void engine_content_manager_load()
 	SMS_loadPSGaidencompressedTiles(clear__tiles__psgcompr, CLEAR_TILES);
 	SMS_loadSTMcompressedTileMap(0, 0, clear__tilemap__stmcompr);
 	SMS_loadBGPalette(clear__palette__bin);
+
+	// Splash tiles.
+	//SMS_loadPSGaidencompressedTiles(splash__tiles__psgcompr, SPLASH_TILES);
+	//SMS_loadSTMcompressedTileMap(0, 0, splash__tilemap__stmcompr);
+	//SMS_loadBGPalette(splash__palette__bin);
 
 	// Tree tiles.
 	SMS_loadPSGaidencompressedTiles(tree__tiles__psgcompr, TREE_TILES);
