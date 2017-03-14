@@ -13,6 +13,7 @@
 #include "engine\enum_manager.h"
 #include "engine\content_manager.h"
 #include "engine\font_manager.h"
+#include "engine\path_manager.h"
 #include "engine\tree_manager.h"
 #include "engine\sprite_manager.h"
 #include "engine\gamer_manager.h"
@@ -31,5 +32,9 @@ unsigned int enemy_delay,enemy_timer;
 
 //_GAMER_MANAGER_H_
 unsigned char kidX, kidY, kidColor, kidFrame, kidTile;
+unsigned char pathIndex, moveFrame;
+
+//_PATH_MANAGER_H_
+unsigned char gamer_route[GAMER_MAX_FRAME];
 
 #endif//__MAIN__

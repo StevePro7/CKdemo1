@@ -2,6 +2,7 @@
 #define _GAMER_MANAGER_H_
 
 extern unsigned char kidX, kidY, kidColor, kidFrame, kidTile;
+extern unsigned char pathIndex, moveFrame;
 
 #define KID_BASE_TILE	SPRITE_TILES + 0
 

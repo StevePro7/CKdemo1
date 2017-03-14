@@ -118,6 +118,7 @@ void custom_initialize()
 
 	engine_gamer_manager_init();
 	engine_enemy_manager_init();
+	engine_path_manager_init();
 }
 void custom_load_content()
 {
