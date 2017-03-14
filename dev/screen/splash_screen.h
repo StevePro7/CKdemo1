@@ -10,6 +10,12 @@ void screen_splash_screen_load()
 }
 void screen_splash_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
+	if (curr_joypad1 & PORT_A_KEY_UP && !(prev_joypad1 & PORT_A_KEY_UP))
+	{
+		engine_font_manager_draw_text(LOCALE_PAUSED, 10, 2);
+	}
+
+	*screen_type = SCREEN_TYPE_SPLASH;
 }
 
 #endif//_SPLASH_SCREEN_H_

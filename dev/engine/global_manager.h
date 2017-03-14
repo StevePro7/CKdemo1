@@ -8,6 +8,10 @@
 // Sprites.
 #define SPRITE_TILES	80
 
+// Steps.
+#define GAMER_MAX_STEPS		8
+#define GAMER_STD_STEPS		4
+
 // Delay.
 #define ENEMY_STD_DELAY		100
 #define ENEMY_MIN_DELAY		25

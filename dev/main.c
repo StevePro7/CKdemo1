@@ -88,6 +88,25 @@ void custom_initialize()
 	engine_hack_manager_init();
 	engine_hack_manager_invert();
 
+	// Hacker gamer steps.
+	if (hacker_steps >= GAMER_MAX_STEPS)
+	{
+		hacker_steps = GAMER_MAX_STEPS;
+	}
+	else if (hacker_steps >= 4)
+	{
+		hacker_steps = 4;
+	}
+	else if (hacker_steps >= 2)
+	{
+		hacker_steps = 2;
+	}
+	else if (0 == hacker_steps)
+	{
+		hacker_steps = GAMER_STD_STEPS;
+	}
+
+	// Hacker enemy delay.
 	if (0 == hacker_delay)
 	{
 		hacker_delay = ENEMY_STD_DELAY;
