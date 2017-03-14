@@ -35,6 +35,6 @@ unsigned char kidX, kidY, kidColor, kidFrame, kidTile;
 unsigned char pathIndex, moveFrame;
 
 //_PATH_MANAGER_H_
-unsigned char gamer_route[GAMER_MAX_FRAME];
+unsigned char gamer_route[GAMER_MAX_PATHS][GAMER_MAX_FRAME];
 
 #endif//__MAIN__

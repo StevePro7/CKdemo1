@@ -3,14 +3,14 @@
 
 void screen_splash_screen_load()
 {
-	unsigned char bob = gamer_route[0];
+	unsigned char direction = gamer_route[0][0];
 
 	if (hacker_debug)
 	{
 		engine_font_manager_draw_data(SCREEN_TYPE_SPLASH, 31, 0);
 	}
 
-	engine_font_manager_draw_data(bob, 10, 1);
+	engine_font_manager_draw_data(direction, 10, 1);
 }
 void screen_splash_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
