@@ -2,7 +2,8 @@
 
 // Global variables.
 bool global_pause;
-unsigned char hacker_debug, hacker_music, hacker_sound;
+unsigned char hacker_debug;
+unsigned char hacker_steps, hacker_delay, hacker_hands, hacker_music, hacker_sound;
 unsigned char enum_curr_screen_type, enum_next_screen_type;
 
 void custom_initialize();
@@ -117,6 +118,15 @@ void custom_initialize()
 {
 	engine_hack_manager_init();
 	engine_hack_manager_invert();
+
+	if (0 == hacker_delay)
+	{
+		hacker_delay = ENEMY_STD_DELAY;
+	}
+	if (hacker_delay < ENEMY_MIN_DELAY)
+	{
+		hacker_delay = ENEMY_MIN_DELAY;
+	}
 
 	engine_gamer_manager_init();
 	engine_enemy_manager_init();

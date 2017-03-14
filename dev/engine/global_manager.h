@@ -8,4 +8,8 @@
 // Sprites.
 #define SPRITE_TILES	80
 
+// Delay.
+#define ENEMY_STD_DELAY		100
+#define ENEMY_MIN_DELAY		25
+
 #endif//_GLOBAL_MANAGER_H_

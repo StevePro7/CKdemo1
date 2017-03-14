@@ -27,7 +27,7 @@
 unsigned char proX, proY, proColor, proFrame, proTile;
 unsigned char adiX, adiY, adiColor, adiFrame, adiTile;
 unsigned char suzX, suzY, suzColor, suzFrame, suzTile;
-unsigned int enemy_timer;
+unsigned int enemy_delay,enemy_timer;
 
 //_GAMER_MANAGER_H_
 unsigned char kidX, kidY, kidColor, kidFrame, kidTile;
