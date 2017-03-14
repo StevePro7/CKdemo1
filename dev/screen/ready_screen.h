@@ -18,11 +18,6 @@ void screen_ready_screen_load()
 }
 void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
-	if (hacker_hands)
-	{
-		engine_enemy_manager_update();
-	}
-
 	if (curr_joypad1 & PORT_A_KEY_UP && !(prev_joypad1 & PORT_A_KEY_UP))
 	{
 		engine_gamer_manager_toggle_color();

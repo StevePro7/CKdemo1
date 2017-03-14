@@ -25,9 +25,9 @@ void engine_hack_manager_invert()
 	hacker_debug = !hacker_debug;
 
 	// TODO uncomment after testing
-	//hacker_hands = !hacker_hands;
-	//hacker_music = !hacker_music;
-	//hacker_sound = !hacker_sound;
+	hacker_hands = !hacker_hands;
+	hacker_music = !hacker_music;
+	hacker_sound = !hacker_sound;
 }
 
 void engine_hack_manager_resetX()
