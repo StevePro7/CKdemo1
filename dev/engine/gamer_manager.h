@@ -32,12 +32,6 @@ void engine_gamer_manager_toggle_frame()
 	kidFrame = (1 - kidFrame);
 	kid_calculate_tile();
 }
-void engine_gamer_manager_update_direction()
-{
-}
-void engine_gamer_manager_update_lifecycle()
-{
-}
 void engine_gamer_manager_move()
 {
 	lifecycle = LIFECYCLE_MOVE;
@@ -45,11 +39,6 @@ void engine_gamer_manager_move()
 }
 void engine_gamer_manager_update()
 {
-	if (LIFECYCLE_IDLE == lifecycle)
-	{
-		return;
-	}
-
 	velZ += hacker_steps;
 	if (velZ >= GAMER_MAX_STEPS)
 	{
