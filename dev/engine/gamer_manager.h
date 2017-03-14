@@ -51,10 +51,44 @@ void engine_gamer_manager_update()
 		return;
 	}
 
-	if (DIRECTION_RIGHT == direction)
+	if (DIRECTION_UP == direction)
 	{
-		velX += 1;
-		kidX += 1;
+		velY += hacker_steps;
+		kidY -= hacker_steps;
+		if (velY >= GAMER_MAX_STEPS)
+		{
+			velY = 0;
+			if (1 == kidFrame)
+			{
+				engine_gamer_manager_toggle_frame();
+			}
+			else
+			{
+				lifecycle = LIFECYCLE_IDLE;
+			}
+		}
+	}
+	if (DIRECTION_DOWN == direction)
+	{
+		velY += hacker_steps;
+		kidY += hacker_steps;
+		if (velY >= GAMER_MAX_STEPS)
+		{
+			velY = 0;
+			if (1 == kidFrame)
+			{
+				engine_gamer_manager_toggle_frame();
+			}
+			else
+			{
+				lifecycle = LIFECYCLE_IDLE;
+			}
+		}
+	}
+	if (DIRECTION_LEFT == direction)
+	{
+		velX += hacker_steps;
+		kidX -= hacker_steps;
 		if (velX >= GAMER_MAX_STEPS)
 		{
 			velX = 0;
@@ -68,8 +102,23 @@ void engine_gamer_manager_update()
 			}
 		}
 	}
-
-	engine_font_manager_draw_data(direction, 10, 1);
+	if (DIRECTION_RIGHT == direction)
+	{
+		velX += hacker_steps;
+		kidX += hacker_steps;
+		if (velX >= GAMER_MAX_STEPS)
+		{
+			velX = 0;
+			if (1 == kidFrame)
+			{
+				engine_gamer_manager_toggle_frame();
+			}
+			else
+			{
+				lifecycle = LIFECYCLE_IDLE;
+			}
+		}
+	}
 }
 void engine_gamer_manager_draw()
 {
