@@ -1,8 +1,8 @@
 #ifndef _GAMER_MANAGER_H_
 #define _GAMER_MANAGER_H_
 
-extern unsigned char kidX, kidY, kidColor, kidFrame, kidTile;
-extern unsigned char pathIndex, moveFrame;
+extern unsigned char kidX, kidY, velX, velY, kidColor, kidFrame, kidTile;
+extern unsigned char pathIndex, moveFrame, direction, lifecycle;
 
 #define KID_BASE_TILE	SPRITE_TILES + 0
 
@@ -16,8 +16,12 @@ void engine_gamer_manager_load()
 {
 	kidX = 32;
 	kidY = 32;
+	velX = 0;
+	velY = 0;
 	kidFrame = 0;
 	kid_calculate_tile();
+	direction = DIRECTION_NONE;
+	lifecycle = LIFECYCLE_IDLE;
 }
 void engine_gamer_manager_toggle_color()
 {
@@ -28,6 +32,44 @@ void engine_gamer_manager_toggle_frame()
 {
 	kidFrame = (1 - kidFrame);
 	kid_calculate_tile();
+}
+void engine_gamer_manager_update_direction()
+{
+}
+void engine_gamer_manager_update_lifecycle()
+{
+}
+void engine_gamer_manager_move()
+{
+	lifecycle = LIFECYCLE_MOVE;
+	engine_gamer_manager_toggle_frame();
+}
+void engine_gamer_manager_update()
+{
+	if (LIFECYCLE_IDLE == lifecycle)
+	{
+		return;
+	}
+
+	if (DIRECTION_RIGHT == direction)
+	{
+		velX += 1;
+		kidX += 1;
+		if (velX >= GAMER_MAX_STEPS)
+		{
+			velX = 0;
+			if (1 == kidFrame)
+			{
+				engine_gamer_manager_toggle_frame();
+			}
+			else
+			{
+				lifecycle = LIFECYCLE_IDLE;
+			}
+		}
+	}
+
+	engine_font_manager_draw_data(direction, 10, 1);
 }
 void engine_gamer_manager_draw()
 {
