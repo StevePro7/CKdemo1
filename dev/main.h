@@ -2,6 +2,7 @@
 #define __MAIN__
 
 #include <stdbool.h>
+#include <stdlib.h>
 #include "..\lib\SMSlib.h"
 #include "..\lib\PSGlib.h"
 #include "gfx.h"

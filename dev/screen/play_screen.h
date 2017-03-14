@@ -22,10 +22,16 @@ void screen_play_screen_load()
 	engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
 
 	pathIndex = 1;
+	//pathIndex = rand() % GAMER_MAX_PATHS;
 	moveFrame = 0;
 
 	direction = gamer_route[pathIndex][moveFrame];
 	engine_gamer_manager_move();
+
+	if (hacker_debug)
+	{
+		engine_font_manager_draw_data(pathIndex, 30, 5);
+	}
 }
 void screen_play_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {

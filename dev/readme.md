@@ -8,7 +8,6 @@ DONE
 hacker_delay	1
 hacker_hands	2
 
-
 Text Manager
 
 Tree manager
@@ -16,7 +15,10 @@ refactor common code
 border + inside
 
 Path Manager
-doing
+doing...!
+paths
+
+rand()
 
 move manager
 must move gamer according to path
