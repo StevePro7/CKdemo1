@@ -20,9 +20,31 @@ void screen_play_screen_load()
 	engine_tree_manager_draw_inside();
 	engine_font_manager_draw_text(LOCALE_TITLE1, 8, 11);
 	engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
+
+	pathIndex = 1;
+	moveFrame = 0;
+
+	direction = gamer_route[pathIndex][moveFrame];
+	engine_gamer_manager_move();
 }
 void screen_play_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
+	if (LIFECYCLE_IDLE == lifecycle)
+	{
+		moveFrame++;
+		if (moveFrame >= GAMER_MAX_FRAME)
+		{
+			moveFrame = 0;
+			*screen_type = SCREEN_TYPE_READY;
+			return;
+		}
+
+		direction = gamer_route[pathIndex][moveFrame];
+		engine_gamer_manager_move();
+	}
+
+	engine_gamer_manager_update();
+
 	if (hacker_hands)
 	{
 		engine_enemy_manager_update();
