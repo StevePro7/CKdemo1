@@ -19,7 +19,7 @@
 #define ENEMY_MIN_DELAY		25
 
 // Paths.
-#define GAMER_MAX_FRAME		28
+#define GAMER_MAX_FRAME		56
 #define GAMER_MAX_PATHS		1
 
 #endif//_GLOBAL_MANAGER_H_
