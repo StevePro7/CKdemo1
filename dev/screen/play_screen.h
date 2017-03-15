@@ -28,7 +28,7 @@ void screen_play_screen_load()
 
 	if (hacker_debug)
 	{
-		engine_font_manager_draw_data(pathIndex, 31, 5);
+		engine_font_manager_draw_data(pathIndex, 31, 3);
 	}
 }
 void screen_play_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
