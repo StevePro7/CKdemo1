@@ -13,11 +13,11 @@
 #define GAMER_STD_STEPS		4
 
 // Delay.
-#define ENEMY_STD_DELAY		100
+#define ENEMY_STD_DELAY		10		// TODO bump up abit!
 #define ENEMY_MIN_DELAY		25
 
 // Paths.
-#define GAMER_MAX_FRAME		13
+#define GAMER_MAX_FRAME		34
 #define GAMER_MAX_PATHS		1
 
 #endif//_GLOBAL_MANAGER_H_

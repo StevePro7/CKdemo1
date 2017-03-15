@@ -23,12 +23,12 @@ void engine_hack_manager_init()
 void engine_hack_manager_invert()
 {
 	hacker_debug = !hacker_debug;
-
+	//hacker_debug = 0;
 	// TODO uncomment after testing
-	hacker_steps = 1;
+	hacker_steps = 2;
 	hacker_hands = !hacker_hands;
 	hacker_music = !hacker_music;
-	hacker_sound = !hacker_sound;
+	//hacker_sound = !hacker_sound;
 }
 
 void engine_hack_manager_resetX()
