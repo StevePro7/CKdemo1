@@ -1,6 +1,8 @@
 #ifndef _TREE_MANAGER_H_
 #define _TREE_MANAGER_H_
 
+void engine_tree_manager_draw();
+
 void engine_tree_manager_draw_treeXY(unsigned char x, unsigned char y)
 {
 	const unsigned int *pnt = tree__tilemap__bin;
@@ -41,6 +43,12 @@ void engine_tree_manager_draw_inside()
 		engine_tree_manager_draw_treeXY(6, ty);
 		engine_tree_manager_draw_treeXY(16, ty);
 	}
+}
+
+void engine_tree_manager_draw()
+{
+	engine_tree_manager_draw_border();
+	engine_tree_manager_draw_inside();
 }
 
 #endif//_TREE_MANAGER_H_

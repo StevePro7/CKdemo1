@@ -11,9 +11,7 @@ void screen_ready_screen_load()
 	engine_gamer_manager_load();
 	engine_enemy_manager_load();
 
-	engine_tree_manager_draw_border();
-	engine_tree_manager_draw_inside();
-
+	engine_tree_manager_draw();
 	engine_text_manager_draw();
 }
 void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
