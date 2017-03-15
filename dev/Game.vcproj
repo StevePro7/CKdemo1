@@ -220,6 +220,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\engine\input_manager.h"
+					>
+				</File>
+				<File
 					RelativePath=".\engine\locale_manager.h"
 					>
 				</File>
@@ -253,6 +257,10 @@
 				</File>
 				<File
 					RelativePath=".\screen\splash_screen.h"
+					>
+				</File>
+				<File
+					RelativePath=".\screen\title_screen.h"
 					>
 				</File>
 			</Filter>

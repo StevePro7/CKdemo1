@@ -16,9 +16,6 @@ void screen_play_screen_load()
 	engine_gamer_manager_load();
 	engine_enemy_manager_load();
 
-	//engine_tree_manager_draw();
-	//engine_text_manager_draw();
-
 	pathIndex = 0;
 	//pathIndex = rand() % GAMER_MAX_PATHS;
 	moveFrame = 0;
@@ -33,6 +30,9 @@ void screen_play_screen_load()
 }
 void screen_play_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
+	engine_gamer_manager_draw();
+	engine_enemy_manager_draw();
+
 	if (LIFECYCLE_IDLE == lifecycle)
 	{
 		moveFrame++;
@@ -67,9 +67,6 @@ void screen_play_screen_update(unsigned char *screen_type, unsigned int curr_joy
 	{
 		*screen_type =SCREEN_TYPE_READY;
 	}
-
-	engine_gamer_manager_draw();
-	engine_enemy_manager_draw();
 }
 
 #endif//_PLAY_SCREEN_H_

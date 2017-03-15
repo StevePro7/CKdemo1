@@ -17,7 +17,7 @@ void screen_title_screen_update(unsigned char *screen_type, unsigned int curr_jo
 		}
 	}
 
-	*screen_type = SCREEN_TYPE_TITLE;
+	*screen_type = SCREEN_TYPE_READY;
 }
 
 #endif//_TITLE_SCREEN_H_

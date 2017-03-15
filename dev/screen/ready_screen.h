@@ -10,14 +10,13 @@ void screen_ready_screen_load()
 
 	engine_gamer_manager_load();
 	engine_enemy_manager_load();
-
-	//engine_tree_manager_draw();
-	//engine_text_manager_draw();
 }
 void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
-	rand();
+	engine_gamer_manager_draw();
+	engine_enemy_manager_draw();
 
+	rand();
 	engine_input_manager_update(curr_joypad1, prev_joypad1);
 	if (curr_joypad1 & PORT_A_KEY_2 && !(prev_joypad1 & PORT_A_KEY_2))
 	{
@@ -27,13 +26,11 @@ void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_jo
 		}
 	}
 
+	// TODO remove this "force" reset!
 	if (curr_joypad1 & PORT_A_KEY_1 && !(prev_joypad1 & PORT_A_KEY_1))
 	{
 		*screen_type = SCREEN_TYPE_PLAY;
 	}
-
-	engine_gamer_manager_draw();
-	engine_enemy_manager_draw();
 }
 
 #endif//_READY_SCREEN_H_
