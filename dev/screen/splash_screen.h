@@ -1,47 +1,35 @@
 #ifndef _SPLASH_SCREEN_H_
 #define _SPLASH_SCREEN_H_
 
+extern unsigned int screen_bases_screen_count;
+extern unsigned int screen_bases_screen_timer;
+extern unsigned char screen_splash_screen_delay;
+
 void screen_splash_screen_load()
 {
-	if (hacker_debug)
-	{
-		engine_font_manager_draw_data(SCREEN_TYPE_SPLASH, 31, 2);
-		engine_font_manager_draw_data(hacker_steps, 31, 3);
-	}
-
-	pathIndex = 0;
-	moveFrame = 0;
-
-	direction = gamer_route[pathIndex][moveFrame];
-	engine_gamer_manager_move();
+	screen_splash_screen_delay = SPLASH_DELAY;
 }
 void screen_splash_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
-	if (LIFECYCLE_IDLE == lifecycle)
+	unsigned char level = 0;
+	if (curr_joypad1 & PORT_A_KEY_1 && !(prev_joypad1 & PORT_A_KEY_1))
 	{
-		moveFrame++;
-		if (moveFrame >= GAMER_MAX_FRAME)
-		{
-			moveFrame = 0;
-			*screen_type = SCREEN_TYPE_READY;
-			return;
-		}
-
-		direction = gamer_route[pathIndex][moveFrame];
-		engine_gamer_manager_move();
+		level = 1;
 	}
 
-	engine_gamer_manager_update();
-
-	if (curr_joypad1 & PORT_A_KEY_UP && !(prev_joypad1 & PORT_A_KEY_UP))
+	screen_bases_screen_timer++;
+	if (screen_bases_screen_timer >= screen_splash_screen_delay)
 	{
-		*screen_type = SCREEN_TYPE_PLAY;
+		level = 1;
 	}
 
-	*screen_type = SCREEN_TYPE_SPLASH;
+	if (level)
+	{
+		engine_asm_manager_clear_VRAM();
+		engine_content_manager_load();
 
-	engine_gamer_manager_draw();
-	engine_enemy_manager_draw();
+		*screen_type = SCREEN_TYPE_TITLE;
+	}
 }
 
 #endif//_SPLASH_SCREEN_H_

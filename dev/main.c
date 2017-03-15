@@ -25,7 +25,6 @@ void main (void)
 	SMS_setSpriteMode(SPRITEMODE_NORMAL);
 	SMS_useFirstHalfTilesforSprites(true);
 
-	// Check this clears Everdrive text!
 	engine_asm_manager_clear_VRAM();
 
 	custom_initialize();
@@ -34,8 +33,8 @@ void main (void)
 	SMS_displayOn();
 
 	enum_curr_screen_type = SCREEN_TYPE_NONE;
-	//enum_next_screen_type = SCREEN_TYPE_SPLASH;
-	enum_next_screen_type = SCREEN_TYPE_TITLE;
+	enum_next_screen_type = SCREEN_TYPE_SPLASH;
+	//enum_next_screen_type = SCREEN_TYPE_TITLE;
 	//enum_next_screen_type = SCREEN_TYPE_READY;
 	//enum_next_screen_type = SCREEN_TYPE_PLAY;
 	for (;;)
@@ -122,7 +121,7 @@ void custom_initialize()
 }
 void custom_load_content()
 {
-	engine_content_manager_load();
+	engine_content_manager_splash();
 
 	engine_gamer_manager_load();
 	engine_enemy_manager_load();
