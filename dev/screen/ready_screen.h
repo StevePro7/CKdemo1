@@ -17,23 +17,8 @@ void screen_ready_screen_load()
 void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
 {
 	rand();
-	if (curr_joypad1 & PORT_A_KEY_UP && !(prev_joypad1 & PORT_A_KEY_UP))
-	{
-		engine_gamer_manager_toggle_color();
-	}
-	if (curr_joypad1 & PORT_A_KEY_DOWN && !(prev_joypad1 & PORT_A_KEY_DOWN))
-	{
-		engine_enemy_manager_toggle_adi_color();
-	}
-	if (curr_joypad1 & PORT_A_KEY_LEFT && !(prev_joypad1 & PORT_A_KEY_LEFT))
-	{
-		engine_enemy_manager_toggle_suz_color();
-	}
-	if (curr_joypad1 & PORT_A_KEY_RIGHT && !(prev_joypad1 & PORT_A_KEY_RIGHT))
-	{
-		engine_enemy_manager_toggle_pro_color();
-	}
 
+	engine_input_manager_update(curr_joypad1, prev_joypad1);
 	if (curr_joypad1 & PORT_A_KEY_2 && !(prev_joypad1 & PORT_A_KEY_2))
 	{
 		if (hacker_sound)
