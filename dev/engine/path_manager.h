@@ -34,12 +34,6 @@ void engine_path_manager_init()
 	gamer_route[0][25] = 1;
 	gamer_route[0][26] = 1;
 	gamer_route[0][27] = 1;
-	gamer_route[0][28] = 4;
-	gamer_route[0][29] = 4;
-	gamer_route[0][30] = 4;
-	gamer_route[0][31] = 4;
-	gamer_route[0][32] = 4;
-	gamer_route[0][33] = 4;
 
 
 

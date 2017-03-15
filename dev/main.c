@@ -35,7 +35,8 @@ void main (void)
 
 	enum_curr_screen_type = SCREEN_TYPE_NONE;
 	//enum_next_screen_type = SCREEN_TYPE_SPLASH;
-	enum_next_screen_type = SCREEN_TYPE_READY;
+	enum_next_screen_type = SCREEN_TYPE_TITLE;
+	//enum_next_screen_type = SCREEN_TYPE_READY;
 	//enum_next_screen_type = SCREEN_TYPE_PLAY;
 	for (;;)
 	{
@@ -133,6 +134,9 @@ void custom_screen_manager_load(unsigned char screen_type)
 	case SCREEN_TYPE_SPLASH:
 		screen_splash_screen_load();
 		break;
+	case SCREEN_TYPE_TITLE:
+		screen_title_screen_load();
+		break;
 	case SCREEN_TYPE_READY:
 		screen_ready_screen_load();
 		break;
@@ -148,6 +152,9 @@ void custom_screen_manager_update(unsigned char *screen_type, const unsigned int
 	case SCREEN_TYPE_SPLASH:
 		screen_splash_screen_update(screen_type, curr_joypad1, prev_joypad1);
 		break;
+	case SCREEN_TYPE_TITLE:
+		screen_title_screen_update(screen_type, curr_joypad1, prev_joypad1);
+		break;
 	case SCREEN_TYPE_READY:
 		screen_ready_screen_update(screen_type, curr_joypad1, prev_joypad1);
 		break;
@@ -156,6 +163,7 @@ void custom_screen_manager_update(unsigned char *screen_type, const unsigned int
 		break;
 	}
 
+	// TODO remove!!
 	if (hacker_debug)
 	{
 		engine_font_manager_draw_data(curr_joypad1, 31, 12);

@@ -24,6 +24,7 @@
 #include "engine\asm_manager.h"
 
 #include "screen\splash_screen.h"
+#include "screen\title_screen.h"
 #include "screen\ready_screen.h"
 #include "screen\play_screen.h"
 

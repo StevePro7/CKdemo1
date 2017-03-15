@@ -16,8 +16,8 @@ void screen_play_screen_load()
 	engine_gamer_manager_load();
 	engine_enemy_manager_load();
 
-	engine_tree_manager_draw();
-	engine_text_manager_draw();
+	//engine_tree_manager_draw();
+	//engine_text_manager_draw();
 
 	pathIndex = 0;
 	//pathIndex = rand() % GAMER_MAX_PATHS;
