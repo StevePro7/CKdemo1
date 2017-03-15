@@ -35,8 +35,8 @@ void main (void)
 
 	enum_curr_screen_type = SCREEN_TYPE_NONE;
 	//enum_next_screen_type = SCREEN_TYPE_SPLASH;
-	enum_next_screen_type = SCREEN_TYPE_READY;
-	//enum_next_screen_type = SCREEN_TYPE_PLAY;
+	//enum_next_screen_type = SCREEN_TYPE_READY;
+	enum_next_screen_type = SCREEN_TYPE_PLAY;
 	for (;;)
 	{
 		if (SMS_queryPauseRequested())
@@ -158,27 +158,10 @@ void custom_screen_manager_update(unsigned char *screen_type, const unsigned int
 
 	if (hacker_debug)
 	{
-		engine_font_manager_draw_data(curr_joypad1, 30, 12);
-		engine_font_manager_draw_data(prev_joypad1, 30, 13);
+		engine_font_manager_draw_data(curr_joypad1, 31, 12);
+		engine_font_manager_draw_data(prev_joypad1, 31, 13);
 	}
 }
 
 SMS_EMBED_SEGA_ROM_HEADER(9999, 0);
 SMS_EMBED_SDSC_HEADER(0, 2, 2017, 3, 7, "stevepro", "CK demo1", "stevepro CK demo1");
-
-//void draw_sprites()
-//{
-	// KID
-	//drawSprite(32, 32, SPRITE_TILES + 0);
-	//drawSprite(32, 64, SPRITE_TILES + 2);	// #1
-	//drawSprite(64, 24, SPRITE_TILES + 4); drawSprite(64, 64, SPRITE_TILES + 6);	// #2
-	// PRO
-	//drawSprite(96, 24,  SPRITE_TILES + 16); drawSprite(96, 64,  SPRITE_TILES + 18);	// #1
-	//drawSprite(128, 24, SPRITE_TILES + 20); drawSprite(128, 64, SPRITE_TILES + 22);	// #2
-	// ADI
-	//drawSprite(24, 128, SPRITE_TILES + 32); drawSprite(24, 168, SPRITE_TILES + 34);	// #1
-	//drawSprite(64, 128, SPRITE_TILES + 36); drawSprite(64, 168, SPRITE_TILES + 38);	// #2
-	// SUZ
-	//drawSprite(96, 128,  SPRITE_TILES + 48); drawSprite(96, 168,  SPRITE_TILES + 50);	// #1
-	//drawSprite(128, 128, SPRITE_TILES + 52); drawSprite(128, 168, SPRITE_TILES + 54);	// #2
-//}

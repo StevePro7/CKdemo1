@@ -5,7 +5,7 @@ void screen_play_screen_load()
 {
 	if (hacker_debug)
 	{
-		engine_font_manager_draw_data(SCREEN_TYPE_PLAY, 31, 0);
+		engine_font_manager_draw_data(SCREEN_TYPE_PLAY, 31, 2);
 	}
 
 	if (hacker_music)
@@ -18,8 +18,10 @@ void screen_play_screen_load()
 
 	engine_tree_manager_draw_border();
 	engine_tree_manager_draw_inside();
-	engine_font_manager_draw_text(LOCALE_TITLE1, 8, 11);
-	engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
+
+	engine_text_manager_draw();
+	//engine_font_manager_draw_text(LOCALE_TITLE1, 8, 11);
+	//engine_font_manager_draw_text(LOCALE_TITLE2, 8, 12);
 
 	pathIndex = 0;
 	//pathIndex = rand() % GAMER_MAX_PATHS;
@@ -30,7 +32,7 @@ void screen_play_screen_load()
 
 	if (hacker_debug)
 	{
-		engine_font_manager_draw_data(pathIndex, 30, 5);
+		engine_font_manager_draw_data(pathIndex, 31, 5);
 	}
 }
 void screen_play_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)
