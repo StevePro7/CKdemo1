@@ -26,7 +26,7 @@ void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_jo
 		}
 	}
 
-	// TODO remove this "force" reset!
+	// Begin demo here.
 	if (curr_joypad1 & PORT_A_KEY_1 && !(prev_joypad1 & PORT_A_KEY_1))
 	{
 		*screen_type = SCREEN_TYPE_PLAY;

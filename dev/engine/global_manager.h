@@ -13,9 +13,9 @@
 #define GAMER_STD_STEPS		4
 
 // Delay.
-#define SPLASH_DELAY		1
-//#define SPLASH_DELAY		150
-#define ENEMY_STD_DELAY		75		// TODO bump up abit!
+//#define SPLASH_DELAY		1
+#define SPLASH_DELAY		150
+#define ENEMY_STD_DELAY		75
 #define ENEMY_MIN_DELAY		25
 
 // Paths.

@@ -62,11 +62,6 @@ void screen_play_screen_update(unsigned char *screen_type, unsigned int curr_joy
 			PSGSFXPlay(SOUND_PSG, SFX_CHANNELS2AND3);
 		}
 	}
-
-	if (curr_joypad1 & PORT_A_KEY_1 && !(prev_joypad1 & PORT_A_KEY_1))
-	{
-		*screen_type =SCREEN_TYPE_READY;
-	}
 }
 
 #endif//_PLAY_SCREEN_H_
