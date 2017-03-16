@@ -17,8 +17,15 @@ void screen_play_screen_load()
 	engine_enemy_manager_load();
 
 	pathIndex = 0;
-	//pathIndex = rand() % GAMER_MAX_PATHS;
 	moveFrame = 0;
+	if (hacker_paths)
+	{
+		pathIndex = hacker_paths - 1;
+	}
+	else
+	{
+		pathIndex = rand() % GAMER_MAX_PATHS;
+	}
 
 	direction = gamer_route[pathIndex][moveFrame];
 	engine_gamer_manager_move();

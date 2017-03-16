@@ -17,9 +17,9 @@ void engine_content_manager_splash()
 void engine_content_manager_load()
 {
 	// Clear tiles.
-	SMS_loadPSGaidencompressedTiles(clear__tiles__psgcompr, CLEAR_TILES);
-	SMS_loadSTMcompressedTileMap(0, 0, clear__tilemap__stmcompr);
-	SMS_loadBGPalette(clear__palette__bin);
+	//SMS_loadPSGaidencompressedTiles(clear__tiles__psgcompr, CLEAR_TILES);
+	//SMS_loadSTMcompressedTileMap(0, 0, clear__tilemap__stmcompr);
+	//SMS_loadBGPalette(clear__palette__bin);
 
 	// Tree tiles.
 	SMS_loadPSGaidencompressedTiles(tree__tiles__psgcompr, TREE_TILES);
