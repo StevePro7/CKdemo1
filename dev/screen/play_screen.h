@@ -8,15 +8,9 @@ void screen_play_screen_load()
 		engine_font_manager_draw_data(SCREEN_TYPE_PLAY, 31, 2);
 	}
 
-	if (hacker_music)
-	{
-		PSGPlayNoRepeat(MUSIC_PSG);
-	}
-
 	engine_gamer_manager_load();
 	engine_enemy_manager_load();
 
-	pathIndex = 0;
 	moveFrame = 0;
 	if (hacker_paths)
 	{
@@ -24,7 +18,13 @@ void screen_play_screen_load()
 	}
 	else
 	{
-		pathIndex = rand() % GAMER_MAX_PATHS;
+		// Ensure do not repeat path!
+		while (pathIndex == prevIndex)
+		{
+			pathIndex = rand() % GAMER_MAX_PATHS;
+		}
+
+		prevIndex = pathIndex;
 	}
 
 	direction = gamer_route[pathIndex][moveFrame];
@@ -33,6 +33,11 @@ void screen_play_screen_load()
 	if (hacker_debug)
 	{
 		engine_font_manager_draw_data(pathIndex, 31, 3);
+	}
+
+	if (hacker_music)
+	{
+		PSGPlayNoRepeat(MUSIC_PSG);
 	}
 }
 void screen_play_screen_update(unsigned char *screen_type, unsigned int curr_joypad1, unsigned int prev_joypad1)

@@ -36,7 +36,7 @@ unsigned int enemy_delay,enemy_timer;
 
 //_GAMER_MANAGER_H_
 unsigned char kidX, kidY, velZ, kidColor, kidFrame, kidTile;
-unsigned char pathIndex, moveFrame, direction, lifecycle;
+unsigned char pathIndex, prevIndex, moveFrame, direction, lifecycle;
 
 //_PATH_MANAGER_H_
 unsigned char gamer_route[GAMER_MAX_PATHS][GAMER_MAX_FRAME];

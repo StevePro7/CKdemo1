@@ -2,7 +2,7 @@
 #define _GAMER_MANAGER_H_
 
 extern unsigned char kidX, kidY, velZ, kidColor, kidFrame, kidTile;
-extern unsigned char pathIndex, moveFrame, direction, lifecycle;
+extern unsigned char pathIndex, prevIndex, moveFrame, direction, lifecycle;
 
 #define KID_BASE_TILE	SPRITE_TILES + 0
 
@@ -11,6 +11,9 @@ static void kid_calculate_tile();
 void engine_gamer_manager_init()
 {
 	kidColor = 0;
+	pathIndex = 0;
+	prevIndex = 0;
+	moveFrame = 0;
 }
 void engine_gamer_manager_load()
 {
