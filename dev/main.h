@@ -17,6 +17,7 @@
 #include "engine\path_manager.h"
 #include "engine\text_manager.h"
 #include "engine\tree_manager.h"
+#include "engine\sound_manager.h"
 #include "engine\sprite_manager.h"
 #include "engine\gamer_manager.h"
 #include "engine\enemy_manager.h"

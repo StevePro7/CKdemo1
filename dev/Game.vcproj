@@ -232,6 +232,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\engine\sound_manager.h"
+					>
+				</File>
+				<File
 					RelativePath=".\engine\sprite_manager.h"
 					>
 				</File>

@@ -69,10 +69,7 @@ void screen_play_screen_update(unsigned char *screen_type, unsigned int curr_joy
 	engine_input_manager_update(curr_joypad1, prev_joypad1);
 	if (curr_joypad1 & PORT_A_KEY_2 && !(prev_joypad1 & PORT_A_KEY_2))
 	{
-		if (hacker_sound)
-		{
-			PSGSFXPlay(SOUND_PSG, SFX_CHANNEL2);
-		}
+		engine_sound_manager_play();
 	}
 }
 
