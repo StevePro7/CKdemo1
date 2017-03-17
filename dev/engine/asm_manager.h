@@ -4,33 +4,6 @@
 __sfr __at 0xBF VDPControlPort;
 __sfr __at 0xBE VDPDataPort;
 
-void engine_asm_manager_vdp_reg()
-{
-	__asm
-		nop
-		nop
-		nop
-		nop
-		nop
-		nop
-		ld a,#0xC0
-		out (_VDPControlPort),a
-		ld a,#0x81
-		out (_VDPControlPort),a
-		ld a,#0xFF
-		out (_VDPControlPort),a
-		ld a,#0x86
-		out (_VDPControlPort),a
-		ld a,#0xFF
-		out (_VDPControlPort),a
-		ld a,#0x87
-		out (_VDPControlPort),a
-		nop
-		nop
-		nop
-	__endasm;
-}
-
 void engine_asm_manager_clear_VRAM()
 {
 	__asm
