@@ -22,6 +22,7 @@ void engine_text_manager_draw()
 	move += 4;
 	engine_font_manager_draw_text(LOCALE_MOVE6, 24, move + 6);
 	engine_font_manager_draw_text(LOCALE_MOVE7, 24, move + 7);
+
 	move++;
 	engine_font_manager_draw_text(LOCALE_MOVE8, 24, move + 8);
 	engine_font_manager_draw_text(LOCALE_MOVE9, 24, move + 9);
