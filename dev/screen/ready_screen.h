@@ -22,7 +22,7 @@ void screen_ready_screen_update(unsigned char *screen_type, unsigned int curr_jo
 	{
 		if (hacker_sound)
 		{
-			PSGSFXPlay(SOUND_PSG, SFX_CHANNELS2AND3);
+			PSGSFXPlay(SOUND_PSG, SFX_CHANNEL2);
 		}
 	}
 
