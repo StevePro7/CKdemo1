@@ -26,7 +26,7 @@ void engine_hack_manager_invert()
 {
 	hacker_debug = !hacker_debug;
 	//hacker_debug = 0;
-	//hacker_splash = !hacker_splash;
+	hacker_splash = !hacker_splash;
 	hacker_splash = 0;
 
 	// TODO uncomment after testing

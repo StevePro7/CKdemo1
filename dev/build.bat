@@ -4,11 +4,11 @@ REM echo Build gfx.c and gfx.h from gfx folder
 ..\utl\folder2c ..\psg psg
 
 REM echo Build gfx
-REM sdcc -c -mz80 gfx.c
+sdcc -c -mz80 gfx.c
 if %errorlevel% NEQ 0 goto :EOF
 
 REM echo Build psg
-REM sdcc -c -mz80 psg.c
+sdcc -c -mz80 psg.c
 if %errorlevel% NEQ 0 goto :EOF
 
 REM echo Build main
@@ -39,7 +39,7 @@ del *.lk > nul
 del *.lst > nul
 del *.map > nul
 del *.noi > nul
-REM del *.rel > nul
+del *.rel > nul
 del *.sym > nul
 
 output.sms
