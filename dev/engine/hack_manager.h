@@ -30,12 +30,12 @@ void engine_hack_manager_invert()
 	hacker_splash = 0;
 
 	// TODO uncomment after testing
-	hacker_steps = 8;
+	hacker_steps = 1;
 	hacker_hands = !hacker_hands;
-	//hacker_music = !hacker_music;
+	hacker_music = !hacker_music;
 	hacker_sound = !hacker_sound;
 
-	//hacker_paths = 1;
+	hacker_paths = 1;
 }
 
 void engine_hack_manager_resetX()

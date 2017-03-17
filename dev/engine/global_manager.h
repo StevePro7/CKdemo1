@@ -20,6 +20,6 @@
 
 // Paths.
 #define GAMER_MAX_FRAME		56
-#define GAMER_MAX_PATHS		2
+#define GAMER_MAX_PATHS		1
 
 #endif//_GLOBAL_MANAGER_H_
