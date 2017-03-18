@@ -35,6 +35,7 @@ void engine_hack_manager_invert()
 	//hacker_music = !hacker_music;
 	//hacker_sound = !hacker_sound;
 
+	// TODO remove after testing!
 	hacker_paths = 1;
 }
 
