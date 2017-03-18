@@ -170,6 +170,12 @@ void custom_screen_manager_update(unsigned char *screen_type, const unsigned int
 		screen_play_screen_update(screen_type, curr_joypad1, prev_joypad1);
 		break;
 	}
+
+	if (hacker_debug)
+	{
+		engine_font_manager_draw_data(curr_joypad1, 31, 12);
+		engine_font_manager_draw_data(prev_joypad1, 31, 13);
+	}
 }
 
 SMS_EMBED_SEGA_ROM_HEADER(9999, 0);
