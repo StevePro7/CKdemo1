@@ -25,7 +25,7 @@ if %errorlevel% NEQ 0 goto :EOF
 
 REM echo Copy output
 copy output.sms ..\asm
-copy output.sms ..\CKdemo1.sms
+copy output.sms ..\CandyKidDemo.sms
 
 REM echo Disassemble output
 cd ..\asm
