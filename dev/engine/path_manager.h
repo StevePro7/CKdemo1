@@ -6,14 +6,14 @@ extern unsigned char gamer_route[GAMER_MAX_PATHS][GAMER_MAX_FRAME];
 void engine_path_manager_init()
 {
 	// Path #1.
-	gamer_route[0][0] = 2;  gamer_route[0][1] = 2;  gamer_route[0][2] = 2;  gamer_route[0][3] = 2;  gamer_route[0][4] = 2;  gamer_route[0][5] = 2;  gamer_route[0][6] = 4;
-	gamer_route[0][7] = 2;  gamer_route[0][8] = 2;  gamer_route[0][9] = 3;  gamer_route[0][10] = 3; gamer_route[0][11] = 1; gamer_route[0][12] = 1; gamer_route[0][13] = 4;
-	gamer_route[0][14] = 4; gamer_route[0][15] = 2; gamer_route[0][16] = 4; gamer_route[0][17] = 4; gamer_route[0][18] = 4; gamer_route[0][19] = 4; gamer_route[0][20] = 4;
-	gamer_route[0][21] = 1; gamer_route[0][22] = 4; gamer_route[0][23] = 4; gamer_route[0][24] = 2; gamer_route[0][25] = 2; gamer_route[0][26] = 3; gamer_route[0][27] = 3;
-	gamer_route[0][28] = 1; gamer_route[0][29] = 1; gamer_route[0][30] = 4; gamer_route[0][31] = 1; gamer_route[0][32] = 1; gamer_route[0][33] = 1; gamer_route[0][34] = 1;
-	gamer_route[0][35] = 1; gamer_route[0][36] = 3; gamer_route[0][37] = 1; gamer_route[0][38] = 1; gamer_route[0][39] = 4; gamer_route[0][40] = 4; gamer_route[0][41] = 2;
-	gamer_route[0][42] = 2; gamer_route[0][43] = 3; gamer_route[0][44] = 3; gamer_route[0][45] = 1; gamer_route[0][46] = 3; gamer_route[0][47] = 3; gamer_route[0][48] = 3;
-	gamer_route[0][49] = 3; gamer_route[0][50] = 3; gamer_route[0][51] = 2; gamer_route[0][52] = 3; gamer_route[0][53] = 3; gamer_route[0][54] = 1; gamer_route[0][55] = 4;
+	gamer_route[0][0] = 2;  gamer_route[0][1] = 2;  gamer_route[0][2] = 2;  gamer_route[0][3] = 3;  gamer_route[0][4] = 2;  gamer_route[0][5] = 2;  gamer_route[0][6] = 2;
+	gamer_route[0][7] = 2;  gamer_route[0][8] = 2;  gamer_route[0][9] = 4;  gamer_route[0][10] = 4; gamer_route[0][11] = 1; gamer_route[0][12] = 4; gamer_route[0][13] = 4;
+	gamer_route[0][14] = 4; gamer_route[0][15] = 4; gamer_route[0][16] = 4; gamer_route[0][17] = 2; gamer_route[0][18] = 4; gamer_route[0][19] = 4; gamer_route[0][20] = 1;
+	gamer_route[0][21] = 1; gamer_route[0][22] = 3; gamer_route[0][23] = 1; gamer_route[0][24] = 1; gamer_route[0][25] = 1; gamer_route[0][26] = 1; gamer_route[0][27] = 1;
+	gamer_route[0][28] = 4; gamer_route[0][29] = 1; gamer_route[0][30] = 1; gamer_route[0][31] = 3; gamer_route[0][32] = 3; gamer_route[0][33] = 2; gamer_route[0][34] = 3;
+	gamer_route[0][35] = 3; gamer_route[0][36] = 3; gamer_route[0][37] = 3; gamer_route[0][38] = 3; gamer_route[0][39] = 1; gamer_route[0][40] = 3; gamer_route[0][41] = 3;
+	gamer_route[0][42] = 2; gamer_route[0][43] = 2; gamer_route[0][44] = 2; gamer_route[0][45] = 2; gamer_route[0][46] = 2; gamer_route[0][47] = 4; gamer_route[0][48] = 1;
+	gamer_route[0][49] = 1; gamer_route[0][50] = 1; gamer_route[0][51] = 1; gamer_route[0][52] = 1; gamer_route[0][53] = 4; gamer_route[0][54] = 2; gamer_route[0][55] = 3;
 
 
 	// Path #1.
@@ -76,6 +76,26 @@ void engine_path_manager_init()
 	gamer_route[5][35] = 1; gamer_route[5][36] = 3; gamer_route[5][37] = 1; gamer_route[5][38] = 1; gamer_route[5][39] = 4; gamer_route[5][40] = 4; gamer_route[5][41] = 2;
 	gamer_route[5][42] = 2; gamer_route[5][43] = 3; gamer_route[5][44] = 3; gamer_route[5][45] = 1; gamer_route[5][46] = 3; gamer_route[5][47] = 3; gamer_route[5][48] = 3;
 	gamer_route[5][49] = 3; gamer_route[5][50] = 3; gamer_route[5][51] = 2; gamer_route[5][52] = 3; gamer_route[5][53] = 3; gamer_route[5][54] = 1; gamer_route[5][55] = 4;
+
+	// Path #7.
+	gamer_route[6][0] = 4;  gamer_route[6][1] = 4;  gamer_route[6][2] = 4;  gamer_route[6][3] = 1;  gamer_route[6][4] = 4;  gamer_route[6][5] = 4;  gamer_route[6][6] = 4;
+	gamer_route[6][7] = 4;  gamer_route[6][8] = 4;  gamer_route[6][9] = 2;  gamer_route[6][10] = 2; gamer_route[6][11] = 3; gamer_route[6][12] = 2; gamer_route[6][13] = 2;
+	gamer_route[6][14] = 2; gamer_route[6][15] = 2; gamer_route[6][16] = 2; gamer_route[6][17] = 4; gamer_route[6][18] = 2; gamer_route[6][19] = 2; gamer_route[6][20] = 3;
+	gamer_route[6][21] = 3; gamer_route[6][22] = 1; gamer_route[6][23] = 3; gamer_route[6][24] = 3; gamer_route[6][25] = 3; gamer_route[6][26] = 3; gamer_route[6][27] = 3;
+	gamer_route[6][28] = 2; gamer_route[6][29] = 3; gamer_route[6][30] = 3; gamer_route[6][31] = 1; gamer_route[6][32] = 1; gamer_route[6][33] = 4; gamer_route[6][34] = 1;
+	gamer_route[6][35] = 1; gamer_route[6][36] = 1; gamer_route[6][37] = 1; gamer_route[6][38] = 1; gamer_route[6][39] = 3; gamer_route[6][40] = 1; gamer_route[6][41] = 1;
+	gamer_route[6][42] = 4; gamer_route[6][43] = 4; gamer_route[6][44] = 4; gamer_route[6][45] = 4; gamer_route[6][46] = 4; gamer_route[6][47] = 2; gamer_route[6][48] = 3;
+	gamer_route[6][49] = 3; gamer_route[6][50] = 3; gamer_route[6][51] = 3; gamer_route[6][52] = 3; gamer_route[6][53] = 2; gamer_route[6][54] = 4; gamer_route[6][55] = 1;
+
+	// Path #8.
+	gamer_route[7][0] = 2;  gamer_route[7][1] = 2;  gamer_route[7][2] = 2;  gamer_route[7][3] = 3;  gamer_route[7][4] = 2;  gamer_route[7][5] = 2;  gamer_route[7][6] = 2;
+	gamer_route[7][7] = 2;  gamer_route[7][8] = 2;  gamer_route[7][9] = 4;  gamer_route[7][10] = 4; gamer_route[7][11] = 1; gamer_route[7][12] = 4; gamer_route[7][13] = 4;
+	gamer_route[7][14] = 4; gamer_route[7][15] = 4; gamer_route[7][16] = 4; gamer_route[7][17] = 2; gamer_route[7][18] = 4; gamer_route[7][19] = 4; gamer_route[7][20] = 1;
+	gamer_route[7][21] = 1; gamer_route[7][22] = 3; gamer_route[7][23] = 1; gamer_route[7][24] = 1; gamer_route[7][25] = 1; gamer_route[7][26] = 1; gamer_route[7][27] = 1;
+	gamer_route[7][28] = 4; gamer_route[7][29] = 1; gamer_route[7][30] = 1; gamer_route[7][31] = 3; gamer_route[7][32] = 3; gamer_route[7][33] = 2; gamer_route[7][34] = 3;
+	gamer_route[7][35] = 3; gamer_route[7][36] = 3; gamer_route[7][37] = 3; gamer_route[7][38] = 3; gamer_route[7][39] = 1; gamer_route[7][40] = 3; gamer_route[7][41] = 3;
+	gamer_route[7][42] = 2; gamer_route[7][43] = 2; gamer_route[7][44] = 2; gamer_route[7][45] = 2; gamer_route[7][46] = 2; gamer_route[7][47] = 4; gamer_route[7][48] = 1;
+	gamer_route[7][49] = 1; gamer_route[7][50] = 1; gamer_route[7][51] = 1; gamer_route[7][52] = 1; gamer_route[7][53] = 4; gamer_route[7][54] = 2; gamer_route[7][55] = 3;
 	*/
 }
 
