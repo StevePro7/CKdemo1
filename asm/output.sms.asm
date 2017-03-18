@@ -16,11 +16,11 @@ BANKS 2
 .ENDRO
 
 ; SDSC Tag:
-; Name:        CK demo1
-; Author:      stevepro
-; Date:        07.03.2017
-; Version:     0.02
-; Description: stevepro CK demo1
+; Name:        Candy Kid Demo
+; Author:      StevePro Studios
+; Date:        17.03.2017
+; Version:     1.00
+; Description: Simple Sega Master System demo to run on real hardware!
 
 .BANK 0 SLOT 0
 .ORG $0000
@@ -65,7 +65,7 @@ _RST_18H:
 .db $00, $00, $00, $00, $00, $00
 
 _IRQ_HANDLER:
-	jp   _LABEL_3613_10
+	jp   _LABEL_361D_10
 
 
 ; Data from 3B to 65 (43 bytes)
@@ -75,7 +75,7 @@ _IRQ_HANDLER:
 .db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
 _NMI_HANDLER:
-	jp   _LABEL_3649_197
+	jp   _LABEL_3653_185
 
 
 ; Data from 69 to 6F (7 bytes)
@@ -99,10 +99,10 @@ _LABEL_7A_3:
 	ld   de, $C001
 	ld   bc, $1FF0
 	ldir
-	call _LABEL_3BAD_4
-	call _LABEL_3383_6
+	call _LABEL_3BB7_4
+	call _LABEL_338D_6
 	ei
-	call _LABEL_1584_25
+	call _LABEL_157F_25
 
 ; Data from 96 to 209 (372 bytes)
 .db $C3, $04, $02, $ED, $A3, $ED, $A3, $ED, $A3, $ED, $A3, $ED, $A3, $ED, $A3, $ED
@@ -156,8 +156,6 @@ _LABEL_23B_39:
 	ld   a, $00
 	rla
 	ld   (iy+0), a
-	ld   hl, $C1E7
-	ld   (hl), $01
 	ld   iy, $C1E9
 	ld   a, (iy+0)
 	sub  $01
@@ -179,40 +177,40 @@ _LABEL_23B_39:
 	ret
 
 
-; Data from 27D to 2A5 (41 bytes)
+; Data from 278 to 2A0 (41 bytes)
 .db "!", $E5, $C1, "6", $00, "!", $E6, $C1, "6", $00, "!", $E7, $C1, "6", $00, "!", $E8
 .db $C1, "6", $00, "!", $E9, $C1, "6", $00, "!", $EA, $C1, "6", $00, "!", $EB, $C1, ""
 .db "6", $00, "!", $EC, $C1, "6", $00, $C9
 
-_LABEL_2A6_52:
+_LABEL_2A1_52:
 	ld   hl, $0090
 	push hl
-	ld   hl, $2062
+	ld   hl, $206C
 	push hl
-	call _LABEL_38AB_53
+	call _LABEL_38B5_53
 	pop  af
 	ld   h, $20
 	ex   (sp), hl
 	inc  sp
-	ld   hl, $201A
+	ld   hl, $2024
 	push hl
 	ld   hl, $0000
 	push hl
-	call _LABEL_36C9_72
+	call _LABEL_36D3_72
 	pop  af
 	pop  af
 	inc  sp
-	ld   hl, $200A
-	jp   _LABEL_34B9_90
+	ld   hl, $2014
+	jp   _LABEL_34C3_90
 
 
-; Data from 2CA to 302 (57 bytes)
-.db $21, $08, $00, $E5, $21, $5D, $2C, $E5, $CD, $AB, $38, $F1, $F1, $21, $4A, $2C
-.db $CD, $B9, $34, $21, $10, $00, $E5, $21, $6B, $1D, $E5, $CD, $AB, $38, $F1, $F1
-.db $21, $DB, $1C, $CD, $B9, $34, $21, $50, $00, $E5, $21, $94, $28, $E5, $CD, $AB
-.db $38, $F1, $F1, $21, $8B, $28, $C3, $CD, $34
+; Data from 2C5 to 2FD (57 bytes)
+.db $21, $08, $00, $E5, $21, $67, $2C, $E5, $CD, $B5, $38, $F1, $F1, $21, $54, $2C
+.db $CD, $C3, $34, $21, $10, $00, $E5, $21, $75, $1D, $E5, $CD, $B5, $38, $F1, $F1
+.db $21, $E5, $1C, $CD, $C3, $34, $21, $50, $00, $E5, $21, $9E, $28, $E5, $CD, $B5
+.db $38, $F1, $F1, $21, $95, $28, $C3, $D7, $34
 
-_LABEL_303_101:
+_LABEL_2FE_101:
 	push ix
 	ld   ix, $0000
 	add  ix, sp
@@ -220,14 +218,14 @@ _LABEL_303_101:
 	ld   a, (ix+6)
 	ld   (ix+255), a
 	ld   e, $00
-_LABEL_314_105:
+_LABEL_30F_105:
 	ld   l, (ix+4)
 	ld   h, (ix+5)
 	ld   d, $00
 	add  hl, de
 	ld   a, (hl)
 	or   a
-	jr   z, _LABEL_355_102
+	jr   z, _LABEL_350_102
 	add  a, $DF
 	ld   d, a
 	ld   l, (ix+7)
@@ -253,7 +251,7 @@ _LABEL_314_105:
 	or   b
 	ld   h, a
 	call _LABEL_6_103
-	ld   hl, ($1CEB)
+	ld   hl, ($1CF5)
 	ld   a, d
 	ld   c, a
 	rla
@@ -262,126 +260,38 @@ _LABEL_314_105:
 	add  hl, bc
 	call _LABEL_11_104
 	inc  e
-	jr   _LABEL_314_105
+	jr   _LABEL_30F_105
 
-_LABEL_355_102:
+_LABEL_350_102:
 	inc  sp
 	pop  ix
 	ret
 
-_LABEL_359_131:
-	push ix
-	ld   ix, $0000
-	add  ix, sp
-	ld   hl, $FFF3
-	add  hl, sp
-	ld   sp, hl
-	ld   hl, $0000
-	add  hl, sp
-	ld   (ix+254), l
-	ld   (ix+255), h
-	ld   a, (ix+6)
-	ld   (ix+253), a
-	ld   (ix+250), $00
-_LABEL_37A_141:
-	ld   hl, $000A
-	push hl
-	ld   l, (ix+4)
-	ld   h, (ix+5)
-	push hl
-	call _LABEL_3342_132
-	pop  af
-	pop  af
-	ex   de, hl
-	ld   (ix+251), e
-	ld   (ix+252), d
-	push de
-	ld   hl, $000A
-	push hl
-	ld   l, (ix+4)
-	ld   h, (ix+5)
-	push hl
-	call _LABEL_39B2_139
-	pop  af
-	pop  af
-	pop  de
-	ld   c, l
-	ld   a, (ix+250)
-	add  a, (ix+254)
-	ld   l, a
-	ld   a, $00
-	adc  a, (ix+255)
-	ld   h, a
-	ld   (hl), c
-	ld   (ix+4), e
-	ld   (ix+5), d
-	ld   a, c
-	add  a, $0F
-	ld   b, a
-	ld   a, (ix+252)
-	or   (ix+251)
-	jr   nz, _LABEL_3D0_140
-	ld   a, c
-	or   a
-	jr   nz, _LABEL_3D0_140
-	ld   a, (ix+250)
-	or   a
-	jr   z, _LABEL_3D0_140
-	ld   b, $FF
-_LABEL_3D0_140:
-	ld   l, (ix+7)
-	ld   h, $00
-	add  hl, hl
-	add  hl, hl
-	add  hl, hl
-	add  hl, hl
-	add  hl, hl
-	add  hl, hl
-	ld   e, l
-	ld   a, h
-	or   $78
-	ld   d, a
-	ld   l, (ix+253)
-	dec  (ix+253)
-	ld   h, $00
-	add  hl, hl
-	ld   a, l
-	or   e
-	ld   l, a
-	ld   a, h
-	or   d
-	ld   h, a
-	call _LABEL_6_103
-	ld   hl, ($1CEB)
-	ld   a, b
-	ld   c, a
-	rla
-	sbc  a, a
-	ld   b, a
-	add  hl, bc
-	call _LABEL_11_104
-	inc  (ix+250)
-	ld   a, (ix+250)
-	sub  $07
-	jp   c, _LABEL_37A_141
-	ld   sp, ix
-	pop  ix
-	ret
 
+; Data from 354 to 49E (331 bytes)
+.db $DD, $E5, $DD, $21, $00, $00, $DD, $39, $21, $F3, $FF, $39, $F9, $21, $00, $00
+.db $39, $DD, $75, $FE, $DD, $74, $FF, $DD, $7E, $06, $DD, $77, $FD, $DD, $36, $FA
+.db $00, $21, $0A, $00, $E5, $DD, $6E, $04, $DD, $66, $05, $E5, $CD, $4C, $33, $F1
+.db $F1, $EB, $DD, $73, $FB, $DD, $72, $FC, $D5, $21, $0A, $00, $E5, $DD, $6E, $04
+.db $DD, $66, $05, $E5, $CD, $BC, $39, $F1, $F1, $D1, $4D, $DD, $7E, $FA, $DD, $86
+.db $FE, $6F, $3E, $00, $DD, $8E, $FF, $67, $71, $DD, $73, $04, $DD, $72, $05, $79
+.db $C6, $0F, $47, $DD, $7E, $FC, $DD, $B6, $FB, $20, $0C, $79, $B7, $20, $08, $DD
+.db $7E, $FA, $B7, $28, $02, $06, $FF, $DD, $6E, $07, $26, $00, $29, $29, $29, $29
+.db $29, $29, $5D, $7C, $F6, $78, $57, $DD, $6E, $FD, $DD, $35, $FD, $26, $00, $29
+.db $7D, $B3, $6F, $7C, $B2, $67, $CD, $06, $00, $2A, $F5, $1C, $78, $4F, $17, $9F
+.db $47, $09, $CD, $11, $00, $DD, $34, $FA, $DD, $7E, $FA, $D6, $07, $DA, $75, $03
+.db $DD, $F9, $DD, $E1, $C9, $DD, $E5, $DD, $21, $00, $00, $DD, $39, $21, $F6, $FF
+.db $39, $F9, $21, $00, $00, $39, $DD, $75, $FE, $DD, $74, $FF, $DD, $7E, $06, $DD
+.db $77, $FD, $1E, $00, $DD, $6E, $FE, $DD, $66, $FF, $16, $00, $19, $E5, $D5, $01
+.db $0A, $00, $C5, $DD, $4E, $04, $DD, $46, $05, $C5, $CD, $BC, $39, $F1, $F1, $4D
+.db $44, $D1, $E1, $71, $C5, $D5, $21, $0A, $00, $E5, $DD, $6E, $04, $DD, $66, $05
+.db $E5, $CD, $4C, $33, $F1, $F1, $D1, $C1, $DD, $75, $04, $DD, $74, $05, $79, $C6
+.db $0F, $57, $DD, $6E, $07, $26, $00, $29, $29, $29, $29, $29, $29, $4D, $7C, $F6
+.db $78, $47, $DD, $6E, $FD, $DD, $35, $FD, $26, $00, $29, $7D, $B1, $6F, $7C, $B0
+.db $67, $CD, $06, $00, $2A, $F5, $1C, $7A, $4F, $17, $9F, $47, $09, $CD, $11, $00
+.db $1C, $7B, $D6, $07, $38, $8E, $DD, $F9, $DD, $E1, $C9
 
-; Data from 40E to 4A3 (150 bytes)
-.db $DD, $E5, $DD, $21, $00, $00, $DD, $39, $21, $F6, $FF, $39, $F9, $21, $00, $00
-.db $39, $DD, $75, $FE, $DD, $74, $FF, $DD, $7E, $06, $DD, $77, $FD, $1E, $00, $DD
-.db $6E, $FE, $DD, $66, $FF, $16, $00, $19, $E5, $D5, $01, $0A, $00, $C5, $DD, $4E
-.db $04, $DD, $46, $05, $C5, $CD, $B2, $39, $F1, $F1, $4D, $44, $D1, $E1, $71, $C5
-.db $D5, $21, $0A, $00, $E5, $DD, $6E, $04, $DD, $66, $05, $E5, $CD, $42, $33, $F1
-.db $F1, $D1, $C1, $DD, $75, $04, $DD, $74, $05, $79, $C6, $0F, $57, $DD, $6E, $07
-.db $26, $00, $29, $29, $29, $29, $29, $29, $4D, $7C, $F6, $78, $47, $DD, $6E, $FD
-.db $DD, $35, $FD, $26, $00, $29, $7D, $B1, $6F, $7C, $B0, $67, $CD, $06, $00, $2A
-.db $EB, $1C, $7A, $4F, $17, $9F, $47, $09, $CD, $11, $00, $1C, $7B, $D6, $07, $38
-.db $8E, $DD, $F9, $DD, $E1, $C9
-
-_LABEL_4A4_47:
+_LABEL_49F_47:
 	ld   hl, $C01F
 	ld   (hl), $04
 	ld   hl, $C020
@@ -1281,19 +1191,19 @@ _LABEL_4A4_47:
 	ret
 
 
-; Data from D65 to 10F6 (914 bytes)
-.db $21, $08, $0B, $E5, $21, $27, $0E, $E5, $CD, $03, $03, $F1, $21, $08, $0C, $E3
-.db $21, $30, $0E, $E5, $CD, $03, $03, $F1, $21, $18, $00, $E3, $21, $39, $0E, $E5
-.db $CD, $03, $03, $F1, $21, $18, $01, $E3, $21, $41, $0E, $E5, $CD, $03, $03, $F1
-.db $21, $18, $04, $E3, $21, $49, $0E, $E5, $CD, $03, $03, $F1, $21, $18, $05, $E3
-.db $21, $50, $0E, $E5, $CD, $03, $03, $F1, $21, $18, $06, $E3, $21, $57, $0E, $E5
-.db $CD, $03, $03, $F1, $21, $18, $07, $E3, $21, $5E, $0E, $E5, $CD, $03, $03, $F1
-.db $21, $18, $08, $E3, $21, $67, $0E, $E5, $CD, $03, $03, $F1, $21, $18, $09, $E3
-.db $21, $70, $0E, $E5, $CD, $03, $03, $F1, $21, $18, $0E, $E3, $21, $79, $0E, $E5
-.db $CD, $03, $03, $F1, $21, $18, $0F, $E3, $21, $82, $0E, $E5, $CD, $03, $03, $F1
-.db $21, $18, $11, $E3, $21, $8B, $0E, $E5, $CD, $03, $03, $F1, $21, $18, $12, $E3
-.db $21, $94, $0E, $E5, $CD, $03, $03, $F1, $21, $18, $16, $E3, $21, $9D, $0E, $E5
-.db $CD, $03, $03, $F1, $21, $18, $17, $E3, $21, $A6, $0E, $E5, $CD, $03, $03, $F1
+; Data from D60 to 10F1 (914 bytes)
+.db $21, $08, $0B, $E5, $21, $22, $0E, $E5, $CD, $FE, $02, $F1, $21, $08, $0C, $E3
+.db $21, $2B, $0E, $E5, $CD, $FE, $02, $F1, $21, $18, $00, $E3, $21, $34, $0E, $E5
+.db $CD, $FE, $02, $F1, $21, $18, $01, $E3, $21, $3C, $0E, $E5, $CD, $FE, $02, $F1
+.db $21, $18, $04, $E3, $21, $44, $0E, $E5, $CD, $FE, $02, $F1, $21, $18, $05, $E3
+.db $21, $4B, $0E, $E5, $CD, $FE, $02, $F1, $21, $18, $06, $E3, $21, $52, $0E, $E5
+.db $CD, $FE, $02, $F1, $21, $18, $07, $E3, $21, $59, $0E, $E5, $CD, $FE, $02, $F1
+.db $21, $18, $08, $E3, $21, $62, $0E, $E5, $CD, $FE, $02, $F1, $21, $18, $09, $E3
+.db $21, $6B, $0E, $E5, $CD, $FE, $02, $F1, $21, $18, $0E, $E3, $21, $74, $0E, $E5
+.db $CD, $FE, $02, $F1, $21, $18, $0F, $E3, $21, $7D, $0E, $E5, $CD, $FE, $02, $F1
+.db $21, $18, $11, $E3, $21, $86, $0E, $E5, $CD, $FE, $02, $F1, $21, $18, $12, $E3
+.db $21, $8F, $0E, $E5, $CD, $FE, $02, $F1, $21, $18, $16, $E3, $21, $98, $0E, $E5
+.db $CD, $FE, $02, $F1, $21, $18, $17, $E3, $21, $A1, $0E, $E5, $CD, $FE, $02, $F1
 .db $F1, $C9, $43, $41, $4E, $44, $59, $4B, $49, $44, $00, $20, $20, $44, $45, $4D
 .db $4F, $20, $20, $00, $3D, $43, $41, $4E, $44, $59, $3D, $00, $20, $20, $4B, $49
 .db $44, $20, $20, $00, $4A, $4F, $59, $20, $23, $31, $00, $2D, $2D, $2D, $2D, $2D
@@ -1302,46 +1212,46 @@ _LABEL_4A4_47:
 .db $47, $48, $54, $00, $50, $52, $45, $53, $53, $20, $23, $31, $00, $53, $54, $41
 .db $52, $54, $20, $49, $54, $00, $50, $52, $45, $53, $53, $20, $23, $32, $00, $53
 .db $4F, $55, $4E, $44, $20, $46, $58, $00, $53, $54, $45, $56, $45, $50, $52, $4F
-.db $00, $28, $43, $29, $20, $31, $39, $38, $34, $00, $21, $03, $07, $E5, $21, $E1
-.db $0E, $E5, $CD, $03, $03, $F1, $21, $03, $15, $E3, $21, $E6, $0E, $E5, $CD, $03
-.db $03, $F1, $21, $11, $07, $E3, $21, $EB, $0E, $E5, $CD, $03, $03, $F1, $21, $11
-.db $15, $E3, $21, $F0, $0E, $E5, $CD, $03, $03, $F1, $F1, $C9, $4B, $49, $44, $2E
+.db $00, $28, $43, $29, $20, $31, $39, $38, $34, $00, $21, $03, $07, $E5, $21, $DC
+.db $0E, $E5, $CD, $FE, $02, $F1, $21, $03, $15, $E3, $21, $E1, $0E, $E5, $CD, $FE
+.db $02, $F1, $21, $11, $07, $E3, $21, $E6, $0E, $E5, $CD, $FE, $02, $F1, $21, $11
+.db $15, $E3, $21, $EB, $0E, $E5, $CD, $FE, $02, $F1, $F1, $C9, $4B, $49, $44, $2E
 .db $00, $41, $44, $49, $2E, $00, $53, $55, $5A, $2E, $00, $50, $52, $4F, $2E, $00
-.db $21, $03, $07, $E5, $21, $27, $0F, $E5, $CD, $03, $03, $F1, $21, $03, $15, $E3
-.db $21, $27, $0F, $E5, $CD, $03, $03, $F1, $21, $11, $07, $E3, $21, $27, $0F, $E5
-.db $CD, $03, $03, $F1, $21, $11, $15, $E3, $21, $27, $0F, $E5, $CD, $03, $03, $F1
+.db $21, $03, $07, $E5, $21, $22, $0F, $E5, $CD, $FE, $02, $F1, $21, $03, $15, $E3
+.db $21, $22, $0F, $E5, $CD, $FE, $02, $F1, $21, $11, $07, $E3, $21, $22, $0F, $E5
+.db $CD, $FE, $02, $F1, $21, $11, $15, $E3, $21, $22, $0F, $E5, $CD, $FE, $02, $F1
 .db $F1, $C9, $20, $20, $20, $20, $00, $DD, $E5, $DD, $21, $00, $00, $DD, $39, $F5
 .db $F5, $DD, $5E, $05, $16, $00, $6B, $62, $29, $29, $29, $29, $29, $29, $4D, $7C
 .db $F6, $78, $47, $DD, $6E, $04, $26, $00, $29, $DD, $75, $FE, $DD, $74, $FF, $79
-.db $DD, $B6, $FE, $6F, $78, $DD, $B6, $FF, $67, $C5, $CD, $06, $00, $C1, $2A, $55
+.db $DD, $B6, $FE, $6F, $78, $DD, $B6, $FF, $67, $C5, $CD, $06, $00, $C1, $2A, $5F
 .db $2C, $CD, $11, $00, $DD, $6E, $04, $2C, $26, $00, $29, $33, $33, $E5, $79, $DD
-.db $B6, $FC, $6F, $78, $DD, $B6, $FD, $67, $CD, $06, $00, $2A, $55, $2C, $23, $CD
+.db $B6, $FC, $6F, $78, $DD, $B6, $FD, $67, $CD, $06, $00, $2A, $5F, $2C, $23, $CD
 .db $11, $00, $EB, $23, $29, $29, $29, $29, $29, $29, $5D, $7C, $F6, $78, $57, $7B
-.db $DD, $B6, $FE, $6F, $7A, $DD, $B6, $FF, $67, $CD, $06, $00, $2A, $55, $2C, $23
+.db $DD, $B6, $FE, $6F, $7A, $DD, $B6, $FF, $67, $CD, $06, $00, $2A, $5F, $2C, $23
 .db $23, $CD, $11, $00, $7B, $DD, $B6, $FC, $6F, $7A, $DD, $B6, $FD, $67, $CD, $06
-.db $00, $2A, $55, $2C, $23, $23, $23, $CD, $11, $00, $DD, $F9, $DD, $E1, $C9, $06
-.db $00, $C5, $AF, $F5, $33, $C5, $33, $CD, $2C, $0F, $F1, $C1, $C5, $3E, $16, $F5
-.db $33, $C5, $33, $CD, $2C, $0F, $F1, $C1, $04, $04, $78, $D6, $18, $38, $E2, $06
-.db $02, $C5, $C5, $33, $AF, $F5, $33, $CD, $2C, $0F, $F1, $C1, $C5, $C5, $33, $3E
-.db $16, $F5, $33, $CD, $2C, $0F, $F1, $C1, $04, $04, $78, $D6, $16, $38, $E2, $C9
-.db $06, $06, $C5, $3E, $08, $F5, $33, $C5, $33, $CD, $2C, $0F, $F1, $C1, $C5, $3E
-.db $0E, $F5, $33, $C5, $33, $CD, $2C, $0F, $F1, $C1, $04, $04, $78, $D6, $12, $38
-.db $E1, $06, $0A, $C5, $C5, $33, $3E, $06, $F5, $33, $CD, $2C, $0F, $F1, $C1, $C5
-.db $C5, $33, $3E, $10, $F5, $33, $CD, $2C, $0F, $F1, $C1, $04, $04, $78, $D6, $0E
-.db $38, $E1, $C9, $CD, $C4, $0F, $C3, $05, $10, $3A, $EB, $C1, $B7, $C8, $CD, $5C
-.db $36, $01, $03, $00, $C5, $E5, $CD, $9A, $39, $F1, $F1, $7D, $4F, $B7, $20, $0E
-.db $3E, $01, $F5, $33, $21, $D4, $32, $E5, $CD, $C7, $1A, $F1, $33, $C9, $0D, $20
-.db $0E, $3E, $01, $F5, $33, $21, $FF, $32, $E5, $CD, $C7, $1A, $F1, $33, $C9, $3E
-.db $01, $F5, $33, $21, $1F, $33, $E5, $CD, $C7, $1A, $F1, $33, $C9, $DD, $E5, $DD
+.db $00, $2A, $5F, $2C, $23, $23, $23, $CD, $11, $00, $DD, $F9, $DD, $E1, $C9, $06
+.db $00, $C5, $AF, $F5, $33, $C5, $33, $CD, $27, $0F, $F1, $C1, $C5, $3E, $16, $F5
+.db $33, $C5, $33, $CD, $27, $0F, $F1, $C1, $04, $04, $78, $D6, $18, $38, $E2, $06
+.db $02, $C5, $C5, $33, $AF, $F5, $33, $CD, $27, $0F, $F1, $C1, $C5, $C5, $33, $3E
+.db $16, $F5, $33, $CD, $27, $0F, $F1, $C1, $04, $04, $78, $D6, $16, $38, $E2, $C9
+.db $06, $06, $C5, $3E, $08, $F5, $33, $C5, $33, $CD, $27, $0F, $F1, $C1, $C5, $3E
+.db $0E, $F5, $33, $C5, $33, $CD, $27, $0F, $F1, $C1, $04, $04, $78, $D6, $12, $38
+.db $E1, $06, $0A, $C5, $C5, $33, $3E, $06, $F5, $33, $CD, $27, $0F, $F1, $C1, $C5
+.db $C5, $33, $3E, $10, $F5, $33, $CD, $27, $0F, $F1, $C1, $04, $04, $78, $D6, $0E
+.db $38, $E1, $C9, $CD, $BF, $0F, $C3, $00, $10, $3A, $EB, $C1, $B7, $C8, $CD, $66
+.db $36, $01, $03, $00, $C5, $E5, $CD, $A4, $39, $F1, $F1, $7D, $4F, $B7, $20, $0E
+.db $3E, $01, $F5, $33, $21, $DE, $32, $E5, $CD, $D1, $1A, $F1, $33, $C9, $0D, $20
+.db $0E, $3E, $01, $F5, $33, $21, $09, $33, $E5, $CD, $D1, $1A, $F1, $33, $C9, $3E
+.db $01, $F5, $33, $21, $29, $33, $E5, $CD, $D1, $1A, $F1, $33, $C9, $DD, $E5, $DD
 .db $21, $00, $00, $DD, $39, $DD, $66, $06, $DD, $6E, $05, $E5, $DD, $7E, $04, $F5
-.db $33, $CD, $EB, $34, $F1, $33, $DD, $56, $06, $14, $DD, $7E, $04, $C6, $08, $47
-.db $C5, $D5, $33, $DD, $7E, $05, $F5, $33, $C5, $33, $CD, $EB, $34, $F1, $33, $C1
+.db $33, $CD, $F5, $34, $F1, $33, $DD, $56, $06, $14, $DD, $7E, $04, $C6, $08, $47
+.db $C5, $D5, $33, $DD, $7E, $05, $F5, $33, $C5, $33, $CD, $F5, $34, $F1, $33, $C1
 .db $DD, $7E, $06, $C6, $08, $67, $DD, $7E, $05, $C6, $08, $57, $C5, $D5, $E5, $33
-.db $D5, $33, $DD, $7E, $04, $F5, $33, $CD, $EB, $34, $F1, $33, $D1, $C1, $DD, $7E
-.db $06, $C6, $09, $67, $E5, $33, $D5, $33, $C5, $33, $CD, $EB, $34, $F1, $33, $DD
+.db $D5, $33, $DD, $7E, $04, $F5, $33, $CD, $F5, $34, $F1, $33, $D1, $C1, $DD, $7E
+.db $06, $C6, $09, $67, $E5, $33, $D5, $33, $C5, $33, $CD, $F5, $34, $F1, $33, $DD
 .db $E1, $C9
 
-_LABEL_10F7_45:
+_LABEL_10F2_45:
 	ld   hl, $C017
 	ld   (hl), $00
 	ld   hl, $C01A
@@ -1352,7 +1262,7 @@ _LABEL_10F7_45:
 	ld   (hl), $00
 	ret
 
-_LABEL_110C_92:
+_LABEL_1107_92:
 	ld   hl, $C014
 	ld   (hl), $20
 	ld   hl, $C015
@@ -1361,7 +1271,7 @@ _LABEL_110C_92:
 	ld   (hl), $00
 	ld   hl, $C018
 	ld   (hl), $00
-	call _LABEL_11E0_93
+	call _LABEL_11DB_93
 	ld   hl, $C01D
 	ld   (hl), $00
 	ld   hl, $C01E
@@ -1369,21 +1279,21 @@ _LABEL_110C_92:
 	ret
 
 
-; Data from 112E to 11DF (178 bytes)
-.db $21, $17, $C0, $3E, $01, $96, $77, $C3, $E0, $11, $21, $18, $C0, $3E, $01, $96
-.db $77, $C3, $E0, $11, $21, $1E, $C0, $36, $01, $C3, $38, $11, $21, $E7, $C1, $D5
+; Data from 1129 to 11DA (178 bytes)
+.db $21, $17, $C0, $3E, $01, $96, $77, $C3, $DB, $11, $21, $18, $C0, $3E, $01, $96
+.db $77, $C3, $DB, $11, $21, $1E, $C0, $36, $01, $C3, $33, $11, $21, $E7, $C1, $D5
 .db $FD, $21, $16, $C0, $FD, $E5, $D1, $1A, $86, $12, $D1, $FD, $7E, $00, $D6, $08
-.db $38, $14, $FD, $36, $00, $00, $3A, $18, $C0, $3D, $20, $05, $CD, $38, $11, $18
+.db $38, $14, $FD, $36, $00, $00, $3A, $18, $C0, $3D, $20, $05, $CD, $33, $11, $18
 .db $05, $21, $1E, $C0, $36, $00, $3A, $1D, $C0, $3D, $20, $0F, $21, $E7, $C1, $D5
 .db $FD, $21, $15, $C0, $FD, $E5, $D1, $1A, $96, $12, $D1, $3A, $1D, $C0, $D6, $02
 .db $20, $0F, $21, $E7, $C1, $D5, $FD, $21, $15, $C0, $FD, $E5, $D1, $1A, $86, $12
 .db $D1, $3A, $1D, $C0, $D6, $03, $20, $0F, $21, $E7, $C1, $D5, $FD, $21, $14, $C0
 .db $FD, $E5, $D1, $1A, $96, $12, $D1, $3A, $1D, $C0, $D6, $04, $C0, $21, $E7, $C1
 .db $D5, $FD, $21, $14, $C0, $FD, $E5, $D1, $1A, $86, $12, $D1, $C9, $3A, $19, $C0
-.db $F5, $33, $3A, $15, $C0, $F5, $33, $3A, $14, $C0, $F5, $33, $CD, $92, $10, $F1
+.db $F5, $33, $3A, $15, $C0, $F5, $33, $3A, $14, $C0, $F5, $33, $CD, $8D, $10, $F1
 .db $33, $C9
 
-_LABEL_11E0_93:
+_LABEL_11DB_93:
 	ld   a, ($C017)
 	add  a, a
 	ld   hl, $C018
@@ -1394,7 +1304,7 @@ _LABEL_11E0_93:
 	ld   (hl), a
 	ret
 
-_LABEL_11F0_46:
+_LABEL_11EB_46:
 	ld   hl, $C001
 	ld   (hl), $90
 	ld   hl, $C002
@@ -1419,35 +1329,35 @@ _LABEL_11F0_46:
 	ld   (iy+1), $00
 	ret
 
-_LABEL_122C_94:
+_LABEL_1227_94:
 	ld   hl, $C004
 	ld   (hl), $00
 	ld   hl, $C009
 	ld   (hl), $00
 	ld   hl, $C00E
 	ld   (hl), $00
-	call _LABEL_12EC_95
-	call _LABEL_12FC_96
-	call _LABEL_130C_97
+	call _LABEL_12E7_95
+	call _LABEL_12F7_96
+	call _LABEL_1307_97
 	ld   hl, $0000
 	ld   ($C012), hl
 	ret
 
 
-; Data from 124B to 12EB (161 bytes)
-.db $21, $03, $C0, $3E, $01, $96, $77, $C3, $EC, $12, $21, $04, $C0, $3E, $01, $96
-.db $77, $C3, $EC, $12, $21, $08, $C0, $3E, $01, $96, $77, $C3, $FC, $12, $21, $09
-.db $C0, $3E, $01, $96, $77, $C3, $FC, $12, $21, $0D, $C0, $3E, $01, $96, $77, $C3
-.db $0C, $13, $21, $0E, $C0, $3E, $01, $96, $77, $C3, $0C, $13, $FD, $21, $12, $C0
+; Data from 1246 to 12E6 (161 bytes)
+.db $21, $03, $C0, $3E, $01, $96, $77, $C3, $E7, $12, $21, $04, $C0, $3E, $01, $96
+.db $77, $C3, $E7, $12, $21, $08, $C0, $3E, $01, $96, $77, $C3, $F7, $12, $21, $09
+.db $C0, $3E, $01, $96, $77, $C3, $F7, $12, $21, $0D, $C0, $3E, $01, $96, $77, $C3
+.db $07, $13, $21, $0E, $C0, $3E, $01, $96, $77, $C3, $07, $13, $FD, $21, $12, $C0
 .db $FD, $34, $00, $20, $03, $FD, $34, $01, $21, $10, $C0, $7E, $FD, $96, $00, $23
-.db $7E, $FD, $9E, $01, $D0, $21, $00, $00, $22, $12, $C0, $CD, $55, $12, $CD, $69
-.db $12, $C3, $7D, $12, $3A, $05, $C0, $F5, $33, $3A, $02, $C0, $F5, $33, $3A, $01
-.db $C0, $F5, $33, $CD, $92, $10, $F1, $33, $3A, $0A, $C0, $F5, $33, $3A, $07, $C0
-.db $F5, $33, $3A, $06, $C0, $F5, $33, $CD, $92, $10, $F1, $33, $3A, $0F, $C0, $F5
-.db $33, $3A, $0C, $C0, $F5, $33, $3A, $0B, $C0, $F5, $33, $CD, $92, $10, $F1, $33
+.db $7E, $FD, $9E, $01, $D0, $21, $00, $00, $22, $12, $C0, $CD, $50, $12, $CD, $64
+.db $12, $C3, $78, $12, $3A, $05, $C0, $F5, $33, $3A, $02, $C0, $F5, $33, $3A, $01
+.db $C0, $F5, $33, $CD, $8D, $10, $F1, $33, $3A, $0A, $C0, $F5, $33, $3A, $07, $C0
+.db $F5, $33, $3A, $06, $C0, $F5, $33, $CD, $8D, $10, $F1, $33, $3A, $0F, $C0, $F5
+.db $33, $3A, $0C, $C0, $F5, $33, $3A, $0B, $C0, $F5, $33, $CD, $8D, $10, $F1, $33
 .db $C9
 
-_LABEL_12EC_95:
+_LABEL_12E7_95:
 	ld   a, ($C003)
 	add  a, a
 	ld   hl, $C004
@@ -1458,7 +1368,7 @@ _LABEL_12EC_95:
 	ld   (hl), a
 	ret
 
-_LABEL_12FC_96:
+_LABEL_12F7_96:
 	ld   a, ($C008)
 	add  a, a
 	ld   hl, $C009
@@ -1469,7 +1379,7 @@ _LABEL_12FC_96:
 	ld   (hl), a
 	ret
 
-_LABEL_130C_97:
+_LABEL_1307_97:
 	ld   a, ($C00D)
 	add  a, a
 	ld   hl, $C00E
@@ -1481,132 +1391,132 @@ _LABEL_130C_97:
 	ret
 
 
-; Data from 131C to 1362 (71 bytes)
+; Data from 1317 to 135D (71 bytes)
 .db $DD, $E5, $DD, $21, $00, $00, $DD, $39, $DD, $CB, $04, $46, $28, $09, $DD, $CB
-.db $06, $46, $20, $03, $CD, $2E, $11, $DD, $CB, $04, $4E, $28, $09, $DD, $CB, $06
-.db $4E, $20, $03, $CD, $5F, $12, $DD, $CB, $04, $56, $28, $09, $DD, $CB, $06, $56
-.db $20, $03, $CD, $73, $12, $DD, $CB, $04, $5E, $28, $09, $DD, $CB, $06, $5E, $20
-.db $03, $CD, $4B, $12, $DD, $E1, $C9
+.db $06, $46, $20, $03, $CD, $29, $11, $DD, $CB, $04, $4E, $28, $09, $DD, $CB, $06
+.db $4E, $20, $03, $CD, $5A, $12, $DD, $CB, $04, $56, $28, $09, $DD, $CB, $06, $56
+.db $20, $03, $CD, $6E, $12, $DD, $CB, $04, $5E, $28, $09, $DD, $CB, $06, $5E, $20
+.db $03, $CD, $46, $12, $DD, $E1, $C9
 
-_LABEL_1363_35:
+_LABEL_135E_35:
 	ld   a, $00
 	out  ($BF), a
 	ld   a, $40
 	out  ($BF), a
 	ld   bc, $4000
-_LABEL_136E_36:
+_LABEL_1369_36:
 	ld   a, $00
 	out  ($BE), a
 	dec  bc
 	ld   a, b
 	or   c
-	jp   nz, _LABEL_136E_36
+	jp   nz, _LABEL_1369_36
 	ret
 
 
-; Data from 1379 to 1583 (523 bytes)
+; Data from 1374 to 157E (523 bytes)
 .db $21, $E3, $C1, $36, $96, $C9, $0E, $00, $21, $04, $00, $39, $7E, $E6, $10, $28
 .db $09, $21, $06, $00, $39, $7E, $E6, $10, $28, $12, $21, $04, $00, $39, $7E, $E6
 .db $20, $28, $0B, $21, $06, $00, $39, $7E, $E6, $20, $20, $02, $0E, $01, $FD, $21
 .db $E1, $C1, $FD, $34, $00, $20, $03, $FD, $34, $01, $21, $E3, $C1, $46, $1E, $00
 .db $FD, $21, $E1, $C1, $FD, $7E, $00, $90, $FD, $7E, $01, $9B, $38, $02, $0E, $01
-.db $79, $B7, $C8, $CD, $63, $13, $CD, $CA, $02, $C1, $E1, $E5, $C5, $36, $02, $C9
-.db $CD, $48, $10, $C3, $65, $0D, $21, $04, $00, $39, $7E, $E6, $20, $28, $0C, $21
-.db $06, $00, $39, $7E, $E6, $20, $20, $03, $CD, $4E, $10, $C1, $E1, $E5, $C5, $36
+.db $79, $B7, $C8, $CD, $5E, $13, $CD, $C5, $02, $C1, $E1, $E5, $C5, $36, $02, $C9
+.db $CD, $43, $10, $C3, $60, $0D, $21, $04, $00, $39, $7E, $E6, $20, $28, $0C, $21
+.db $06, $00, $39, $7E, $E6, $20, $20, $03, $CD, $49, $10, $C1, $E1, $E5, $C5, $36
 .db $03, $C9, $3A, $E5, $C1, $B7, $28, $0D, $21, $1F, $02, $E5, $21, $03, $00, $E5
-.db $CD, $59, $03, $F1, $F1, $CD, $AF, $0E, $CD, $0C, $11, $C3, $2C, $12, $DD, $E5
-.db $DD, $21, $00, $00, $DD, $39, $CD, $CB, $11, $CD, $AF, $12, $CD, $5C, $36, $DD
-.db $6E, $08, $DD, $66, $09, $E5, $DD, $6E, $06, $DD, $66, $07, $E5, $CD, $1C, $13
-.db $F1, $F1, $DD, $CB, $06, $6E, $28, $09, $DD, $CB, $08, $6E, $20, $03, $CD, $4E
+.db $CD, $54, $03, $F1, $F1, $CD, $AA, $0E, $CD, $07, $11, $C3, $27, $12, $DD, $E5
+.db $DD, $21, $00, $00, $DD, $39, $CD, $C6, $11, $CD, $AA, $12, $CD, $66, $36, $DD
+.db $6E, $08, $DD, $66, $09, $E5, $DD, $6E, $06, $DD, $66, $07, $E5, $CD, $17, $13
+.db $F1, $F1, $DD, $CB, $06, $6E, $28, $09, $DD, $CB, $08, $6E, $20, $03, $CD, $49
 .db $10, $DD, $CB, $06, $66, $28, $0E, $DD, $CB, $08, $66, $20, $08, $DD, $6E, $04
 .db $DD, $66, $05, $36, $04, $DD, $E1, $C9, $3A, $E5, $C1, $B7, $28, $0D, $21, $1F
-.db $02, $E5, $21, $04, $00, $E5, $CD, $59, $03, $F1, $F1, $CD, $F5, $0E, $CD, $0C
-.db $11, $CD, $2C, $12, $21, $1C, $C0, $36, $00, $FD, $21, $EC, $C1, $FD, $7E, $00
+.db $02, $E5, $21, $04, $00, $E5, $CD, $54, $03, $F1, $F1, $CD, $F0, $0E, $CD, $07
+.db $11, $CD, $27, $12, $21, $1C, $C0, $36, $00, $FD, $21, $EC, $C1, $FD, $7E, $00
 .db $B7, $28, $0B, $21, $1A, $C0, $FD, $7E, $00, $C6, $FF, $77, $18, $28, $3A, $1A
-.db $C0, $FD, $21, $1B, $C0, $FD, $96, $00, $20, $16, $CD, $5C, $36, $01, $08, $00
-.db $C5, $E5, $CD, $9A, $39, $F1, $F1, $FD, $21, $1A, $C0, $FD, $75, $00, $18, $DE
+.db $C0, $FD, $21, $1B, $C0, $FD, $96, $00, $20, $16, $CD, $66, $36, $01, $08, $00
+.db $C5, $E5, $CD, $A4, $39, $F1, $F1, $FD, $21, $1A, $C0, $FD, $75, $00, $18, $DE
 .db $3A, $1A, $C0, $32, $1B, $C0, $01, $1F, $C0, $ED, $5B, $1A, $C0, $16, $00, $6B
-.db $62, $29, $19, $29, $19, $29, $29, $29, $09, $7E, $32, $1D, $C0, $CD, $42, $11
+.db $62, $29, $19, $29, $19, $29, $29, $29, $09, $7E, $32, $1D, $C0, $CD, $3D, $11
 .db $3A, $E5, $C1, $B7, $28, $10, $21, $1A, $C0, $4E, $06, $00, $21, $1F, $03, $E5
-.db $C5, $CD, $59, $03, $F1, $F1, $3A, $EA, $C1, $B7, $C8, $21, $AF, $2C, $E5, $CD
-.db $50, $18, $F1, $C9, $DD, $E5, $DD, $21, $00, $00, $DD, $39, $CD, $CB, $11, $CD
-.db $AF, $12, $3A, $1E, $C0, $B7, $20, $42, $FD, $21, $1C, $C0, $FD, $34, $00, $FD
+.db $C5, $CD, $54, $03, $F1, $F1, $3A, $EA, $C1, $B7, $C8, $21, $B9, $2C, $E5, $CD
+.db $5A, $18, $F1, $C9, $DD, $E5, $DD, $21, $00, $00, $DD, $39, $CD, $C6, $11, $CD
+.db $AA, $12, $3A, $1E, $C0, $B7, $20, $42, $FD, $21, $1C, $C0, $FD, $34, $00, $FD
 .db $7E, $00, $D6, $38, $38, $0E, $FD, $36, $00, $00, $DD, $6E, $04, $DD, $66, $05
 .db $36, $03, $18, $54, $01, $1F, $C0, $ED, $5B, $1A, $C0, $16, $00, $6B, $62, $29
 .db $19, $29, $19, $29, $29, $29, $09, $4D, $44, $FD, $21, $1C, $C0, $FD, $6E, $00
-.db $26, $00, $09, $7E, $32, $1D, $C0, $CD, $42, $11, $CD, $4A, $11, $3A, $E9, $C1
-.db $B7, $28, $03, $CD, $87, $12, $DD, $6E, $08, $DD, $66, $09, $E5, $DD, $6E, $06
-.db $DD, $66, $07, $E5, $CD, $1C, $13, $F1, $F1, $DD, $CB, $06, $6E, $28, $09, $DD
-.db $CB, $08, $6E, $20, $03, $CD, $4E, $10, $DD, $E1, $C9
+.db $26, $00, $09, $7E, $32, $1D, $C0, $CD, $3D, $11, $CD, $45, $11, $3A, $E9, $C1
+.db $B7, $28, $03, $CD, $82, $12, $DD, $6E, $08, $DD, $66, $09, $E5, $DD, $6E, $06
+.db $DD, $66, $07, $E5, $CD, $17, $13, $F1, $F1, $DD, $CB, $06, $6E, $28, $09, $DD
+.db $CB, $08, $6E, $20, $03, $CD, $49, $10, $DD, $E1, $C9
 
-_LABEL_1584_25:
+_LABEL_157F_25:
 	ld   hl, $C1E4
 	ld   (hl), $00
 	ld   hl, $0000
 	push hl
-	call _LABEL_34A5_7
+	call _LABEL_34AF_7
 	pop  af
 	ld   l, $00
-	call _LABEL_344C_26
+	call _LABEL_3456_26
 	ld   l, $01
-	call _LABEL_3438_32
-	call _LABEL_1363_35
-	call _LABEL_165B_37
-	call _LABEL_16DD_50
+	call _LABEL_3442_32
+	call _LABEL_135E_35
+	call _LABEL_1656_37
+	call _LABEL_16D8_50
 	ld   hl, $0140
-	call _LABEL_33EA_28
+	call _LABEL_33F4_28
 	ld   hl, $C1ED
 	ld   (hl), $00
 	ld   hl, $C1EE
 	ld   (hl), $01
-_LABEL_15B4_124:
-	call _LABEL_35DD_98
+_LABEL_15AF_124:
+	call _LABEL_35E7_98
 	bit  0, l
-	jr   z, _LABEL_15F2_99
-	call _LABEL_35E5_20
+	jr   z, _LABEL_15ED_99
+	call _LABEL_35EF_20
 	ld   iy, $C1E4
 	ld   a, (iy+0)
 	xor  $01
 	ld   (iy+0), a
 	bit  0, (iy+0)
-	jr   z, _LABEL_15E2_100
+	jr   z, _LABEL_15DD_100
 	ld   hl, $0C08
 	push hl
-	ld   hl, $1649
+	ld   hl, $1644
 	push hl
-	call _LABEL_303_101
+	call _LABEL_2FE_101
 	pop  af
 	pop  af
-	call _LABEL_1867_106
-	jr   _LABEL_15F2_99
+	call _LABEL_1871_106
+	jr   _LABEL_15ED_99
 
-_LABEL_15E2_100:
+_LABEL_15DD_100:
 	ld   hl, $0C08
 	push hl
-	ld   hl, $1652
+	ld   hl, $164D
 	push hl
-	call _LABEL_303_101
+	call _LABEL_2FE_101
 	pop  af
 	pop  af
-	call _LABEL_1878_107
-_LABEL_15F2_99:
+	call _LABEL_1882_107
+_LABEL_15ED_99:
 	ld   hl, $C1E4
 	bit  0, (hl)
-	jr   nz, _LABEL_15B4_124
+	jr   nz, _LABEL_15AF_124
 	ld   a, ($C1ED)
 	ld   iy, $C1EE
 	sub  (iy+0)
-	jr   z, _LABEL_1614_125
+	jr   z, _LABEL_160F_125
 	ld   a, (iy+0)
 	ld   ($C1ED), a
 	ld   a, ($C1ED)
 	push af
 	inc  sp
-	call _LABEL_16EC_126
+	call _LABEL_16E7_126
 	inc  sp
-_LABEL_1614_125:
-	call _LABEL_34E5_15
-	call _LABEL_3588_127
+_LABEL_160F_125:
+	call _LABEL_34EF_15
+	call _LABEL_3592_127
 	ld   ($C1EF), hl
 	ld   hl, ($C1F1)
 	push hl
@@ -1614,91 +1524,91 @@ _LABEL_1614_125:
 	push hl
 	ld   hl, $C1EE
 	push hl
-	call _LABEL_171E_128
+	call _LABEL_1719_128
 	ld   hl, $0006
 	add  hl, sp
 	ld   sp, hl
-	call _LABEL_3540_16
-	call _LABEL_357B_142
-	call _LABEL_3552_17
-	call _LABEL_1B3C_144
-	call _LABEL_1C55_170
+	call _LABEL_354A_16
+	call _LABEL_3585_130
+	call _LABEL_355C_17
+	call _LABEL_1B46_132
+	call _LABEL_1C5F_158
 	ld   hl, ($C1EF)
 	ld   ($C1F1), hl
-	jp   _LABEL_15B4_124
+	jp   _LABEL_15AF_124
 
 
-; Data from 1649 to 165A (18 bytes)
+; Data from 1644 to 1655 (18 bytes)
 .db " PAUSED ", $00, "  DEMO  ", $00
 
-_LABEL_165B_37:
+_LABEL_1656_37:
 	call _LABEL_20A_38
 	call _LABEL_23B_39
 	ld   iy, $C1E7
 	ld   a, (iy+0)
 	sub  $08
-	jr   c, _LABEL_1672_40
+	jr   c, _LABEL_166D_40
 	ld   (iy+0), $08
-	jr   _LABEL_16A2_41
+	jr   _LABEL_169D_41
 
-_LABEL_1672_40:
+_LABEL_166D_40:
 	ld   iy, $C1E7
 	ld   a, (iy+0)
 	sub  $04
-	jr   c, _LABEL_1683_48
+	jr   c, _LABEL_167E_48
 	ld   (iy+0), $04
-	jr   _LABEL_16A2_41
+	jr   _LABEL_169D_41
 
-_LABEL_1683_48:
+_LABEL_167E_48:
 	ld   iy, $C1E7
 	ld   a, (iy+0)
 	sub  $02
-	jr   c, _LABEL_1694_49
+	jr   c, _LABEL_168F_49
 	ld   (iy+0), $02
-	jr   _LABEL_16A2_41
+	jr   _LABEL_169D_41
 
-_LABEL_1694_49:
+_LABEL_168F_49:
 	ld   iy, $C1E7
 	ld   a, (iy+0)
 	or   a
-	jr   nz, _LABEL_16A2_41
-	ld   (iy+0), $04
-_LABEL_16A2_41:
+	jr   nz, _LABEL_169D_41
+	ld   (iy+0), $01
+_LABEL_169D_41:
 	ld   iy, $C1E8
 	ld   a, (iy+0)
 	or   a
-	jr   nz, _LABEL_16B0_42
+	jr   nz, _LABEL_16AB_42
 	ld   (iy+0), $4B
-_LABEL_16B0_42:
+_LABEL_16AB_42:
 	ld   iy, $C1E8
 	ld   a, (iy+0)
 	sub  $19
-	jr   nc, _LABEL_16BF_43
+	jr   nc, _LABEL_16BA_43
 	ld   (iy+0), $19
-_LABEL_16BF_43:
+_LABEL_16BA_43:
 	ld   iy, $C1EC
 	ld   a, (iy+0)
 	or   a
-	jr   z, _LABEL_16D4_44
+	jr   z, _LABEL_16CF_44
 	ld   a, $08
 	sub  (iy+0)
-	jr   nc, _LABEL_16D4_44
+	jr   nc, _LABEL_16CF_44
 	ld   (iy+0), $08
-_LABEL_16D4_44:
-	call _LABEL_10F7_45
-	call _LABEL_11F0_46
-	jp   _LABEL_4A4_47
+_LABEL_16CF_44:
+	call _LABEL_10F2_45
+	call _LABEL_11EB_46
+	jp   _LABEL_49F_47
 
-_LABEL_16DD_50:
+_LABEL_16D8_50:
 	ld   a, ($C1E6)
 	or   a
-	jr   z, _LABEL_16E6_51
-	call _LABEL_2A6_52
-_LABEL_16E6_51:
-	call _LABEL_110C_92
-	jp   _LABEL_122C_94
+	jr   z, _LABEL_16E1_51
+	call _LABEL_2A1_52
+_LABEL_16E1_51:
+	call _LABEL_1107_92
+	jp   _LABEL_1227_94
 
-_LABEL_16EC_126:
+_LABEL_16E7_126:
 	ld   iy, $0002
 	add  iy, sp
 	ld   a, (iy+0)
@@ -1712,17 +1622,17 @@ _LABEL_16EC_126:
 	ld   e, (iy+0)
 	dec  e
 	ld   d, $00
-	ld   hl, $170A
+	ld   hl, $1705
 	add  hl, de
 	add  hl, de
 	jp   (hl)
 
 
-; Data from 170A to 171D (20 bytes)
-.db $18, $06, $18, $07, $18, $08, $18, $09, $C3, $79, $13, $C3, $D9, $13, $C3, $FB
-.db $13, $C3, $61, $14
+; Data from 1705 to 1718 (20 bytes)
+.db $18, $06, $18, $07, $18, $08, $18, $09, $C3, $74, $13, $C3, $D4, $13, $C3, $F6
+.db $13, $C3, $5C, $14
 
-_LABEL_171E_128:
+_LABEL_1719_128:
 	push ix
 	ld   ix, $0000
 	add  ix, sp
@@ -1731,57 +1641,37 @@ _LABEL_171E_128:
 	ld   a, (bc)
 	ld   e, a
 	sub  $01
-	jr   c, _LABEL_17AA_129
+	jr   c, _LABEL_17A5_129
 	ld   a, $04
 	sub  e
-	jr   c, _LABEL_17AA_129
+	jr   c, _LABEL_17A5_129
 	dec  e
 	ld   d, $00
-	ld   hl, $1740
+	ld   hl, $173B
 	add  hl, de
 	add  hl, de
 	jp   (hl)
 
 
-; Data from 1740 to 17A9 (106 bytes)
+; Data from 173B to 17A4 (106 bytes)
 .db $18, $06, $18, $1D, $18, $34, $18, $4B, $DD, $6E, $08, $DD, $66, $09, $E5, $DD
-.db $6E, $06, $DD, $66, $07, $E5, $C5, $CD, $7F, $13, $21, $06, $00, $39, $F9, $18
+.db $6E, $06, $DD, $66, $07, $E5, $C5, $CD, $7A, $13, $21, $06, $00, $39, $F9, $18
 .db $49, $DD, $6E, $08, $DD, $66, $09, $E5, $DD, $6E, $06, $DD, $66, $07, $E5, $C5
-.db $CD, $DF, $13, $21, $06, $00, $39, $F9, $18, $30, $DD, $6E, $08, $DD, $66, $09
-.db $E5, $DD, $6E, $06, $DD, $66, $07, $E5, $C5, $CD, $17, $14, $21, $06, $00, $39
+.db $CD, $DA, $13, $21, $06, $00, $39, $F9, $18, $30, $DD, $6E, $08, $DD, $66, $09
+.db $E5, $DD, $6E, $06, $DD, $66, $07, $E5, $C5, $CD, $12, $14, $21, $06, $00, $39
 .db $F9, $18, $17, $DD, $6E, $08, $DD, $66, $09, $E5, $DD, $6E, $06, $DD, $66, $07
-.db $E5, $C5, $CD, $FD, $14, $21, $06, $00, $39, $F9
+.db $E5, $C5, $CD, $F8, $14, $21, $06, $00, $39, $F9
 
-_LABEL_17AA_129:
-	ld   a, ($C1E5)
-	or   a
-	jr   z, _LABEL_17CF_130
-	ld   hl, $0C1F
-	push hl
-	ld   l, (ix+6)
-	ld   h, (ix+7)
-	push hl
-	call _LABEL_359_131
-	pop  af
-	ld   hl, $0D1F
-	ex   (sp), hl
-	ld   l, (ix+8)
-	ld   h, (ix+9)
-	push hl
-	call _LABEL_359_131
-
-; Data from 17CD to 17CE (2 bytes)
-.db $F1, $F1
-
-_LABEL_17CF_130:
+_LABEL_17A5_129:
 	pop  ix
 	ret
 
 
-; Data from 17D2 to 17F5 (36 bytes)
-.db "stevepro", $00, "CK demo1", $00, "stevepro CK demo1", $00
+; Data from 17A8 to 17FF (88 bytes)
+.db "StevePro Studios", $00, "Candy Kid Demo", $00, "Simple Sega Master System demo "
+.db "to run on real hardware!", $00
 
-_LABEL_17F6_167:
+_LABEL_1800_155:
 	ld   a, ($C2FF)
 	or   a
 	ret  z
@@ -1792,29 +1682,29 @@ _LABEL_17F6_167:
 	out  ($7F), a
 	ld   a, ($C300)
 	or   a
-	jr   nz, _LABEL_180D_168
+	jr   nz, _LABEL_1817_156
 	ld   a, $DF
 	out  ($7F), a
-_LABEL_180D_168:
+_LABEL_1817_156:
 	ld   a, ($C301)
 	or   a
-	jr   nz, _LABEL_1817_169
+	jr   nz, _LABEL_1821_157
 	ld   a, $FF
 	out  ($7F), a
-_LABEL_1817_169:
+_LABEL_1821_157:
 	ld   hl, $C2FF
 	ld   (hl), $00
 	ret
 
 
-; Data from 181D to 1866 (74 bytes)
-.db $CD, $F6, $17, $21, $FA, $C1, $36, $01, $D1, $C1, $C5, $D5, $ED, $43, $F3, $C1
+; Data from 1827 to 1870 (74 bytes)
+.db $CD, $00, $18, $21, $FA, $C1, $36, $01, $D1, $C1, $C5, $D5, $ED, $43, $F3, $C1
 .db $ED, $43, $F5, $C1, $ED, $43, $F7, $C1, $21, $F9, $C1, $36, $00, $21, $FD, $C1
 .db $36, $00, $21, $FB, $C1, $36, $9F, $21, $FF, $C2, $36, $01, $C9, $21, $FA, $C1
-.db $36, $00, $C9, $C1, $E1, $E5, $C5, $E5, $CD, $1D, $18, $F1, $21, $FA, $C1, $36
+.db $36, $00, $C9, $C1, $E1, $E5, $C5, $E5, $CD, $27, $18, $F1, $21, $FA, $C1, $36
 .db $00, $C9, $FD, $21, $FF, $C2, $FD, $6E, $00, $C9
 
-_LABEL_1867_106:
+_LABEL_1871_106:
 	ld   a, $9F
 	out  ($7F), a
 	ld   a, $BF
@@ -1825,13 +1715,13 @@ _LABEL_1867_106:
 	out  ($7F), a
 	ret
 
-_LABEL_1878_107:
+_LABEL_1882_107:
 	ld   hl, $C1FC
 	ld   c, (hl)
 	ld   b, $00
 	ld   a, ($C2FF)
 	or   a
-	jr   z, _LABEL_18D2_108
+	jr   z, _LABEL_18DC_108
 	ld   iy, $C200
 	ld   l, (iy+0)
 	ld   h, $00
@@ -1840,18 +1730,18 @@ _LABEL_1878_107:
 	cp   l
 	ld   a, $00
 	sbc  a, h
-	jp   po, _LABEL_1899_109
+	jp   po, _LABEL_18A3_109
 	xor  $80
-_LABEL_1899_109:
-	jp   p, _LABEL_18A0_110
+_LABEL_18A3_109:
+	jp   p, _LABEL_18AA_110
 	ld   a, $0F
-	jr   _LABEL_18A7_111
+	jr   _LABEL_18B1_111
 
-_LABEL_18A0_110:
+_LABEL_18AA_110:
 	ld   hl, $C1FC
 	ld   a, ($C200)
 	add  a, (hl)
-_LABEL_18A7_111:
+_LABEL_18B1_111:
 	or   $90
 	out  ($7F), a
 	ld   iy, $C201
@@ -1862,33 +1752,33 @@ _LABEL_18A7_111:
 	cp   l
 	ld   a, $00
 	sbc  a, h
-	jp   po, _LABEL_18C0_112
+	jp   po, _LABEL_18CA_112
 	xor  $80
-_LABEL_18C0_112:
-	jp   p, _LABEL_18C7_113
+_LABEL_18CA_112:
+	jp   p, _LABEL_18D1_113
 	ld   a, $0F
-	jr   _LABEL_18CE_114
+	jr   _LABEL_18D8_114
 
-_LABEL_18C7_113:
+_LABEL_18D1_113:
 	ld   hl, $C1FC
 	ld   a, ($C201)
 	add  a, (hl)
-_LABEL_18CE_114:
+_LABEL_18D8_114:
 	or   $B0
 	out  ($7F), a
-_LABEL_18D2_108:
+_LABEL_18DC_108:
 	ld   a, ($C300)
 	or   a
-	jr   z, _LABEL_18E1_115
+	jr   z, _LABEL_18EB_115
 	ld   a, ($C207)
 	or   $D0
 	out  ($7F), a
-	jr   _LABEL_190E_116
+	jr   _LABEL_1918_116
 
-_LABEL_18E1_115:
+_LABEL_18EB_115:
 	ld   a, ($C2FF)
 	or   a
-	jr   z, _LABEL_190E_116
+	jr   z, _LABEL_1918_116
 	ld   iy, $C202
 	ld   l, (iy+0)
 	ld   h, $00
@@ -1897,30 +1787,30 @@ _LABEL_18E1_115:
 	cp   l
 	ld   a, $00
 	sbc  a, h
-	jp   po, _LABEL_18FC_121
+	jp   po, _LABEL_1906_121
 	xor  $80
-_LABEL_18FC_121:
-	jp   p, _LABEL_1903_122
+_LABEL_1906_121:
+	jp   p, _LABEL_190D_122
 	ld   a, $0F
-	jr   _LABEL_190A_123
+	jr   _LABEL_1914_123
 
-_LABEL_1903_122:
+_LABEL_190D_122:
 	ld   hl, $C1FC
 	ld   a, ($C202)
 	add  a, (hl)
-_LABEL_190A_123:
+_LABEL_1914_123:
 	or   $D0
 	out  ($7F), a
-_LABEL_190E_116:
+_LABEL_1918_116:
 	ld   a, ($C301)
 	or   a
-	jr   z, _LABEL_191C_117
+	jr   z, _LABEL_1926_117
 	ld   a, ($C208)
 	or   $F0
 	out  ($7F), a
 	ret
 
-_LABEL_191C_117:
+_LABEL_1926_117:
 	ld   a, ($C2FF)
 	or   a
 	ret  z
@@ -1933,55 +1823,55 @@ _LABEL_191C_117:
 	cp   l
 	ld   a, $00
 	sbc  a, h
-	jp   po, _LABEL_1936_118
+	jp   po, _LABEL_1940_118
 	xor  $80
-_LABEL_1936_118:
-	jp   p, _LABEL_193D_119
+_LABEL_1940_118:
+	jp   p, _LABEL_1947_119
 	ld   a, $0F
-	jr   _LABEL_1944_120
+	jr   _LABEL_194E_120
 
-_LABEL_193D_119:
+_LABEL_1947_119:
 	ld   hl, $C1FC
 	ld   a, ($C203)
 	add  a, (hl)
-_LABEL_1944_120:
+_LABEL_194E_120:
 	or   $F0
 	out  ($7F), a
 	ret
 
 
-; Data from 1949 to 1A0D (197 bytes)
+; Data from 1953 to 1A17 (197 bytes)
 .db $DD, $E5, $DD, $21, $00, $00, $DD, $39, $DD, $7E, $04, $32, $FC, $C1, $3A, $FF
-.db $C2, $B7, $CA, $0B, $1A, $21, $00, $C2, $5E, $16, $00, $21, $FC, $C1, $4E, $06
-.db $00, $6B, $62, $09, $3E, $0F, $BD, $3E, $00, $9C, $E2, $78, $19, $EE, $80, $F2
-.db $7F, $19, $3E, $0F, $18, $07, $21, $FC, $C1, $3A, $00, $C2, $86, $F6, $90, $D3
+.db $C2, $B7, $CA, $15, $1A, $21, $00, $C2, $5E, $16, $00, $21, $FC, $C1, $4E, $06
+.db $00, $6B, $62, $09, $3E, $0F, $BD, $3E, $00, $9C, $E2, $82, $19, $EE, $80, $F2
+.db $89, $19, $3E, $0F, $18, $07, $21, $FC, $C1, $3A, $00, $C2, $86, $F6, $90, $D3
 .db $7F, $FD, $21, $01, $C2, $FD, $6E, $00, $26, $00, $09, $3E, $0F, $BD, $3E, $00
-.db $9C, $E2, $9F, $19, $EE, $80, $F2, $A6, $19, $3E, $0F, $18, $07, $21, $FC, $C1
+.db $9C, $E2, $A9, $19, $EE, $80, $F2, $B0, $19, $3E, $0F, $18, $07, $21, $FC, $C1
 .db $3A, $01, $C2, $86, $F6, $B0, $D3, $7F, $3A, $00, $C3, $B7, $20, $27, $FD, $21
-.db $02, $C2, $FD, $6E, $00, $26, $00, $09, $3E, $0F, $BD, $3E, $00, $9C, $E2, $CC
-.db $19, $EE, $80, $F2, $D3, $19, $3E, $0F, $18, $07, $21, $FC, $C1, $3A, $02, $C2
+.db $02, $C2, $FD, $6E, $00, $26, $00, $09, $3E, $0F, $BD, $3E, $00, $9C, $E2, $D6
+.db $19, $EE, $80, $F2, $DD, $19, $3E, $0F, $18, $07, $21, $FC, $C1, $3A, $02, $C2
 .db $86, $F6, $D0, $D3, $7F, $3A, $01, $C3, $B7, $20, $27, $FD, $21, $03, $C2, $FD
-.db $6E, $00, $26, $00, $09, $3E, $0F, $BD, $3E, $00, $9C, $E2, $F9, $19, $EE, $80
-.db $F2, $00, $1A, $3E, $0F, $18, $07, $21, $FC, $C1, $3A, $03, $C2, $86, $F6, $F0
+.db $6E, $00, $26, $00, $09, $3E, $0F, $BD, $3E, $00, $9C, $E2, $03, $1A, $EE, $80
+.db $F2, $0A, $1A, $3E, $0F, $18, $07, $21, $FC, $C1, $3A, $03, $C2, $86, $F6, $F0
 .db $D3, $7F, $DD, $E1, $C9
 
-_LABEL_1A0E_182:
+_LABEL_1A18_170:
 	push ix
 	ld   ix, $0000
 	add  ix, sp
 	push af
 	ld   a, ($C302)
 	or   a
-	jp   z, _LABEL_1AC2_183
+	jp   z, _LABEL_1ACC_171
 	ld   a, ($C1FC)
 	ld   (ix+254), a
 	ld   (ix+255), $00
 	ld   a, ($C300)
 	or   a
-	jr   z, _LABEL_1A76_184
+	jr   z, _LABEL_1A80_172
 	ld   a, ($C2FF)
 	or   a
-	jr   z, _LABEL_1A6D_185
+	jr   z, _LABEL_1A77_173
 	ld   a, ($C204)
 	and  $0F
 	or   $C0
@@ -2001,35 +1891,35 @@ _LABEL_1A0E_182:
 	cp   l
 	ld   a, $00
 	sbc  a, h
-	jp   po, _LABEL_1A5B_186
+	jp   po, _LABEL_1A65_174
 	xor  $80
-_LABEL_1A5B_186:
-	jp   p, _LABEL_1A62_187
+_LABEL_1A65_174:
+	jp   p, _LABEL_1A6C_175
 	ld   a, $0F
-	jr   _LABEL_1A67_188
+	jr   _LABEL_1A71_176
 
-_LABEL_1A62_187:
+_LABEL_1A6C_175:
 	ld   a, c
 	ld   hl, $C1FC
 	add  a, (hl)
-_LABEL_1A67_188:
+_LABEL_1A71_176:
 	or   $D0
 	out  ($7F), a
-	jr   _LABEL_1A71_189
+	jr   _LABEL_1A7B_177
 
-_LABEL_1A6D_185:
+_LABEL_1A77_173:
 	ld   a, $DF
 	out  ($7F), a
-_LABEL_1A71_189:
+_LABEL_1A7B_177:
 	ld   hl, $C300
 	ld   (hl), $00
-_LABEL_1A76_184:
+_LABEL_1A80_172:
 	ld   a, ($C301)
 	or   a
-	jr   z, _LABEL_1ABD_190
+	jr   z, _LABEL_1AC7_178
 	ld   a, ($C2FF)
 	or   a
-	jr   z, _LABEL_1AB4_191
+	jr   z, _LABEL_1ABE_179
 	ld   a, ($C205)
 	and  $0F
 	or   $E0
@@ -2046,200 +1936,200 @@ _LABEL_1A76_184:
 	cp   l
 	ld   a, $00
 	sbc  a, h
-	jp   po, _LABEL_1AA2_192
+	jp   po, _LABEL_1AAC_180
 	xor  $80
-_LABEL_1AA2_192:
-	jp   p, _LABEL_1AA9_193
+_LABEL_1AAC_180:
+	jp   p, _LABEL_1AB3_181
 	ld   a, $0F
-	jr   _LABEL_1AAE_194
+	jr   _LABEL_1AB8_182
 
-_LABEL_1AA9_193:
+_LABEL_1AB3_181:
 	ld   a, c
 	ld   hl, $C1FC
 	add  a, (hl)
-_LABEL_1AAE_194:
+_LABEL_1AB8_182:
 	or   $F0
 	out  ($7F), a
-	jr   _LABEL_1AB8_195
+	jr   _LABEL_1AC2_183
 
-_LABEL_1AB4_191:
+_LABEL_1ABE_179:
 	ld   a, $FF
 	out  ($7F), a
-_LABEL_1AB8_195:
+_LABEL_1AC2_183:
 	ld   hl, $C301
 	ld   (hl), $00
-_LABEL_1ABD_190:
+_LABEL_1AC7_178:
 	ld   hl, $C302
 	ld   (hl), $00
-_LABEL_1AC2_183:
+_LABEL_1ACC_171:
 	ld   sp, ix
 	pop  ix
 	ret
 
 
-; Data from 1AC7 to 1B3B (117 bytes)
-.db $CD, $0E, $1A, $21, $10, $C2, $36, $00, $D1, $C1, $C5, $D5, $ED, $43, $09, $C2
+; Data from 1AD1 to 1B45 (117 bytes)
+.db $CD, $18, $1A, $21, $10, $C2, $36, $00, $D1, $C1, $C5, $D5, $ED, $43, $09, $C2
 .db $ED, $43, $0B, $C2, $ED, $43, $0D, $C2, $21, $0F, $C2, $36, $00, $21, $11, $C2
 .db $36, $00, $21, $04, $00, $39, $7E, $0F, $30, $04, $0E, $01, $18, $02, $0E, $00
 .db $21, $00, $C3, $71, $21, $04, $00, $39, $7E, $E6, $02, $28, $04, $0E, $01, $18
 .db $02, $0E, $00, $21, $01, $C3, $71, $21, $02, $C3, $36, $01, $C9, $21, $10, $C2
 .db $36, $00, $C9, $FD, $21, $02, $C3, $FD, $6E, $00, $C9, $21, $04, $00, $39, $7E
-.db $F5, $33, $21, $03, $00, $39, $4E, $23, $46, $C5, $CD, $C7, $1A, $F1, $33, $21
+.db $F5, $33, $21, $03, $00, $39, $4E, $23, $46, $C5, $CD, $D1, $1A, $F1, $33, $21
 .db $10, $C2, $36, $01, $C9
 
-_LABEL_1B3C_144:
+_LABEL_1B46_132:
 	ld   a, ($C2FF)
 	or   a
 	ret  z
 
 	ld   a, ($C1F9)
 	or   a
-	jp   nz, _LABEL_1BD0_145
+	jp   nz, _LABEL_1BDA_133
 	ld   hl, ($C1F5)
-_LABEL_1B4B_151:
+_LABEL_1B55_139:
 	ld   b, (hl)
 	inc  hl
 	ld   a, ($C1FD)
 	or   a
-	jr   z, _LABEL_1B5C_146
+	jr   z, _LABEL_1B66_134
 	dec  a
 	ld   ($C1FD), a
-	jr   nz, _LABEL_1B5C_146
+	jr   nz, _LABEL_1B66_134
 	ld   hl, ($C1FE)
-_LABEL_1B5C_146:
+_LABEL_1B66_134:
 	ld   a, b
 	cp   $80
-	jr   c, _LABEL_1BD5_147
+	jr   c, _LABEL_1BDF_135
 	ld   ($C1FB), a
 	bit  4, a
-	jr   nz, _LABEL_1BA0_148
+	jr   nz, _LABEL_1BAA_136
 	bit  6, a
-	jp   z, _LABEL_1BFC_149
+	jp   z, _LABEL_1C06_137
 	bit  5, a
-	jr   z, _LABEL_1B94_150
+	jr   z, _LABEL_1B9E_138
 	ld   ($C205), a
 	ld   a, ($C301)
 	or   a
-	jp   nz, _LABEL_1B4B_151
+	jp   nz, _LABEL_1B55_139
 	ld   a, ($C205)
 	and  $03
 	cp   $03
-	jr   nz, _LABEL_1BFB_152
+	jr   nz, _LABEL_1C05_140
 	ld   a, ($C302)
 	or   a
-	jr   z, _LABEL_1BFB_152
+	jr   z, _LABEL_1C05_140
 	ld   ($C301), a
 	ld   a, $FF
 	out  ($7F), a
-	jp   _LABEL_1B4B_151
+	jp   _LABEL_1B55_139
 
-_LABEL_1B94_150:
+_LABEL_1B9E_138:
 	ld   ($C204), a
 	ld   a, ($C300)
 	or   a
-	jr   z, _LABEL_1BFB_152
-	jp   _LABEL_1B4B_151
+	jr   z, _LABEL_1C05_140
+	jp   _LABEL_1B55_139
 
-_LABEL_1BA0_148:
+_LABEL_1BAA_136:
 	bit  6, a
-	jr   nz, _LABEL_1BB4_153
+	jr   nz, _LABEL_1BBE_141
 	bit  5, a
-	jr   z, _LABEL_1BAE_154
+	jr   z, _LABEL_1BB8_142
 	ld   ($C201), a
-	jp   _LABEL_1C02_155
+	jp   _LABEL_1C0C_143
 
-_LABEL_1BAE_154:
+_LABEL_1BB8_142:
 	ld   ($C200), a
-	jp   _LABEL_1C02_155
+	jp   _LABEL_1C0C_143
 
-_LABEL_1BB4_153:
+_LABEL_1BBE_141:
 	bit  5, a
-	jr   z, _LABEL_1BC4_157
+	jr   z, _LABEL_1BCE_145
 	ld   ($C203), a
 	ld   a, ($C301)
 	or   a
-	jr   z, _LABEL_1C01_158
-	jp   _LABEL_1B4B_151
+	jr   z, _LABEL_1C0B_146
+	jp   _LABEL_1B55_139
 
-_LABEL_1BC4_157:
+_LABEL_1BCE_145:
 	ld   ($C202), a
 	ld   a, ($C300)
 	or   a
-	jr   z, _LABEL_1C01_158
-	jp   _LABEL_1B4B_151
+	jr   z, _LABEL_1C0B_146
+	jp   _LABEL_1B55_139
 
-_LABEL_1BD0_145:
+_LABEL_1BDA_133:
 	dec  a
 	ld   ($C1F9), a
 	ret
 
-_LABEL_1BD5_147:
+_LABEL_1BDF_135:
 	cp   $40
-	jr   c, _LABEL_1BDF_159
+	jr   c, _LABEL_1BE9_147
 	ld   a, ($C1FB)
-	jp   _LABEL_1C1A_160
+	jp   _LABEL_1C24_148
 
-_LABEL_1BDF_159:
+_LABEL_1BE9_147:
 	cp   $38
-	jr   z, _LABEL_1BEA_162
-	jr   c, _LABEL_1BEE_163
+	jr   z, _LABEL_1BF4_150
+	jr   c, _LABEL_1BF8_151
 	and  $07
 	ld   ($C1F9), a
-_LABEL_1BEA_162:
+_LABEL_1BF4_150:
 	ld   ($C1F5), hl
 	ret
 
-_LABEL_1BEE_163:
+_LABEL_1BF8_151:
 	cp   $08
-	jr   nc, _LABEL_1C34_164
+	jr   nc, _LABEL_1C3E_152
 	cp   $00
-	jr   z, _LABEL_1C27_165
+	jr   z, _LABEL_1C31_153
 	cp   $01
-	jr   z, _LABEL_1C21_166
+	jr   z, _LABEL_1C2B_154
 	ret
 
-_LABEL_1BFB_152:
+_LABEL_1C05_140:
 	ld   a, b
-_LABEL_1BFC_149:
+_LABEL_1C06_137:
 	out  ($7F), a
-	jp   _LABEL_1B4B_151
+	jp   _LABEL_1B55_139
 
-_LABEL_1C01_158:
+_LABEL_1C0B_146:
 	ld   a, b
-_LABEL_1C02_155:
+_LABEL_1C0C_143:
 	ld   c, a
 	and  $0F
 	ld   b, a
 	ld   a, ($C1FC)
 	add  a, b
 	cp   $0F
-	jr   c, _LABEL_1C10_156
+	jr   c, _LABEL_1C1A_144
 	ld   a, $0F
-_LABEL_1C10_156:
+_LABEL_1C1A_144:
 	ld   b, a
 	ld   a, c
 	and  $F0
 	or   b
 	out  ($7F), a
-	jp   _LABEL_1B4B_151
+	jp   _LABEL_1B55_139
 
-_LABEL_1C1A_160:
+_LABEL_1C24_148:
 	bit  6, a
-	jr   nz, _LABEL_1C47_161
-	jp   _LABEL_1BFB_152
+	jr   nz, _LABEL_1C51_149
+	jp   _LABEL_1C05_140
 
-_LABEL_1C21_166:
+_LABEL_1C2B_154:
 	ld   ($C1F7), hl
-	jp   _LABEL_1B4B_151
+	jp   _LABEL_1B55_139
 
-_LABEL_1C27_165:
+_LABEL_1C31_153:
 	ld   a, ($C1FA)
 	or   a
-	jp   z, _LABEL_17F6_167
+	jp   z, _LABEL_1800_155
 	ld   hl, ($C1F7)
-	jp   _LABEL_1B4B_151
+	jp   _LABEL_1B55_139
 
-_LABEL_1C34_164:
+_LABEL_1C3E_152:
 	sub  $04
 	ld   ($C1FD), a
 	ld   c, (hl)
@@ -2249,93 +2139,93 @@ _LABEL_1C34_164:
 	ld   ($C1FE), hl
 	ld   hl, ($C1F3)
 	add  hl, bc
-	jp   _LABEL_1B4B_151
+	jp   _LABEL_1B55_139
 
-_LABEL_1C47_161:
+_LABEL_1C51_149:
 	ld   a, b
 	ld   ($C206), a
 	ld   a, ($C300)
 	or   a
-	jr   z, _LABEL_1BFB_152
-	jp   _LABEL_1B4B_151
+	jr   z, _LABEL_1C05_140
+	jp   _LABEL_1B55_139
 
 
-; Data from 1C54 to 1C54 (1 bytes)
+; Data from 1C5E to 1C5E (1 bytes)
 .db $C9
 
-_LABEL_1C55_170:
+_LABEL_1C5F_158:
 	ld   a, ($C302)
 	or   a
 	ret  z
 
 	ld   a, ($C20F)
 	or   a
-	jp   nz, _LABEL_1C90_171
+	jp   nz, _LABEL_1C9A_159
 	ld   hl, ($C20B)
-_LABEL_1C64_176:
+_LABEL_1C6E_164:
 	ld   b, (hl)
 	inc  hl
 	ld   a, ($C211)
 	or   a
-	jr   z, _LABEL_1C75_172
+	jr   z, _LABEL_1C7F_160
 	dec  a
 	ld   ($C211), a
-	jr   nz, _LABEL_1C75_172
+	jr   nz, _LABEL_1C7F_160
 	ld   hl, ($C212)
-_LABEL_1C75_172:
+_LABEL_1C7F_160:
 	ld   a, b
 	cp   $40
-	jp   c, _LABEL_1C95_173
+	jp   c, _LABEL_1C9F_161
 	bit  4, a
-	jr   z, _LABEL_1C8B_174
+	jr   z, _LABEL_1C95_162
 	bit  5, a
-	jr   nz, _LABEL_1C88_175
+	jr   nz, _LABEL_1C92_163
 	ld   ($C207), a
-	jr   _LABEL_1C8B_174
+	jr   _LABEL_1C95_162
 
-_LABEL_1C88_175:
+_LABEL_1C92_163:
 	ld   ($C208), a
-_LABEL_1C8B_174:
+_LABEL_1C95_162:
 	out  ($7F), a
-	jp   _LABEL_1C64_176
+	jp   _LABEL_1C6E_164
 
-_LABEL_1C90_171:
+_LABEL_1C9A_159:
 	dec  a
 	ld   ($C20F), a
 	ret
 
-_LABEL_1C95_173:
+_LABEL_1C9F_161:
 	cp   $38
-	jr   z, _LABEL_1CA0_177
-	jr   c, _LABEL_1CA4_178
+	jr   z, _LABEL_1CAA_165
+	jr   c, _LABEL_1CAE_166
 	and  $07
 	ld   ($C20F), a
-_LABEL_1CA0_177:
+_LABEL_1CAA_165:
 	ld   ($C20B), hl
 	ret
 
-_LABEL_1CA4_178:
+_LABEL_1CAE_166:
 	cp   $08
-	jr   nc, _LABEL_1CC7_179
+	jr   nc, _LABEL_1CD1_167
 	cp   $00
-	jr   z, _LABEL_1CB7_180
+	jr   z, _LABEL_1CC1_168
 	cp   $01
-	jr   z, _LABEL_1CB1_181
+	jr   z, _LABEL_1CBB_169
 	ret
 
-_LABEL_1CB1_181:
+_LABEL_1CBB_169:
 	ld   ($C20D), hl
-	jp   _LABEL_1C64_176
+	jp   _LABEL_1C6E_164
 
-_LABEL_1CB7_180:
+_LABEL_1CC1_168:
 	ld   a, ($C210)
 	or   a
-	jp   z, _LABEL_1A0E_182
+	jp   z, _LABEL_1A18_170
 	ld   hl, ($C20D)
 	ld   ($C20B), hl
-	jp   _LABEL_1C64_176
+	jp   _LABEL_1C6E_164
 
-_LABEL_1CC7_179:
+_LABEL_1CD1_167:
 	sub  $04
 	ld   ($C211), a
 	ld   c, (hl)
@@ -2345,73 +2235,20 @@ _LABEL_1CC7_179:
 	ld   ($C212), hl
 	ld   hl, ($C209)
 	add  hl, bc
-	jp   _LABEL_1C64_176
+	jp   _LABEL_1C6E_164
 
 
-; Data from 1CDA to 3341 (5736 bytes)
+; Data from 1CE4 to 338C (5801 bytes)
 .incbin "output.sms.dat.7"
 
-_LABEL_3342_132:
-	pop  af
-	pop  hl
-	pop  de
-	push de
-	push hl
-	push af
-	jr   _LABEL_3354_133
-
-
-; Data from 334A to 3353 (10 bytes)
-.db $21, $03, $00, $39, $5E, $2B, $6E, $26, $00, $54
-
-_LABEL_3354_133:
-	ld   a, e
-	and  $80
-	or   d
-	jr   nz, _LABEL_336A_134
-	ld   b, $10
-	adc  hl, hl
-_LABEL_335E_136:
-	rla
-	sub  e
-	jr   nc, _LABEL_3363_135
-	add  a, e
-_LABEL_3363_135:
-	ccf
-	adc  hl, hl
-	djnz _LABEL_335E_136
-	ld   e, a
-	ret
-
-_LABEL_336A_134:
-	ld   b, $09
-	ld   a, l
-	ld   l, h
-	ld   h, $00
-	rr   l
-_LABEL_3372_138:
-	adc  hl, hl
-	sbc  hl, de
-	jr   nc, _LABEL_3379_137
-	add  hl, de
-_LABEL_3379_137:
-	ccf
-	rla
-	djnz _LABEL_3372_138
-	rl   b
-	ld   d, b
-	ld   e, a
-	ex   de, hl
-	ret
-
-_LABEL_3383_6:
+_LABEL_338D_6:
 	ld   hl, $0000
 	push hl
-	call _LABEL_34A5_7
+	call _LABEL_34AF_7
 	pop  af
 	ld   c, $00
-_LABEL_338D_14:
-	ld   hl, $33D7
+_LABEL_3397_14:
+	ld   hl, $33E1
 	ld   b, $00
 	add  hl, bc
 	ld   b, (hl)
@@ -2425,45 +2262,45 @@ _LABEL_338D_14:
 	inc  c
 	ld   a, c
 	sub  $0B
-	jr   c, _LABEL_338D_14
-	call _LABEL_34E5_15
-	call _LABEL_3540_16
-	call _LABEL_3552_17
-	call _LABEL_35E5_20
-_LABEL_33B0_21:
+	jr   c, _LABEL_3397_14
+	call _LABEL_34EF_15
+	call _LABEL_354A_16
+	call _LABEL_355C_17
+	call _LABEL_35EF_20
+_LABEL_33BA_21:
 	in   a, ($7E)
 	ld   b, a
 	ld   a, $80
 	sub  b
-	jr   c, _LABEL_33B0_21
-_LABEL_33B8_22:
+	jr   c, _LABEL_33BA_21
+_LABEL_33C2_22:
 	in   a, ($7E)
 	sub  $80
-	jr   c, _LABEL_33B8_22
-_LABEL_33BE_23:
+	jr   c, _LABEL_33C2_22
+_LABEL_33C8_23:
 	in   a, ($7E)
 	ld   c, a
 	in   a, ($7E)
 	sub  c
-	jr   nc, _LABEL_33BE_23
+	jr   nc, _LABEL_33C8_23
 	ld   a, c
 	sub  $E7
-	jr   c, _LABEL_33D1_24
+	jr   c, _LABEL_33DB_24
 	ld   hl, $C217
 	ld   (hl), $80
 	ret
 
-_LABEL_33D1_24:
+_LABEL_33DB_24:
 	ld   hl, $C217
 	ld   (hl), $40
 	ret
 
 
-; Data from 33D7 to 33E9 (19 bytes)
+; Data from 33E1 to 33F3 (19 bytes)
 .db $04, $20, $FF, $FF, $FF, $FF, $FF, $00, $00, $00, $FF, $FD, $21, $17, $C2, $FD
 .db $6E, $00, $C9
 
-_LABEL_33EA_28:
+_LABEL_33F4_28:
 	ld   c, l
 	ld   e, h
 	ld   d, $00
@@ -2482,7 +2319,7 @@ _LABEL_33EA_28:
 	ei
 	ret
 
-_LABEL_3401_31:
+_LABEL_340B_31:
 	ld   a, l
 	ld   e, h
 	cpl
@@ -2504,19 +2341,19 @@ _LABEL_3401_31:
 	ret
 
 
-; Data from 341A to 3437 (30 bytes)
+; Data from 3424 to 3441 (30 bytes)
 .db $F3, "}", $D3, $BF, ">", $88, $D3, $BF, $FB, $C9, $F3, "}", $D3, $BF, ">", $89, $D3
 .db $BF, $FB, $C9, $F3, "}", $D3, $BF, ">", $87, $D3, $BF, $FB, $C9
 
-_LABEL_3438_32:
+_LABEL_3442_32:
 	bit  0, l
-	jr   z, _LABEL_3440_33
+	jr   z, _LABEL_344A_33
 	ld   c, $FB
-	jr   _LABEL_3442_34
+	jr   _LABEL_344C_34
 
-_LABEL_3440_33:
+_LABEL_344A_33:
 	ld   c, $FF
-_LABEL_3442_34:
+_LABEL_344C_34:
 	di
 	ld   a, c
 	out  ($BF), a
@@ -2525,49 +2362,49 @@ _LABEL_3442_34:
 	ei
 	ret
 
-_LABEL_344C_26:
+_LABEL_3456_26:
 	ld   c, l
 	bit  0, c
-	jr   z, _LABEL_3460_27
+	jr   z, _LABEL_346A_27
 	push bc
 	ld   hl, $0102
-	call _LABEL_33EA_28
+	call _LABEL_33F4_28
 	pop  bc
 	ld   hl, $C305
 	ld   (hl), $10
-	jr   _LABEL_346D_29
+	jr   _LABEL_3477_29
 
-_LABEL_3460_27:
+_LABEL_346A_27:
 	push bc
 	ld   hl, $0102
-	call _LABEL_3401_31
+	call _LABEL_340B_31
 	pop  bc
 	ld   hl, $C305
 	ld   (hl), $08
-_LABEL_346D_29:
+_LABEL_3477_29:
 	bit  1, c
-	jr   z, _LABEL_3485_30
+	jr   z, _LABEL_348F_30
 	ld   hl, $0101
-	call _LABEL_33EA_28
+	call _LABEL_33F4_28
 	ld   hl, $C306
 	ld   (hl), $10
 	ld   iy, $C305
 	sla  (iy+0)
 	ret
 
-_LABEL_3485_30:
+_LABEL_348F_30:
 	ld   hl, $0101
-	call _LABEL_3401_31
+	call _LABEL_340B_31
 	ld   hl, $C306
 	ld   (hl), $08
 	ret
 
 
-; Data from 3491 to 34A4 (20 bytes)
+; Data from 349B to 34AE (20 bytes)
 .db $21, $02, $00, $39, $4E, $06, $00, $21, $00, $C0, $09, $CF, $21, $03, $00, $39
 .db $7E, $D3, $BE, $C9
 
-_LABEL_34A5_7:
+_LABEL_34AF_7:
 	ld   hl, $0002
 	add  hl, sp
 	ld   c, (hl)
@@ -2581,7 +2418,7 @@ _LABEL_34A5_7:
 	out  ($BE), a
 	ret
 
-_LABEL_34B9_90:
+_LABEL_34C3_90:
 	ld   de, $C000
 	ld   c, $BF
 	di
@@ -2590,23 +2427,23 @@ _LABEL_34B9_90:
 	ei
 	ld   b, $10
 	ld   c, $BE
-_LABEL_34C8_91:
+_LABEL_34D2_91:
 	outi
-	jr   nz, _LABEL_34C8_91
+	jr   nz, _LABEL_34D2_91
 	ret
 
 
-; Data from 34CD to 34E4 (24 bytes)
+; Data from 34D7 to 34EE (24 bytes)
 .db $11, $10, $C0, $0E, $BF, $F3, $ED, $59, $ED, $51, $FB, $06, $10, $0E, $BE, $ED
 .db $A3, $20, $FC, $C9, $7D, $D3, $BE, $C9
 
-_LABEL_34E5_15:
+_LABEL_34EF_15:
 	ld   hl, $C2DC
 	ld   (hl), $00
 	ret
 
 
-; Data from 34EB to 353F (85 bytes)
+; Data from 34F5 to 3549 (85 bytes)
 .db $3A, $DC, $C2, $D6, $40, $30, $4B, $FD, $21, $03, $00, $FD, $39, $FD, $7E, $00
 .db $D6, $D1, $28, $3E, $3E, $1C, $21, $DC, $C2, $86, $4F, $3E, $C2, $CE, $00, $47
 .db $FD, $5E, $00, $1D, $7B, $02, $3A, $DC, $C2, $87, $4F, $21, $5C, $C2, $06, $00
@@ -2614,7 +2451,7 @@ _LABEL_34E5_15:
 .db $FD, $39, $FD, $7E, $00, $77, $FD, $21, $DC, $C2, $FD, $4E, $00, $FD, $34, $00
 .db $69, $C9, $2E, $FF, $C9
 
-_LABEL_3540_16:
+_LABEL_354A_16:
 	ld   a, ($C2DC)
 	sub  $40
 	ret  nc
@@ -2626,12 +2463,12 @@ _LABEL_3540_16:
 	ld   (hl), $D0
 	ret
 
-_LABEL_3552_17:
+_LABEL_355C_17:
 	ld   hl, $7F00
 	rst  $8
 	ld   bc, $C21C
 	ld   e, $40
-_LABEL_355B_18:
+_LABEL_3565_18:
 	ld   a, (bc)
 	out  ($BE), a
 	inc  bc
@@ -2640,12 +2477,12 @@ _LABEL_355B_18:
 	ld   a, d
 	ld   e, a
 	or   a
-	jr   nz, _LABEL_355B_18
+	jr   nz, _LABEL_3565_18
 	ld   hl, $7F80
 	rst  $8
 	ld   bc, $C25C
 	ld   e, $80
-_LABEL_356F_19:
+_LABEL_3579_19:
 	ld   a, (bc)
 	out  ($BE), a
 	inc  bc
@@ -2654,24 +2491,24 @@ _LABEL_356F_19:
 	ld   a, d
 	ld   e, a
 	or   a
-	jr   nz, _LABEL_356F_19
+	jr   nz, _LABEL_3579_19
 	ret
 
-_LABEL_357B_142:
+_LABEL_3585_130:
 	ld   hl, $C214
 	ld   (hl), $00
-_LABEL_3580_143:
+_LABEL_358A_131:
 	ld   hl, $C214
 	bit  0, (hl)
-	jr   z, _LABEL_3580_143
+	jr   z, _LABEL_358A_131
 	ret
 
-_LABEL_3588_127:
+_LABEL_3592_127:
 	ld   hl, ($C218)
 	ret
 
 
-; Data from 358C to 35DC (81 bytes)
+; Data from 3596 to 35E6 (81 bytes)
 .db $FD, $21, $1A, $C2, $FD, $7E, $00, $2F, $4F, $FD, $7E, $01, $2F, $47, $FD, $21
 .db $18, $C2, $FD, $7E, $00, $A1, $6F, $FD, $7E, $01, $A0, $67, $C9, $3A, $18, $C2
 .db $FD, $21, $1A, $C2, $FD, $A6, $00, $6F, $3A, $19, $C2, $FD, $21, $1A, $C2, $FD
@@ -2679,29 +2516,29 @@ _LABEL_3588_127:
 .db $2F, $47, $79, $FD, $21, $1A, $C2, $FD, $A6, $00, $6F, $78, $FD, $A6, $01, $67
 .db $C9
 
-_LABEL_35DD_98:
+_LABEL_35E7_98:
 	ld   iy, $C216
 	ld   l, (iy+0)
 	ret
 
-_LABEL_35E5_20:
+_LABEL_35EF_20:
 	ld   hl, $C216
 	ld   (hl), $00
 	ret
 
 
-; Data from 35EB to 3612 (40 bytes)
+; Data from 35F5 to 361C (40 bytes)
 .db $21, $02, $00, $39, $7E, $32, $DD, $C2, $21, $03, $00, $39, $7E, $32, $DE, $C2
 .db $C9, $21, $02, $00, $39, $4E, $F3, $79, $D3, $BF, $3E, $8A, $D3, $BF, $FB, $C9
 .db $DB, $7E, $6F, $C9, $DB, $7F, $6F, $C9
 
-_LABEL_3613_10:
+_LABEL_361D_10:
 	push af
 	push hl
 	in   a, ($BF)
 	ld   ($C215), a
 	rlca
-	jr   nc, _LABEL_3636_11
+	jr   nc, _LABEL_3640_11
 	ld   hl, $C214
 	ld   (hl), $01
 	ld   hl, ($C218)
@@ -2714,24 +2551,24 @@ _LABEL_3613_10:
 	cpl
 	inc  hl
 	ld   (hl), a
-	jr   _LABEL_3644_12
+	jr   _LABEL_364E_12
 
-_LABEL_3636_11:
+_LABEL_3640_11:
 	push bc
 	push de
 	push iy
 	ld   hl, ($C2DD)
-	call _LABEL_38AA_13
+	call _LABEL_38B4_13
 	pop  iy
 	pop  de
 	pop  bc
-_LABEL_3644_12:
+_LABEL_364E_12:
 	pop  hl
 	pop  af
 	ei
 	reti
 
-_LABEL_3649_197:
+_LABEL_3653_185:
 	push af
 	push bc
 	push de
@@ -2747,16 +2584,16 @@ _LABEL_3649_197:
 	retn
 
 
-; Data from 365C to 36C8 (109 bytes)
+; Data from 3666 to 36D2 (109 bytes)
 .db $2A, $09, $C3, $E5, $2A, $07, $C3, $E5, $21, $C6, $41, $E5, $21, $6D, $4E, $E5
-.db $CD, $1F, $3A, $F1, $F1, $F1, $F1, $4D, $44, $79, $21, $07, $C3, $C6, $39, $77
+.db $CD, $29, $3A, $F1, $F1, $F1, $F1, $4D, $44, $79, $21, $07, $C3, $C6, $39, $77
 .db $78, $CE, $30, $23, $77, $7B, $CE, $00, $23, $77, $7A, $CE, $00, $23, $77, $F5
 .db $FD, $21, $07, $C3, $FD, $6E, $00, $FD, $66, $01, $FD, $5E, $02, $FD, $56, $03
 .db $F1, $06, $10, $CB, $3A, $CB, $1B, $CB, $1C, $CB, $1D, $10, $F6, $CB, $BC, $C9
 .db $21, $02, $00, $39, $7E, $32, $07, $C3, $21, $03, $00, $39, $7E, $FD, $21, $07
 .db $C3, $FD, $77, $01, $FD, $36, $02, $00, $FD, $36, $03, $00, $C9
 
-_LABEL_36C9_72:
+_LABEL_36D3_72:
 	push ix
 	ld   ix, $0000
 	add  ix, sp
@@ -2797,7 +2634,7 @@ _LABEL_36C9_72:
 	ld   l, e
 	ld   h, d
 	rst  $8
-_LABEL_372A_81:
+_LABEL_3734_81:
 	ld   l, (ix+6)
 	ld   h, (ix+7)
 	ld   a, (hl)
@@ -2818,7 +2655,7 @@ _LABEL_372A_81:
 	and  $3F
 	ld   (ix+248), a
 	bit  0, (ix+242)
-	jp   z, _LABEL_3802_73
+	jp   z, _LABEL_380C_73
 	ld   (ix+246), $00
 	ld   a, (ix+255)
 	ld   (ix+247), a
@@ -2840,16 +2677,16 @@ _LABEL_372A_81:
 	ld   h, a
 	ld   a, (ix+249)
 	or   a
-	jr   z, _LABEL_37CE_74
+	jr   z, _LABEL_37D8_74
 	ld   (ix+6), c
 	ld   (ix+7), b
 	ld   c, l
 	ld   b, h
 	ld   l, (ix+245)
-_LABEL_379D_79:
+_LABEL_37A7_79:
 	ld   a, l
 	or   a
-	jp   z, _LABEL_387B_75
+	jp   z, _LABEL_3885_75
 	push hl
 	ld   l, c
 	ld   h, b
@@ -2858,7 +2695,7 @@ _LABEL_379D_79:
 	dec  (ix+241)
 	ld   a, (ix+241)
 	or   a
-	jr   nz, _LABEL_37C5_77
+	jr   nz, _LABEL_37CF_77
 	ld   a, e
 	add  a, $40
 	ld   e, a
@@ -2874,32 +2711,32 @@ _LABEL_379D_79:
 	pop  hl
 	ld   a, (ix+250)
 	ld   (ix+241), a
-_LABEL_37C5_77:
+_LABEL_37CF_77:
 	ld   a, $01
 	sub  l
-	jr   nc, _LABEL_37CB_78
+	jr   nc, _LABEL_37D5_78
 	inc  bc
-_LABEL_37CB_78:
+_LABEL_37D5_78:
 	dec  l
-	jr   _LABEL_379D_79
+	jr   _LABEL_37A7_79
 
-_LABEL_37CE_74:
+_LABEL_37D8_74:
 	ld   (ix+6), c
 	ld   (ix+7), b
 	ld   (ix+254), l
 	ld   (ix+255), h
 	ld   b, (ix+245)
-_LABEL_37DD_83:
+_LABEL_37E7_83:
 	ld   a, b
 	or   a
-	jp   z, _LABEL_388B_80
+	jp   z, _LABEL_3895_80
 	ld   l, (ix+254)
 	ld   h, (ix+255)
 	rst  $18
 	dec  (ix+241)
 	ld   a, (ix+241)
 	or   a
-	jr   nz, _LABEL_37FF_82
+	jr   nz, _LABEL_3809_82
 	ld   hl, $0040
 	add  hl, de
 	ld   e, l
@@ -2907,45 +2744,45 @@ _LABEL_37DD_83:
 	rst  $8
 	ld   a, (ix+250)
 	ld   (ix+241), a
-_LABEL_37FF_82:
+_LABEL_3809_82:
 	dec  b
-	jr   _LABEL_37DD_83
+	jr   _LABEL_37E7_83
 
-_LABEL_3802_73:
+_LABEL_380C_73:
 	ld   a, (ix+249)
 	or   a
-	jr   z, _LABEL_3831_84
+	jr   z, _LABEL_383B_84
 	bit  2, (ix+242)
-	jr   z, _LABEL_381E_85
+	jr   z, _LABEL_3828_85
 	ld   a, (ix+254)
 	ld   (ix+243), a
 	ld   a, (ix+255)
 	ld   (ix+244), a
 	ld   (ix+240), $01
-_LABEL_381E_85:
+_LABEL_3828_85:
 	ld   c, (ix+242)
 	srl  c
 	srl  c
 	srl  c
 	ld   (ix+255), c
 	ld   (ix+254), $00
-	jp   _LABEL_372A_81
+	jp   _LABEL_3734_81
 
-_LABEL_3831_84:
+_LABEL_383B_84:
 	ld   l, (ix+248)
 	ld   a, l
 	or   a
-	jr   z, _LABEL_38A5_86
+	jr   z, _LABEL_38AF_86
 	ld   a, (ix+255)
 	ld   (ix+246), a
 	ld   (ix+247), $00
 	ld   c, (ix+252)
 	ld   b, (ix+253)
 	ld   (ix+245), l
-_LABEL_384B_89:
+_LABEL_3855_89:
 	ld   a, (ix+245)
 	or   a
-	jr   z, _LABEL_3885_87
+	jr   z, _LABEL_388F_87
 	ld   a, (bc)
 	out  ($BE), a
 	inc  bc
@@ -2957,7 +2794,7 @@ _LABEL_384B_89:
 	dec  (ix+241)
 	ld   a, (ix+241)
 	or   a
-	jr   nz, _LABEL_3876_88
+	jr   nz, _LABEL_3880_88
 	ld   hl, $0040
 	add  hl, de
 	ex   de, hl
@@ -2968,41 +2805,41 @@ _LABEL_384B_89:
 	pop  bc
 	ld   a, (ix+250)
 	ld   (ix+241), a
-_LABEL_3876_88:
+_LABEL_3880_88:
 	dec  (ix+245)
-	jr   _LABEL_384B_89
+	jr   _LABEL_3855_89
 
-_LABEL_387B_75:
+_LABEL_3885_75:
 	ld   (ix+254), c
 	ld   (ix+255), b
-	jr   _LABEL_388B_80
+	jr   _LABEL_3895_80
 
 
-; Data from 3883 to 3884 (2 bytes)
+; Data from 388D to 388E (2 bytes)
 .db $18, $06
 
-_LABEL_3885_87:
+_LABEL_388F_87:
 	ld   (ix+6), c
 	ld   (ix+7), b
-_LABEL_388B_80:
+_LABEL_3895_80:
 	bit  0, (ix+240)
-	jp   z, _LABEL_372A_81
+	jp   z, _LABEL_3734_81
 	ld   a, (ix+243)
 	ld   (ix+254), a
 	ld   a, (ix+244)
 	ld   (ix+255), a
 	ld   (ix+240), $00
-	jp   _LABEL_372A_81
+	jp   _LABEL_3734_81
 
-_LABEL_38A5_86:
+_LABEL_38AF_86:
 	ld   sp, ix
 	pop  ix
 	ret
 
-_LABEL_38AA_13:
+_LABEL_38B4_13:
 	jp   (hl)
 
-_LABEL_38AB_53:
+_LABEL_38B5_53:
 	ld   iy, $0004
 	add  iy, sp
 	ld   l, (iy+0)
@@ -3022,17 +2859,17 @@ _LABEL_38AB_53:
 	inc  ix
 	ld   b, (ix+0)
 	inc  ix
-_LABEL_38CF_68:
+_LABEL_38D9_68:
 	push bc
 	ld   b, $04
 	ld   de, $C2DF
 	ld   c, (ix+0)
 	inc  ix
-_LABEL_38DA_65:
+_LABEL_38E4_65:
 	rlc  c
-	jr   nc, _LABEL_3921_54
+	jr   nc, _LABEL_392B_54
 	rlc  c
-	jr   c, _LABEL_391D_55
+	jr   c, _LABEL_3927_55
 	ld   a, (ix+0)
 	inc  ix
 	ex   de, hl
@@ -3048,142 +2885,128 @@ _LABEL_38DA_65:
 	add  iy, de
 	ex   de, hl
 	cp   $03
-	jr   c, _LABEL_393B_56
+	jr   c, _LABEL_3945_56
 	cp   $10
-	jr   c, _LABEL_3915_57
+	jr   c, _LABEL_391F_57
 	cp   $13
-	jr   c, _LABEL_3940_58
+	jr   c, _LABEL_394A_58
 	cp   $20
-	jr   c, _LABEL_3915_57
+	jr   c, _LABEL_391F_57
 	cp   $23
-	jr   c, _LABEL_3945_59
+	jr   c, _LABEL_394F_59
 	cp   $40
-	jr   c, _LABEL_3915_57
+	jr   c, _LABEL_391F_57
 	cp   $43
-	jr   c, _LABEL_394E_60
-_LABEL_3915_57:
+	jr   c, _LABEL_3958_60
+_LABEL_391F_57:
 	ld   h, a
 	ld   l, (ix+0)
 	inc  ix
-	jr   _LABEL_3927_61
+	jr   _LABEL_3931_61
 
-_LABEL_391D_55:
+_LABEL_3927_55:
 	ld   h, $00
-	jr   _LABEL_3927_61
+	jr   _LABEL_3931_61
 
-_LABEL_3921_54:
+_LABEL_392B_54:
 	rlc  c
 	sbc  a, a
 	ld   l, a
 	ld   h, $FF
-_LABEL_3927_61:
+_LABEL_3931_61:
 	push bc
 	ld   b, $08
-_LABEL_392A_63:
+_LABEL_3934_63:
 	ld   a, l
 	rlc  h
-	jr   c, _LABEL_3934_62
+	jr   c, _LABEL_393E_62
 	ld   a, (ix+0)
 	inc  ix
-_LABEL_3934_62:
+_LABEL_393E_62:
 	ld   (de), a
 	inc  de
-	djnz _LABEL_392A_63
+	djnz _LABEL_3934_63
 	pop  bc
-	jr   _LABEL_396C_64
+	jr   _LABEL_3976_64
 
-_LABEL_393B_56:
+_LABEL_3945_56:
 	ld   hl, $FF00
-	jr   _LABEL_3955_71
+	jr   _LABEL_395F_71
 
-_LABEL_3940_58:
+_LABEL_394A_58:
 	ld   hl, $FFFF
-	jr   _LABEL_3955_71
+	jr   _LABEL_395F_71
 
-_LABEL_3945_59:
+_LABEL_394F_59:
 	ld   h, (ix+0)
 	ld   l, $00
 	inc  ix
-	jr   _LABEL_3955_71
+	jr   _LABEL_395F_71
 
-_LABEL_394E_60:
+_LABEL_3958_60:
 	ld   h, (ix+0)
 	ld   l, $FF
 	inc  ix
-_LABEL_3955_71:
+_LABEL_395F_71:
 	push bc
 	ld   b, $08
-_LABEL_3958_70:
+_LABEL_3962_70:
 	ld   a, (iy+0)
 	inc  iy
 	xor  l
 	rlc  h
-	jr   c, _LABEL_3967_69
+	jr   c, _LABEL_3971_69
 	ld   a, (ix+0)
 	inc  ix
-_LABEL_3967_69:
+_LABEL_3971_69:
 	ld   (de), a
 	inc  de
-	djnz _LABEL_3958_70
+	djnz _LABEL_3962_70
 	pop  bc
-_LABEL_396C_64:
+_LABEL_3976_64:
 	dec  b
-	jp   nz, _LABEL_38DA_65
+	jp   nz, _LABEL_38E4_65
 	ld   de, $0008
 	ld   c, e
 	ld   hl, $C2DF
-_LABEL_3977_67:
+_LABEL_3981_67:
 	ld   b, $04
 	push hl
-_LABEL_397A_66:
+_LABEL_3984_66:
 	ld   a, (hl)
 	out  ($BE), a
 	add  hl, de
-	djnz _LABEL_397A_66
+	djnz _LABEL_3984_66
 	pop  hl
 	inc  hl
 	dec  c
-	jr   nz, _LABEL_3977_67
+	jr   nz, _LABEL_3981_67
 	pop  bc
 	dec  bc
 	ld   a, b
 	or   c
-	jp   nz, _LABEL_38CF_68
+	jp   nz, _LABEL_38D9_68
 	ret
 
 
-; Data from 398D to 39B1 (37 bytes)
-.db $21, $03, $00, $39, $5E, $2B, $6E, $CD, $CD, $39, $C3, $FB, $39, $F1, $E1, $D1
-.db $D5, $E5, $F5, $CD, $D5, $39, $C3, $FB, $39, $21, $03, $00, $39, $5E, $2B, $6E
-.db $CD, $51, $33, $EB, $C9
-
-_LABEL_39B2_139:
-	pop  af
-	pop  hl
-	pop  de
-	push de
-	push hl
-	push af
-	call _LABEL_3354_133
-	ex   de, hl
-	ret
-
-
-; Data from 39BD to 3BAC (496 bytes)
-.db $F1, $E1, $D1, $D5, $E5, $F5, $C3, $D5, $39, $21, $03, $00, $39, $5E, $2B, $6E
+; Data from 3997 to 3BB6 (544 bytes)
+.db $21, $03, $00, $39, $5E, $2B, $6E, $CD, $D7, $39, $C3, $05, $3A, $F1, $E1, $D1
+.db $D5, $E5, $F5, $CD, $DF, $39, $C3, $05, $3A, $21, $03, $00, $39, $5E, $2B, $6E
+.db $CD, $5B, $33, $EB, $C9, $F1, $E1, $D1, $D5, $E5, $F5, $CD, $5E, $33, $EB, $C9
+.db $F1, $E1, $D1, $D5, $E5, $F5, $C3, $DF, $39, $21, $03, $00, $39, $5E, $2B, $6E
 .db $7D, $07, $9F, $67, $7B, $07, $9F, $57, $7C, $AA, $17, $7C, $F5, $17, $30, $06
 .db $97, $95, $6F, $9F, $94, $67, $CB, $7A, $28, $06, $97, $93, $5F, $9F, $92, $57
-.db $CD, $54, $33, $F1, $D0, $47, $97, $95, $6F, $9F, $94, $67, $78, $C9, $17, $EB
+.db $CD, $5E, $33, $F1, $D0, $47, $97, $95, $6F, $9F, $94, $67, $78, $C9, $17, $EB
 .db $D0, $97, $95, $6F, $9F, $94, $67, $C9, $F1, $C1, $D1, $D5, $C5, $F5, $AF, $6F
 .db $B0, $06, $10, $20, $04, $06, $08, $79, $29, $CB, $11, $17, $30, $01, $19, $10
 .db $F7, $C9, $DD, $E5, $DD, $21, $00, $00, $DD, $39, $21, $FA, $FF, $39, $F9, $21
 .db $0A, $00, $39, $EB, $4B, $42, $03, $03, $DD, $71, $FE, $DD, $70, $FF, $6B, $62
 .db $23, $23, $4E, $23, $46, $21, $0E, $00, $39, $DD, $75, $FC, $DD, $74, $FD, $DD
-.db $6E, $FC, $DD, $66, $FD, $7E, $23, $66, $6F, $D5, $E5, $C5, $CD, $05, $3A, $F1
+.db $6E, $FC, $DD, $66, $FD, $7E, $23, $66, $6F, $D5, $E5, $C5, $CD, $0F, $3A, $F1
 .db $F1, $4D, $44, $D1, $DD, $6E, $FE, $DD, $66, $FF, $71, $23, $70, $4B, $42, $03
 .db $03, $DD, $71, $FE, $DD, $70, $FF, $6B, $62, $23, $23, $7E, $DD, $77, $FA, $23
 .db $7E, $DD, $77, $FB, $C1, $E1, $E5, $C5, $23, $23, $4E, $23, $46, $6B, $62, $7E
-.db $23, $66, $6F, $D5, $E5, $C5, $CD, $05, $3A, $F1, $F1, $D1, $DD, $7E, $FA, $85
+.db $23, $66, $6F, $D5, $E5, $C5, $CD, $0F, $3A, $F1, $F1, $D1, $DD, $7E, $FA, $85
 .db $4F, $DD, $7E, $FB, $8C, $47, $DD, $6E, $FE, $DD, $66, $FF, $71, $23, $70, $4B
 .db $42, $03, $03, $33, $33, $C5, $6B, $62, $23, $23, $4E, $23, $46, $6B, $62, $23
 .db $7E, $DD, $77, $FE, $DD, $6E, $FC, $DD, $66, $FD, $23, $66, $D5, $C5, $DD, $5E
@@ -3202,15 +3025,15 @@ _LABEL_39B2_139:
 .db $67, $DD, $7E, $06, $DD, $8E, $0A, $5F, $DD, $7E, $07, $DD, $8E, $0B, $57, $DD
 .db $F9, $DD, $E1, $C9, $00, $00, $00, $00, $04, $20, $08, $08, $01, $00, $00, $00
 
-_LABEL_3BAD_4:
+_LABEL_3BB7_4:
 	ld   bc, $000C
 	ld   a, b
 	or   c
-	jr   z, _LABEL_3BBC_5
+	jr   z, _LABEL_3BC6_5
 	ld   de, $C2FF
-	ld   hl, $3BA1
+	ld   hl, $3BAB
 	ldir
-_LABEL_3BBC_5:
+_LABEL_3BC6_5:
 	ld   hl, $0000
 	ld   ($C1EF), hl
 	ld   l, $00

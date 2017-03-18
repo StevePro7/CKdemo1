@@ -170,14 +170,7 @@ void custom_screen_manager_update(unsigned char *screen_type, const unsigned int
 		screen_play_screen_update(screen_type, curr_joypad1, prev_joypad1);
 		break;
 	}
-
-	// TODO remove!!
-	if (hacker_debug)
-	{
-		engine_font_manager_draw_data(curr_joypad1, 31, 12);
-		engine_font_manager_draw_data(prev_joypad1, 31, 13);
-	}
 }
 
 SMS_EMBED_SEGA_ROM_HEADER(9999, 0);
-SMS_EMBED_SDSC_HEADER(0, 2, 2017, 3, 7, "stevepro", "CK demo1", "stevepro CK demo1");
+SMS_EMBED_SDSC_HEADER(1, 0, 2017, 3, 17, "StevePro Studios", "Candy Kid Demo", "Simple Sega Master System demo to run on real hardware!");
