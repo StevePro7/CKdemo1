@@ -31,4 +31,20 @@ void engine_text_manager_draw()
 	engine_font_manager_draw_text(LOCALE_STEVEPRO2, 24, 23);
 }
 
+void engine_text_manager_names()
+{
+	engine_font_manager_draw_text(LOCALE_NAME1, 3, 7);
+	engine_font_manager_draw_text(LOCALE_NAME2, 3, 21);
+	engine_font_manager_draw_text(LOCALE_NAME3, 17, 7);
+	engine_font_manager_draw_text(LOCALE_NAME4, 17, 21);
+}
+
+void engine_text_manager_space()
+{
+	engine_font_manager_draw_text(LOCALE_SPACE, 3, 7);
+	engine_font_manager_draw_text(LOCALE_SPACE, 3, 21);
+	engine_font_manager_draw_text(LOCALE_SPACE, 17, 7);
+	engine_font_manager_draw_text(LOCALE_SPACE, 17, 21);
+}
+
 #endif//_TEXT_MANAGER_H_

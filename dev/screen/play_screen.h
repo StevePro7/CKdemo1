@@ -8,6 +8,7 @@ void screen_play_screen_load()
 		engine_font_manager_draw_data(SCREEN_TYPE_PLAY, 31, 2);
 	}
 
+	engine_text_manager_space();
 	engine_gamer_manager_load();
 	engine_enemy_manager_load();
 
