@@ -20,3 +20,7 @@ Sound
 
 "Borrowed" sound effect from Baluba Balok
 http://www.smspower.org/Homebrew/BalubaBalok-SMS
+
+SOUND1_PSG			sfx_die_psg
+SOUND2_PSG			sfx_get_psg
+SOUND3_PSG			sfx_life_psg

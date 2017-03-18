@@ -3,7 +3,9 @@
 
 // Content.
 #define MUSIC_PSG			music_psg
-#define SOUND_PSG			sound_psg
+#define SOUND1_PSG			sound1_psg
+#define SOUND2_PSG			sound2_psg
+#define SOUND3_PSG			sound3_psg
 
 // Sprites.
 #define SPRITE_TILES		80
@@ -20,7 +22,10 @@
 
 // Paths.
 #define GAMER_MAX_FRAME		56
-//#define GAMER_MAX_PATHS		1		// TODO remove after testing!
-#define GAMER_MAX_PATHS		8
+#define GAMER_MAX_PATHS		1		// TODO remove after testing!
+//#define GAMER_MAX_PATHS		8
+
+// Sounds
+#define SOUNDS_MAX			3
 
 #endif//_GLOBAL_MANAGER_H_

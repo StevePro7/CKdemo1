@@ -11,10 +11,7 @@ void screen_title_screen_update(unsigned char *screen_type, unsigned int curr_jo
 {
 	if (curr_joypad1 & PORT_A_KEY_2 && !(prev_joypad1 & PORT_A_KEY_2))
 	{
-		if (hacker_sound)
-		{
-			PSGSFXPlay(SOUND_PSG, SFX_CHANNELS2AND3);
-		}
+		engine_sound_manager_play();
 	}
 
 	*screen_type = SCREEN_TYPE_READY;
