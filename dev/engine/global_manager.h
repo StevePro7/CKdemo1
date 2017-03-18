@@ -15,15 +15,15 @@
 #define GAMER_STD_STEPS		4
 
 // Delay.
-#define SPLASH_DELAY		0		// TODO remove after testing!
-//#define SPLASH_DELAY		150
+//#define SPLASH_DELAY		0		// TODO remove after testing!
+#define SPLASH_DELAY		150
 #define ENEMY_STD_DELAY		75
 #define ENEMY_MIN_DELAY		25
 
 // Paths.
 #define GAMER_MAX_FRAME		56
-#define GAMER_MAX_PATHS		1		// TODO remove after testing!
-//#define GAMER_MAX_PATHS		8
+//#define GAMER_MAX_PATHS		1		// TODO remove after testing!
+#define GAMER_MAX_PATHS		8
 
 // Sounds
 #define SOUNDS_MAX			3
