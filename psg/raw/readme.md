@@ -18,7 +18,7 @@ music.psg				devkitSMS
 Sound
 13-Mar-2017
 
-"Borrowed" sound effect from Baluba Balok
+"Borrowed" sound effects from Baluba Balok
 http://www.smspower.org/Homebrew/BalubaBalok-SMS
 
 SOUND1_PSG			sfx_die_psg
